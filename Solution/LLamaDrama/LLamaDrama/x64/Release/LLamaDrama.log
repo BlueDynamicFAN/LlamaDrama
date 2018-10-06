@@ -1,15 +1,8 @@
 ﻿  cEnemy.cpp
-  cMeshObject.cpp
-  cShader.cpp
-  cShaderManager.cpp
-  cVAOMeshManager.cpp
-  DrawObject_call.cpp
-  Main.cpp
-  PlyFileLoader.cpp
-  sModelDrawInfo.cpp
-  UserIO.cpp
   glad.c
   Generating code
-  All 915 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  928 of 934 functions (99.4%) were compiled, the rest were copied from previous compilation.
+    27 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  LLamaDrama.vcxproj -> C:\Users\Veronika\Desktop\LlamaDrama\LlamaDrama\Solution\LLamaDrama\x64\Release\LlamaDrama.exe
+  LLamaDrama.vcxproj -> C:\Users\Veronika\Desktop\Llama\LlamaDrama\Solution\LLamaDrama\x64\Release\LlamaDrama.exe
