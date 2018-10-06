@@ -13,11 +13,11 @@ public:
 	int getScoreValue();
 	void die(void);
 
-	cMeshObject model;
+	cMeshObject* model;
 
-private:
-	int m_healthLevel;
-	int m_scoreValue;
+protected:
+	unsigned int m_healthLevel;
+	unsigned int m_scoreValue;
 };
 
 #endif // !_cEnemy_HG_

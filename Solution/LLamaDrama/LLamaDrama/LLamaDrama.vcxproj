@@ -150,6 +150,9 @@
   <ItemGroup>
     <ClCompile Include="cBoss.cpp" />
     <ClCompile Include="cEnemy.cpp" />
+    <ClCompile Include="cFinalBoss.cpp" />
+    <ClCompile Include="cLevelBoss1.cpp" />
+    <ClCompile Include="cLevelBoss2.cpp" />
     <ClCompile Include="cLevelEnemyType1.cpp" />
     <ClCompile Include="cLevelEnemyType2.cpp" />
     <ClCompile Include="cMeshObject.cpp" />
@@ -166,6 +169,9 @@
   <ItemGroup>
     <ClInclude Include="cBoss.h" />
     <ClInclude Include="cEnemy.h" />
+    <ClInclude Include="cFinalBoss.h" />
+    <ClInclude Include="cLevelBoss1.h" />
+    <ClInclude Include="cLevelBoss2.h" />
     <ClInclude Include="cLevelEnemyType1.h" />
     <ClInclude Include="cLevelEnemyType2.h" />
     <ClInclude Include="cMeshObject.h" />

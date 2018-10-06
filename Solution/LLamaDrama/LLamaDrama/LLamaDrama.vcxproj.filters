@@ -28,6 +28,9 @@
     <Filter Include="Enemies">
       <UniqueIdentifier>{72a28aef-b8be-4635-8866-15b675f76638}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Enemies\Header Files">
+      <UniqueIdentifier>{ed9d0011-c554-481e-99b0-deaab1c6dbd8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -72,6 +75,15 @@
     <ClCompile Include="cLevelEnemyType2.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="cLevelBoss1.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="cLevelBoss2.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="cFinalBoss.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="global.h">
@@ -95,17 +107,26 @@
     <ClInclude Include="sModelDrawInfo.h">
       <Filter>Mesh Manager</Filter>
     </ClInclude>
-    <ClInclude Include="cEnemy.h">
-      <Filter>Enemies</Filter>
-    </ClInclude>
     <ClInclude Include="cBoss.h">
-      <Filter>Enemies</Filter>
+      <Filter>Enemies\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cEnemy.h">
+      <Filter>Enemies\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cLevelEnemyType1.h">
-      <Filter>Enemies</Filter>
+      <Filter>Enemies\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cLevelEnemyType2.h">
-      <Filter>Enemies</Filter>
+      <Filter>Enemies\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cLevelBoss1.h">
+      <Filter>Enemies\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cLevelBoss2.h">
+      <Filter>Enemies\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cFinalBoss.h">
+      <Filter>Enemies\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,11 +6,14 @@ class cBoss : public cEnemy
 {
 public:
 	cBoss();
-	cBoss(glm::vec3 position, glm::vec3 color, std::string name);
-	cBoss(glm::vec3 position, glm::vec3 color, std::string name, std::string meshName);
+	~cBoss();
 
-private:
-	std::string meshName = "Dodecahedron.ply";
+	void bossAttack();
+	void bossMove();
+
+	virtual void bossSpecialAttack();
+	virtual void bossSpecialMove();
+
 };
 
 #endif // !_cBoss_HG_

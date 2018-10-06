@@ -2,19 +2,49 @@
 
 cBoss::cBoss() 
 {
-	this->setHealthLevel(100);
-	this->model.meshName = this->meshName;
-	this->model.bIsWireFrame = true;
+	this->m_healthLevel = 0;
+	this->m_scoreValue = 0;
+	this->model=nullptr;
+
+	return;
 }
 
-cBoss::cBoss(glm::vec3 position, glm::vec3 color, std::string name) : cBoss() 
+cBoss::~cBoss()
 {
-	this->model.position = position;
-	this->model.objColour = color;
-	this->model.friendlyName = name;
+
 }
 
-cBoss::cBoss(glm::vec3 position, glm::vec3 color, std::string name, std::string meshName) : cBoss(position, color, name) 
+cBoss::cBoss(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName)
 {
-	this->model.meshName = meshName;
+	this->m_healthLevel = health;
+	this->m_scoreValue = score;
+	this->model->position = position;
+	this->model->meshName = meshName;
+
+	return;
+}
+
+cBoss::cBoss(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name) : cBoss(health, score, position, meshName)
+{
+	this->model->friendlyName = name;
+
+	return;
+}
+
+void cBoss::bossAttack()
+{
+	return;
+}
+void cBoss::bossMove()
+{
+	return;
+}
+
+void cBoss::bossSpecialAttack()
+{
+	return;
+}
+void cBoss::bossSpecialMove()
+{
+	return;
 }
