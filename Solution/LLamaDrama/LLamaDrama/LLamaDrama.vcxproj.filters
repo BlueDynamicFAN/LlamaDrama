@@ -63,6 +63,15 @@
     <ClCompile Include="cEnemy.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="cBoss.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="cLevelEnemyType1.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="cLevelEnemyType2.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="global.h">
@@ -87,6 +96,15 @@
       <Filter>Mesh Manager</Filter>
     </ClInclude>
     <ClInclude Include="cEnemy.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="cBoss.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="cLevelEnemyType1.h">
+      <Filter>Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="cLevelEnemyType2.h">
       <Filter>Enemies</Filter>
     </ClInclude>
   </ItemGroup>

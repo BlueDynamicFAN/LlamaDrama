@@ -148,7 +148,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cBoss.cpp" />
     <ClCompile Include="cEnemy.cpp" />
+    <ClCompile Include="cLevelEnemyType1.cpp" />
+    <ClCompile Include="cLevelEnemyType2.cpp" />
     <ClCompile Include="cMeshObject.cpp" />
     <ClCompile Include="cShader.cpp" />
     <ClCompile Include="cShaderManager.cpp" />
@@ -161,7 +164,10 @@
     <ClCompile Include="UserIO.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cBoss.h" />
     <ClInclude Include="cEnemy.h" />
+    <ClInclude Include="cLevelEnemyType1.h" />
+    <ClInclude Include="cLevelEnemyType2.h" />
     <ClInclude Include="cMeshObject.h" />
     <ClInclude Include="cShaderManager.h" />
     <ClInclude Include="cVAOMeshManager.h" />

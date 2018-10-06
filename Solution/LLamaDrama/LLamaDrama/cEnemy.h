@@ -20,5 +20,5 @@ private:
 	int m_scoreValue;
 };
 
-#endif // !_Enemy_HG_
+#endif // !_cEnemy_HG_
 
