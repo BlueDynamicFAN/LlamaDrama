@@ -63,25 +63,25 @@
     <ClCompile Include="DrawObject_call.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cEnemy.cpp">
+    <ClCompile Include="Enemies\cBoss.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="cBoss.cpp">
+    <ClCompile Include="Enemies\cEnemy.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="cLevelEnemyType1.cpp">
+    <ClCompile Include="Enemies\cFinalBoss.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="cLevelEnemyType2.cpp">
+    <ClCompile Include="Enemies\cLevelBoss1.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="cLevelBoss1.cpp">
+    <ClCompile Include="Enemies\cLevelBoss2.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="cLevelBoss2.cpp">
+    <ClCompile Include="Enemies\cLevelEnemyType1.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="cFinalBoss.cpp">
+    <ClCompile Include="Enemies\cLevelEnemyType2.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,25 +107,25 @@
     <ClInclude Include="sModelDrawInfo.h">
       <Filter>Mesh Manager</Filter>
     </ClInclude>
-    <ClInclude Include="cBoss.h">
+    <ClInclude Include="Enemies\cBoss.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cEnemy.h">
+    <ClInclude Include="Enemies\cEnemy.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cLevelEnemyType1.h">
+    <ClInclude Include="Enemies\cFinalBoss.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cLevelEnemyType2.h">
+    <ClInclude Include="Enemies\cLevelBoss1.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cLevelBoss1.h">
+    <ClInclude Include="Enemies\cLevelBoss2.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cLevelBoss2.h">
+    <ClInclude Include="Enemies\cLevelEnemyType1.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cFinalBoss.h">
+    <ClInclude Include="Enemies\cLevelEnemyType2.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
