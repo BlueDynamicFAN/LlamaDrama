@@ -1,0 +1,15 @@
+﻿  cEnemy.cpp
+  cMeshObject.cpp
+  cShader.cpp
+  cShaderManager.cpp
+  cVAOMeshManager.cpp
+  DrawObject_call.cpp
+  Main.cpp
+  PlyFileLoader.cpp
+  sModelDrawInfo.cpp
+  UserIO.cpp
+  glad.c
+  Generating code
+  All 915 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  LLamaDrama.vcxproj -> C:\Users\Veronika\Desktop\LlamaDrama\LlamaDrama\Solution\LLamaDrama\x64\Release\LlamaDrama.exe

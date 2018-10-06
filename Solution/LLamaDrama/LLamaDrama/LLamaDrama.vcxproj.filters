@@ -25,6 +25,9 @@
     <Filter Include="Shader Manager\Shaders">
       <UniqueIdentifier>{bab387cf-fd28-4915-b15c-fd26970f84b3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Enemies">
+      <UniqueIdentifier>{72a28aef-b8be-4635-8866-15b675f76638}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -57,6 +60,9 @@
     <ClCompile Include="DrawObject_call.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cEnemy.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="global.h">
@@ -79,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="sModelDrawInfo.h">
       <Filter>Mesh Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="cEnemy.h">
+      <Filter>Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
