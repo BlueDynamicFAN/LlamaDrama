@@ -114,20 +114,7 @@ int main(void)
 	vec_ModelFileNames.push_back(bunnyInfo.meshFileName);
 
 	//loadEnemiesfromJson();
-	//sModelDrawInfo airplaneInfo;
-	//airplaneInfo.meshFileName = "ssj100_xyz.ply";
-	//::g_pTheVAOMeshManager->LoadModelIntoVAO(airplaneInfo, program);
-	//vec_ModelFileNames.push_back(airplaneInfo.meshFileName);
 
-	//sModelDrawInfo backToTheFuture;
-	//backToTheFuture.meshFileName = "de--lorean.ply";
-	//::g_pTheVAOMeshManager->LoadModelIntoVAO(backToTheFuture, program);
-	//vec_ModelFileNames.push_back(backToTheFuture.meshFileName);
-
-	//sModelDrawInfo migInfo;
-	//migInfo.meshFileName = "mig29_xyz.ply";
-	//::g_pTheVAOMeshManager->LoadModelIntoVAO(migInfo, program);
-	//vec_ModelFileNames.push_back(migInfo.meshFileName);
 
 	//sModelDrawInfo teapotInfo;
 	//teapotInfo.meshFileName = "Utah_Teapot_xyz.ply";
