@@ -1,21 +1,20 @@
 #ifndef _cBoss_HG_
 #define _cBoss_HG_
 #include "cEnemy.h"
-#include "iEnemy.h"
 
 
-class cBoss : public cEnemy, public iEnemy
+class cBoss : public cEnemy
 {
 public:
 	cBoss();
-	~cBoss();
+	virtual ~cBoss();
 
-	void bossAttack();
-	void bossMove();
-	void die();
+	void bossAttack(void);
+	void bossMove(void);
+	void die(void);
 
-	void bossSpecialAttack(void) { ; }
-	void bossSpecialMove(void) { ; }
+	virtual void bossSpecialAttack(void) { ; }
+	virtual void bossSpecialMove(void) { ; }
 };
 
 #endif // !_cBoss_HG_

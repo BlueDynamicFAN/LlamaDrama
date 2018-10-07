@@ -2,17 +2,17 @@
 #define _cEnemy_HG_
 #include <string>
 #include "../cMeshObject.h"
-#include "iEnemy.h"
 
-class cEnemy// : public iEnemy 
+class cEnemy
 {
 public:
 	cEnemy();
-	~cEnemy();
+	virtual ~cEnemy();
+	virtual void die(void);
+
 	int getHealthLevel(void);
 	void setHealthLevel(int levelChange);
 	int getScoreValue(void);
-	//void die(void);
 
 	cMeshObject* model;
 

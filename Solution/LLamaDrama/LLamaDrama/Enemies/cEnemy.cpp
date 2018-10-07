@@ -30,8 +30,7 @@ int cEnemy::getScoreValue(void)
 	return this->m_scoreValue;
 }
 
-
-//void cEnemy::die(void) 
-//{
-//	return;
-//}
+void cEnemy::die(void) 
+{
+	return;
+}

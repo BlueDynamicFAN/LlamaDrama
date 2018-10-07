@@ -128,9 +128,6 @@
     <ClInclude Include="Enemies\cLevelEnemyType2.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Enemies\iEnemy.h">
-      <Filter>Enemies\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Enemies\cEnemy.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>

@@ -17,6 +17,7 @@
 #include "cMeshObject.h"
 #include "cVAOMeshManager.h"
 #include "./Enemies/cEnemyFactory.h"
+#include "./Enemies/cFinalBoss.h"
 
 unsigned int SelectedModel = 0;
 std::vector< cMeshObject* > vec_pObjectsToDraw;
@@ -53,12 +54,12 @@ int main(void)
 {
 	cEnemyFactory* factory = new cEnemyFactory();
 
-	iEnemy* finalB = factory->createEnemy("finalboss");
-	//cEnemy* bossLevel1 = factory->createEnemy("levelboss1");
-	//cEnemy* levelEnemy = factory->createEnemy("levelenemytype1");
+	cEnemy* finalB = factory->createEnemy("finalboss");
+	cEnemy* bossLevel1 = factory->createEnemy("levelboss1");
+	cEnemy* levelEnemy = factory->createEnemy("levelenemytype1");
 
-	//std::cout << finalB->model->friendlyName << std::endl;
-	
+	std::cout << finalB->model->friendlyName << std::endl;
+	((cBoss*)finalB)->bossSpecialAttack();
 
 	GLFWwindow* window;
 

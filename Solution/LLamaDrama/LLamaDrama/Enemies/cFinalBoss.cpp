@@ -30,14 +30,10 @@ cFinalBoss::cFinalBoss(unsigned int health, unsigned int score, glm::vec3 positi
 
 void cFinalBoss::bossSpecialAttack(void)
 {
+	std::cout << "Final Boss special attack" << std::endl;
 	return;
 }
 void cFinalBoss::bossSpecialMove(void)
-{
-	return;
-}
-
-void cFinalBoss::die(void)
 {
 	return;
 }

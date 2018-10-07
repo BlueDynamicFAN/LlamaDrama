@@ -10,10 +10,8 @@ public:
 	cFinalBoss(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName);
 	cFinalBoss(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name);
 
-	void die(void);
 	void bossSpecialAttack(void);
 	void bossSpecialMove(void);
-
 
 };
 

@@ -5,7 +5,6 @@
 #include "clevelBoss2.h"
 #include "cFinalBoss.h"
 #include "cEnemy.h"
-#include "iEnemy.h"
 
 #include <vector>
 #include <iostream>
@@ -37,9 +36,9 @@ bool cEnemyFactory::isEnemyTypeValid(std::string enemyType)
 	std::cerr << "Error:: invalid enemy type" << std::endl;
 	return false;
 }
-iEnemy* cEnemyFactory::createEnemy(std::string enemyType)
+cEnemy* cEnemyFactory::createEnemy(std::string enemyType)
 {
-	iEnemy* newEnemy = nullptr;
+	cEnemy* newEnemy = nullptr;
 
 	std::cout << "I am in createEnemy" << std::endl;
 	if(true)
