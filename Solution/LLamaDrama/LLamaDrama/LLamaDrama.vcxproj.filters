@@ -84,6 +84,9 @@
     <ClCompile Include="Enemies\cLevelEnemyType2.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="Enemies\cEnemyFactory.cpp">
+      <Filter>Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="global.h">
@@ -110,9 +113,6 @@
     <ClInclude Include="Enemies\cBoss.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Enemies\cEnemy.h">
-      <Filter>Enemies\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Enemies\cFinalBoss.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
@@ -126,6 +126,15 @@
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Enemies\cLevelEnemyType2.h">
+      <Filter>Enemies\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemies\iEnemy.h">
+      <Filter>Enemies\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemies\cEnemy.h">
+      <Filter>Enemies\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemies\cEnemyFactory.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

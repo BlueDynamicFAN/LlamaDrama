@@ -1,8 +1,22 @@
-﻿  cEnemy.cpp
-  glad.c
-  Generating code
-  928 of 934 functions (99.4%) were compiled, the rest were copied from previous compilation.
-    27 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  LLamaDrama.vcxproj -> C:\Users\Veronika\Desktop\Llama\LlamaDrama\Solution\LLamaDrama\x64\Release\LlamaDrama.exe
+﻿  cMeshObject.cpp
+  cShader.cpp
+  cShaderManager.cpp
+  cVAOMeshManager.cpp
+  DrawObject_call.cpp
+  cBoss.cpp
+  cEnemy.cpp
+  cEnemyFactory.cpp
+  cFinalBoss.cpp
+c:\users\veronika\desktop\llama\llamadrama\solution\llamadrama\llamadrama\enemies\cfinalboss.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  cLevelBoss1.cpp
+c:\users\veronika\desktop\llama\llamadrama\solution\llamadrama\llamadrama\enemies\clevelboss1.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  cLevelBoss2.cpp
+c:\users\veronika\desktop\llama\llamadrama\solution\llamadrama\llamadrama\enemies\clevelboss2.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  cLevelEnemyType1.cpp
+  cLevelEnemyType2.cpp
+  Main.cpp
+c:\users\veronika\desktop\llama\llamadrama\solution\llamadrama\llamadrama\main.cpp(60): error C2039: 'model': is not a member of 'iEnemy'
+  c:\users\veronika\desktop\llama\llamadrama\solution\llamadrama\llamadrama\enemies\ienemy.h(7): note: see declaration of 'iEnemy'
+  PlyFileLoader.cpp
+  sModelDrawInfo.cpp
+  UserIO.cpp

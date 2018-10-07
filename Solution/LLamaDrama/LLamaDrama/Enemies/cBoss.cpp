@@ -2,32 +2,24 @@
 
 cBoss::cBoss() 
 {
-	this->m_healthLevel = 0;
-	this->m_scoreValue = 0;
-	this->model=nullptr;
-
 	return;
 }
 
 cBoss::~cBoss()
 {
-
-}
-
-void cBoss::bossAttack()
-{
-	return;
-}
-void cBoss::bossMove()
-{
 	return;
 }
 
-void cBoss::bossSpecialAttack()
+void cBoss::bossAttack(void)
 {
 	return;
 }
-void cBoss::bossSpecialMove()
+void cBoss::bossMove(void)
+{
+	return;
+}
+
+void cBoss::die(void)
 {
 	return;
 }

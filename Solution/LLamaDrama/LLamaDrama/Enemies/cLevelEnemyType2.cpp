@@ -24,12 +24,17 @@ cLevelEnemyType2::cLevelEnemyType2(unsigned int health, unsigned int score, glm:
 	return;
 }
 
-cLevelEnemyType2::~cLevelEnemyType2()
+cLevelEnemyType2::~cLevelEnemyType2(void)
 {
 	return;
 }
 
-void cLevelEnemyType2::move()
+void cLevelEnemyType2::move(void)
+{
+	return;
+}
+
+void cLevelEnemyType2::die(void)
 {
 	return;
 }

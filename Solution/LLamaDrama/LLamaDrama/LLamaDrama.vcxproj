@@ -155,6 +155,7 @@
     <ClCompile Include="DrawObject_call.cpp" />
     <ClCompile Include="Enemies\cBoss.cpp" />
     <ClCompile Include="Enemies\cEnemy.cpp" />
+    <ClCompile Include="Enemies\cEnemyFactory.cpp" />
     <ClCompile Include="Enemies\cFinalBoss.cpp" />
     <ClCompile Include="Enemies\cLevelBoss1.cpp" />
     <ClCompile Include="Enemies\cLevelBoss2.cpp" />
@@ -172,11 +173,13 @@
     <ClInclude Include="cVAOMeshManager.h" />
     <ClInclude Include="Enemies\cBoss.h" />
     <ClInclude Include="Enemies\cEnemy.h" />
+    <ClInclude Include="Enemies\cEnemyFactory.h" />
     <ClInclude Include="Enemies\cFinalBoss.h" />
     <ClInclude Include="Enemies\cLevelBoss1.h" />
     <ClInclude Include="Enemies\cLevelBoss2.h" />
     <ClInclude Include="Enemies\cLevelEnemyType1.h" />
     <ClInclude Include="Enemies\cLevelEnemyType2.h" />
+    <ClInclude Include="Enemies\iEnemy.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="sModelDrawInfo.h" />
     <ClInclude Include="sPlyTriangle.h" />

@@ -1,8 +1,9 @@
 #include "cLevelBoss1.h";
+#include <iostream>
 
 cLevelBoss1::cLevelBoss1()
 {
-
+	std::cout << "I am in cLevelBoss1" << std::endl;
 }
 
 cLevelBoss1::~cLevelBoss1()
@@ -27,11 +28,11 @@ cLevelBoss1::cLevelBoss1(unsigned int health, unsigned int score, glm::vec3 posi
 	return;
 }
 
-void cLevelBoss1::bossSpecialAttack()
+void cLevelBoss1::bossSpecialAttack(void)
 {
 	return;
 }
-void cLevelBoss1::bossSpecialMove()
+void cLevelBoss1::bossSpecialMove(void)
 {
 	return;
 }

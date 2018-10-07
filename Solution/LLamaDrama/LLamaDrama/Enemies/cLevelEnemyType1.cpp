@@ -1,8 +1,10 @@
 #include "cLevelEnemyType1.h"
+#include <iostream>
 
 
 cLevelEnemyType1::cLevelEnemyType1()
 {
+	std::cout << "I am in cLevelEnemyType1" << std::endl;
 	return;
 }
 
@@ -23,12 +25,17 @@ cLevelEnemyType1::cLevelEnemyType1(unsigned int health, unsigned int score, glm:
 	return;
 }
 
-cLevelEnemyType1::~cLevelEnemyType1()
+cLevelEnemyType1::~cLevelEnemyType1(void)
 {
 	return;
 }
 
-void cLevelEnemyType1::attack()
+void cLevelEnemyType1::attack(void)
+{
+	return;
+}
+
+void cLevelEnemyType1::die(void)
 {
 	return;
 }

@@ -1,8 +1,9 @@
 #include "cFinalBoss.h";
+#include <iostream>
 
 cFinalBoss::cFinalBoss()
 {
-
+	std::cout << "I am in finalBoss" << std::endl;
 }
 
 cFinalBoss::~cFinalBoss()
@@ -27,11 +28,16 @@ cFinalBoss::cFinalBoss(unsigned int health, unsigned int score, glm::vec3 positi
 	return;
 }
 
-void cFinalBoss::bossSpecialAttack()
+void cFinalBoss::bossSpecialAttack(void)
 {
 	return;
 }
-void cFinalBoss::bossSpecialMove()
+void cFinalBoss::bossSpecialMove(void)
+{
+	return;
+}
+
+void cFinalBoss::die(void)
 {
 	return;
 }

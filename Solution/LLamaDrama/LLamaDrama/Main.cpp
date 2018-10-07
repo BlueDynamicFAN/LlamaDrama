@@ -16,6 +16,7 @@
 #include "cShaderManager.h"
 #include "cMeshObject.h"
 #include "cVAOMeshManager.h"
+#include "./Enemies/cEnemyFactory.h"
 
 unsigned int SelectedModel = 0;
 std::vector< cMeshObject* > vec_pObjectsToDraw;
@@ -50,6 +51,15 @@ static void error_callback(int error, const char* description)
 
 int main(void)
 {
+	cEnemyFactory* factory = new cEnemyFactory();
+
+	iEnemy* finalB = factory->createEnemy("finalboss");
+	//cEnemy* bossLevel1 = factory->createEnemy("levelboss1");
+	//cEnemy* levelEnemy = factory->createEnemy("levelenemytype1");
+
+	//std::cout << finalB->model->friendlyName << std::endl;
+	
+
 	GLFWwindow* window;
 
 	glfwSetErrorCallback(error_callback);

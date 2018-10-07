@@ -2,12 +2,12 @@
 
 cLevelBoss2::cLevelBoss2()
 {
-
+	return;
 }
 
 cLevelBoss2::~cLevelBoss2()
 {
-
+	return;
 }
 
 cLevelBoss2::cLevelBoss2(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName)
@@ -27,11 +27,11 @@ cLevelBoss2::cLevelBoss2(unsigned int health, unsigned int score, glm::vec3 posi
 	return;
 }
 
-void cLevelBoss2::bossSpecialAttack()
+void cLevelBoss2::bossSpecialAttack(void)
 {
 	return;
 }
-void cLevelBoss2::bossSpecialMove()
+void cLevelBoss2::bossSpecialMove(void)
 {
 	return;
 }
