@@ -9,7 +9,8 @@ public:
 	~cEnemyFactory();
 	
 	bool isEnemyTypeValid(std::string enemyType);
-	cEnemy* createEnemy(std::string enemyType);
+	cEnemy* createEnemy(std::string enemyType, unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name);
+
 };
 
 #endif // !_cEnemyFactory_HG_#pragma once

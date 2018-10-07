@@ -56,4 +56,23 @@ extern std::vector< std::string > vec_ModelFileNames;
 static const float PI = 3.14159f;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Keeping distance to not cause a git merge conflict
+void loadEnemiesfromJson();
+
+
 #endif	// _globalStuff_HG_

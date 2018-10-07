@@ -52,15 +52,6 @@ static void error_callback(int error, const char* description)
 
 int main(void)
 {
-	cEnemyFactory* factory = new cEnemyFactory();
-
-	cEnemy* finalB = factory->createEnemy("finalboss");
-	cEnemy* bossLevel1 = factory->createEnemy("levelboss1");
-	cEnemy* levelEnemy = factory->createEnemy("levelenemytype1");
-
-	std::cout << finalB->model->friendlyName << std::endl;
-	((cBoss*)finalB)->bossSpecialAttack();
-
 	GLFWwindow* window;
 
 	glfwSetErrorCallback(error_callback);
@@ -122,6 +113,7 @@ int main(void)
 	}
 	vec_ModelFileNames.push_back(bunnyInfo.meshFileName);
 
+	//loadEnemiesfromJson();
 	//sModelDrawInfo airplaneInfo;
 	//airplaneInfo.meshFileName = "ssj100_xyz.ply";
 	//::g_pTheVAOMeshManager->LoadModelIntoVAO(airplaneInfo, program);

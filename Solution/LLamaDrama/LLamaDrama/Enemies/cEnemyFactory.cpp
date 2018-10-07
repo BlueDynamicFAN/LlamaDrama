@@ -36,7 +36,7 @@ bool cEnemyFactory::isEnemyTypeValid(std::string enemyType)
 	std::cerr << "Error:: invalid enemy type" << std::endl;
 	return false;
 }
-cEnemy* cEnemyFactory::createEnemy(std::string enemyType)
+cEnemy* cEnemyFactory::createEnemy(std::string enemyType, unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name)
 {
 	cEnemy* newEnemy = nullptr;
 
@@ -47,24 +47,24 @@ cEnemy* cEnemyFactory::createEnemy(std::string enemyType)
 		if (enemyType == "levelboss1")
 		{
 			std::cout << "I am in create boss 1" << std::endl;
-			newEnemy = new cLevelBoss1();
+			newEnemy = new cLevelBoss1(health, score, position, meshName, name);
 		}
 		else if (enemyType == "levelboss2")
 		{
-			newEnemy = new cLevelBoss2();
+			newEnemy = new cLevelBoss2(health, score, position, meshName, name);
 		}
 		else if (enemyType == "finalboss")
 		{
 			std::cout << "I am in create bosfinals" << std::endl;
-			newEnemy = new cFinalBoss(100, 50, glm::vec3(1.0, 1.0, 1.0), "ha-ha");
+			newEnemy = new cFinalBoss(health, score, position, meshName, name);
 		}
 		else if (enemyType == "levelenemytype1")
 		{
-			//newEnemy = new cLevelEnemyType1();
+			newEnemy = new cLevelEnemyType1(health, score, position, meshName, name);
 		}
 		else if (enemyType == "levelenemytype2")
 		{
-			//newEnemy = new cLevelEnemyType2();
+			newEnemy = new cLevelEnemyType2(health, score, position, meshName, name);
 		}
 	}
 	

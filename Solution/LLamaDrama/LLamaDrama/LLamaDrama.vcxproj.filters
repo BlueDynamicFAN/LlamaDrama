@@ -45,9 +45,6 @@
     <ClCompile Include="glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cMeshObject.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="cVAOMeshManager.cpp">
       <Filter>Mesh Manager</Filter>
     </ClCompile>
@@ -86,6 +83,12 @@
     </ClCompile>
     <ClCompile Include="Enemies\cEnemyFactory.cpp">
       <Filter>Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="loadFromJSON.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cMeshObject.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
