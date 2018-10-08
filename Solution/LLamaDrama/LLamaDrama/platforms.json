@@ -1,0 +1,22 @@
+{
+  "ground": {
+    "meshFileName": "ground.ply",
+    "height": 2.7,
+    "positionX": 0.0,
+    "positionY": -3.0,
+    "positionZ": 0.0,
+    "r": 0.439,
+    "g": 0.294,
+    "b": 0.141
+  },
+  "grass": {
+    "meshFileName": "grass.ply",
+    "height": 0.675,
+    "positionX": 10.0,
+    "positionY": -1.25,
+    "positionZ": 0.0,
+    "r": 0.0,
+    "g": 1.0,
+    "b": 0.0
+  }
+}

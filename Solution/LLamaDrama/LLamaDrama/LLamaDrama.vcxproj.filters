@@ -137,6 +137,9 @@
     <ClInclude Include="Enemies\cEnemyFactory.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\fragment01.glsl">

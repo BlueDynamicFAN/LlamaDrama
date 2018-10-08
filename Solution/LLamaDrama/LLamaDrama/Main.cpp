@@ -113,18 +113,18 @@ int main(void)
 	}
 	vec_ModelFileNames.push_back(bunnyInfo.meshFileName);
 
-	//loadEnemiesfromJson();
+	loadEnemiesFromJson();
+	loadPlatformsFromJson();
 
+	sModelDrawInfo grassInfo;
+	grassInfo.meshFileName = "grass.ply";
+	::g_pTheVAOMeshManager->LoadModelIntoVAO(grassInfo, program);
+	vec_ModelFileNames.push_back(grassInfo.meshFileName);
 
-	//sModelDrawInfo teapotInfo;
-	//teapotInfo.meshFileName = "Utah_Teapot_xyz.ply";
-	//::g_pTheVAOMeshManager->LoadModelIntoVAO(teapotInfo, program);
-	//vec_ModelFileNames.push_back(teapotInfo.meshFileName);
-
-	//sModelDrawInfo fishInfo;
-	//fishInfo.meshFileName = "PacificCod0_rotated_xyz.ply";
-	//::g_pTheVAOMeshManager->LoadModelIntoVAO(fishInfo, program);
-	//vec_ModelFileNames.push_back(fishInfo.meshFileName);
+	sModelDrawInfo groundInfo;
+	groundInfo.meshFileName = "ground.ply";
+	::g_pTheVAOMeshManager->LoadModelIntoVAO(groundInfo, program);
+	vec_ModelFileNames.push_back(groundInfo.meshFileName);
 
 	//sModelDrawInfo terrainInfo;
 	//terrainInfo.meshFileName = "MeshLab_Fractal_Terrain_xyz.ply";
