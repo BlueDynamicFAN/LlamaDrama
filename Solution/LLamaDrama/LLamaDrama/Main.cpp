@@ -182,7 +182,7 @@ int main(void)
 		//Update physics 
 
 
-		DoPhysicsUpdate(deltaTime);
+		gravityUpdate(deltaTime);
 
 		ProcessAsynKeys(window, deltaTime);
 

@@ -8,8 +8,26 @@
 
 const float GROUND_PLANE_Y = -3.0f;
 
+bool isPlayerOnTopOfPlatfrom()
+{
+	for (std::vector <Platform*>::iterator itPlatform = pPlatforms.begin();
+		itPlatform != pPlatforms.end(); itPlatform++)
+	{
+		Platform* thePlatform = *itPlatform;
+		float yLimit = thePlatform->model->position.y + (thePlatform->height) / 2;
+		bool inXLimitsNeg = (thePlayer->m_model->position.x >= thePlatform->model->position.x - thePlatform->width / 2);
+		bool inXLimitsPos = (thePlayer->m_model->position.x <= thePlatform->model->position.x + thePlatform->width / 2);
+		if ((thePlayer->m_model->position.y <= yLimit) && inXLimitsNeg && inXLimitsPos)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+
 //Called every frame
-void DoPhysicsUpdate(double deltaTime)
+void gravityUpdate(double deltaTime)
 {
 	const double LARGEST_DELTATIME = 0.10; //10 ms = 10Hz
 	if (deltaTime > LARGEST_DELTATIME) {
@@ -21,41 +39,25 @@ void DoPhysicsUpdate(double deltaTime)
 
 		//thePlayer->velocity.x += thePlayer->accel.x * deltaTime;
 		thePlayer->velocity.y += thePlayer->accel.y * deltaTime;
-		//thePlayer->velocity.z += thePlayer->accel.z * deltaTime;
 
 		//thePlayer->m_model->position.x += thePlayer->velocity.x * deltaTime;
 		thePlayer->m_model->position.y += thePlayer->velocity.y * deltaTime;
-		//thePlayer->m_model->position.z += thePlayer->velocity.z * deltaTime;
 
 		//The object can't go any lower than "the ground"
-
-		
-		for (std::vector <Platform*>::iterator itPlatform = pPlatforms.begin();
-			itPlatform != pPlatforms.end(); itPlatform++)
+		if(isPlayerOnTopOfPlatfrom())
 		{
-			Platform* tempPlatform = *itPlatform;
-			float yLimit = tempPlatform->model->position.y + (tempPlatform->height) / 2;
-			bool inXLimitsNeg = (thePlayer->m_model->position.x >= tempPlatform->model->position.x - tempPlatform->width / 2);
-			bool inXLimitsPos = (thePlayer->m_model->position.x <= tempPlatform->model->position.x + tempPlatform->width / 2);
-
-			if ((thePlayer->m_model->position.y <= yLimit) && inXLimitsNeg && inXLimitsPos)
-			{
-				//normal to the ground level is 0, 1, 0 (1 in the y)
-				//glm::vec3 normalToGraound = glm::vec3(0.0f, 1.0f, 0.0f);
-
-				thePlayer->velocity.y = 0.0;
-				thePlayer->accel.y = 0.0;
-				break;
-			}
-			else {
-				thePlayer->accel.y = -9.8;
-			}
+			thePlayer->velocity.y = 0.0;
+			thePlayer->accel.y = 0.0;
 		}
+		else {
+			thePlayer->accel.y = -9.8;
+		}
+		
 
 	return;
 }
 
-void DoMovingsUpdate(double deltaTime)
+void movingsUpdate(double deltaTime)
 {
 	const double LARGEST_DELTATIME = 0.10; //10 ms = 10Hz
 	if (deltaTime > LARGEST_DELTATIME) {
@@ -66,8 +68,6 @@ void DoMovingsUpdate(double deltaTime)
 	//float delatX;
 
 	thePlayer->velocity.x += thePlayer->accel.x * deltaTime;
-	//thePlayer->velocity.y += thePlayer->accel.y * deltaTime;
 
 	thePlayer->m_model->position.x += thePlayer->velocity.x * deltaTime;
-	//thePlayer->m_model->position.y += thePlayer->velocity.y * deltaTime;
 }

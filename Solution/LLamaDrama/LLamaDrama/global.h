@@ -83,8 +83,9 @@ void loadAllMeshes(GLuint program);
 extern Player* thePlayer;
 extern std::vector <cEnemy*> pEnemies;
 extern std::vector <Platform*> pPlatforms;
-void DoPhysicsUpdate(double deltaTime);
-void DoMovingsUpdate(double deltaTime);
+void gravityUpdate(double deltaTime);
+void movingsUpdate(double deltaTime);
+bool isPlayerOnTopOfPlatfrom();
 
 
 #endif	// _globalStuff_HG_

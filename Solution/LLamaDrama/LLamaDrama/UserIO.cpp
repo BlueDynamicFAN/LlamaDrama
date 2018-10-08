@@ -96,24 +96,30 @@ void ProcessAsynKeys(GLFWwindow* window, double deltaTime)
 
 		if (glfwGetKey(window, GLFW_KEY_W))
 		{
-			thePlayer->velocity.y = moveSpeed;
+			if (isPlayerOnTopOfPlatfrom())
+			{
+				thePlayer->velocity.y = 5*moveSpeed;
+			}
 		}
 
 
 		if (glfwGetKey(window, GLFW_KEY_S))
 		{
-			thePlayer->velocity.y = -moveSpeed;
+			if (!isPlayerOnTopOfPlatfrom())
+			{
+				thePlayer->velocity.y = -moveSpeed;
+			}
 		}
 		if (glfwGetKey(window, GLFW_KEY_A))
 		{
 			thePlayer->velocity.x = -moveSpeed;
-			DoMovingsUpdate(deltaTime);
+			movingsUpdate(deltaTime);
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_D))
 		{
 			thePlayer->velocity.x = moveSpeed;
-			DoMovingsUpdate(deltaTime);
+			movingsUpdate(deltaTime);
 		}
 	}//if(!IsCtrltDown(window) )
 }
