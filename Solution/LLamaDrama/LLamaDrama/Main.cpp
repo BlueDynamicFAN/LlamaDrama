@@ -29,7 +29,7 @@ float g_lightBrightness = 4.0f;
 
 unsigned int numberOfObjectsToDraw = 0;
 
-glm::vec3 g_CameraEye = glm::vec3(0.0, 0.0, +10.0f);
+glm::vec3 g_CameraEye = glm::vec3(0.0, 0.0, +15.0f);
 glm::vec3 g_CameraAt = glm::vec3(0.0, 0.0, 0.0f);
 
 cMeshObject* pRogerRabbit = NULL;
@@ -102,35 +102,8 @@ int main(void)
 	}
 
 	GLuint program = pTheShaderManager->getIDFromFriendlyName("myShader");
-	::g_pTheVAOMeshManager = new cVAOMeshManager();
-
-	sModelDrawInfo bunnyInfo;
-	bunnyInfo.meshFileName = "bun_res3_xyz.ply";
-	if (!::g_pTheVAOMeshManager->LoadModelIntoVAO(bunnyInfo, program))
-	{
-		std::cout << "Didn't load the bunny" << std::endl;
-		std::cout << pTheShaderManager->getLastError() << std::endl;
-	}
-	vec_ModelFileNames.push_back(bunnyInfo.meshFileName);
-
-	loadEnemiesFromJson();
-	loadPlatformsFromJson();
-
-	sModelDrawInfo grassInfo;
-	grassInfo.meshFileName = "grass.ply";
-	::g_pTheVAOMeshManager->LoadModelIntoVAO(grassInfo, program);
-	vec_ModelFileNames.push_back(grassInfo.meshFileName);
-
-	sModelDrawInfo groundInfo;
-	groundInfo.meshFileName = "ground.ply";
-	::g_pTheVAOMeshManager->LoadModelIntoVAO(groundInfo, program);
-	vec_ModelFileNames.push_back(groundInfo.meshFileName);
-
-	//sModelDrawInfo terrainInfo;
-	//terrainInfo.meshFileName = "MeshLab_Fractal_Terrain_xyz.ply";
-	//::g_pTheVAOMeshManager->LoadModelIntoVAO(terrainInfo, program);
-	//vec_ModelFileNames.push_back(terrainInfo.meshFileName);
-
+	
+	loadAllMeshes(program);
 	// At this point, mesh in in GPU
 	std::cout << "Mesh was loaded OK" << std::endl;
 
@@ -158,7 +131,7 @@ int main(void)
 
 		float ratio;
 		int width, height;
-		glm::mat4x4 matModel = glm::mat4(1.0f);			// mat4x4 m, p, mvp;
+		
 		glm::mat4x4 matProjection = glm::mat4(1.0f);
 		glm::mat4x4	matView = glm::mat4(1.0f);
 
@@ -174,137 +147,44 @@ int main(void)
 		// Colour and depth buffers are TWO DIFF THINGS.
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+		matProjection = glm::perspective(0.6f, ratio, 0.1f, 1000.0f);
+
+		///position 3D camera
+		matView = glm::lookAt(g_CameraEye, //EyE --- place camera in the world
+			g_CameraAt, ///At --- Look at origin
+			glm::vec3(0.0f, 1.0f, 0.0f));
+
+		//glUniformMatrix4fv(matMoldel_location, 1, GL_FALSE, glm::value_ptr(m));
+		glUniformMatrix4fv(matView_location, 1, GL_FALSE, glm::value_ptr(matView));
+		glUniformMatrix4fv(matProj_location, 1, GL_FALSE, glm::value_ptr(matProjection));
+
+
+		double lastTime = glfwGetTime();
+
 		// Draw all the objects in the "scene"
 		for (unsigned int objIndex = 0;
 			objIndex != (unsigned int)vec_pObjectsToDraw.size();
 			objIndex++)
 		{
-
-			// Is this object visible
-			if (!vec_pObjectsToDraw[objIndex]->bIsVisible)
-			{
-				continue;
-			}
-
-			//************************************
-			matModel = glm::mat4x4(1.0f);		// mat4x4_identity(m);
-
-			// Calculate some rotation matrix values;
-			glm::mat4 preRot_X = glm::rotate(glm::mat4(1.0f),
-				vec_pObjectsToDraw[objIndex]->preRotation.x,
-				glm::vec3(1.0f, 0.0, 0.0f));
-			matModel = matModel * preRot_X;
-
-			glm::mat4 preRot_Y = glm::rotate(glm::mat4(1.0f),
-				vec_pObjectsToDraw[objIndex]->preRotation.y,
-				glm::vec3(0.0f, 1.0, 0.0f));
-			matModel = matModel * preRot_Y;
-
-			glm::mat4 preRot_Z = glm::rotate(glm::mat4(1.0f),
-				vec_pObjectsToDraw[objIndex]->preRotation.z,
-				glm::vec3(0.0f, 0.0, 1.0f));
-			matModel = matModel * preRot_Z;
-
-			glm::mat4 matTranslation = glm::translate(glm::mat4(1.0f),
-				vec_pObjectsToDraw[objIndex]->position);
-
-			matModel = matModel * matTranslation;		// matMove
-
-			glm::mat4 postRot_X = glm::rotate(glm::mat4(1.0f),
-				vec_pObjectsToDraw[objIndex]->postRotation.x,
-				glm::vec3(1.0f, 0.0, 0.0f));
-			matModel = matModel * postRot_X;
-
-			glm::mat4 postRot_Y = glm::rotate(glm::mat4(1.0f),
-				vec_pObjectsToDraw[objIndex]->postRotation.y,
-				glm::vec3(0.0f, 1.0, 0.0f));
-			matModel = matModel * postRot_Y;
-
-			glm::mat4 postRot_Z = glm::rotate(glm::mat4(1.0f),
-				vec_pObjectsToDraw[objIndex]->postRotation.z,
-				glm::vec3(0.0f, 0.0, 1.0f));
-			matModel = matModel * preRot_Z;
-
-			// And now scale
-
-			glm::mat4 matScale = glm::scale(glm::mat4(1.0f),
-				vec_pObjectsToDraw[objIndex]->nonUniformScale);
-			matModel = matModel * matScale;
-
-
-			//************************************
-
-						//mat4x4_ortho(p, -ratio, ratio, -1.f, 1.f, 1.f, -1.f);
-			matProjection = glm::perspective(0.6f,			// FOV
-				ratio,		// Aspect ratio
-				0.1f,			// Near clipping plane
-				1000.0f);	// Far clipping plane
-
-			matView = glm::lookAt(g_CameraEye,	// Eye
-				g_CameraAt,		// At
-				glm::vec3(0.0f, 1.0f, 0.0f));// Up
-
-			//mat4x4_mul(mvp, p, m);
-			//mvp = p * view * m; 
-
-			glUseProgram(program);
-			glUniformMatrix4fv(matModel_location, 1, GL_FALSE, glm::value_ptr(matModel));
-			glUniformMatrix4fv(matView_location, 1, GL_FALSE, glm::value_ptr(matView));
-			glUniformMatrix4fv(matProj_location, 1, GL_FALSE, glm::value_ptr(matProjection));
-
-			// Set the object to "wireframe"
-			//glPolygonMode( GL_FRONT_AND_BACK , GL_LINE );	//GL_FILL
-			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);	//GL_FILL
-
-			//GLint objectColour_UniLoc 
-			glUniform3f(objectColour_UniLoc,
-				vec_pObjectsToDraw[objIndex]->objColour.r,
-				vec_pObjectsToDraw[objIndex]->objColour.g,
-				vec_pObjectsToDraw[objIndex]->objColour.b);
-
-			glUniform3f(lightPos_UniLoc, g_lightPos.x, g_lightPos.y, g_lightPos.z);
-			glUniform1f(lightBrightness_UniLoc, ::g_lightBrightness);
-
-			if (vec_pObjectsToDraw[objIndex]->bIsWireFrame)
-			{
-				// Yes, draw it wireframe
-				glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-				glDisable(GL_CULL_FACE);	// Discared "back facing" triangles
-			}
-			else
-			{
-				// No, it's "solid" (or "Filled")
-				glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-				glEnable(GL_CULL_FACE);	// Discared "back facing" triangles
-			}
-
-
-			sModelDrawInfo modelInfo;
-			modelInfo.meshFileName = vec_pObjectsToDraw[objIndex]->meshName;
-
-			if (::g_pTheVAOMeshManager->FindDrawInfoByModelName(modelInfo))
-			{
-				//glDrawArrays(GL_TRIANGLES, 0, bunnyInfo.numberOfIndices );
-
-				glBindVertexArray(modelInfo.VAO_ID);
-
-				glDrawElements(GL_TRIANGLES,
-					modelInfo.numberOfIndices,
-					GL_UNSIGNED_INT,
-					0);
-
-				glBindVertexArray(0);
-
-			}
-
+			glm::mat4x4 matModel = glm::mat4(1.0f);
+			cMeshObject* pCurrentMesh = vec_pObjectsToDraw[objIndex];
+			DrawObject(pCurrentMesh, matModel, program);
 		}//for ( unsigned int objIndex = 0; 
-
-		UpdateWindowTitle();
+	
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 
-		ProcessAsynKeys(window);
+		double currentTime = glfwGetTime();
+		double deltaTime = currentTime - lastTime;
+		lastTime = currentTime;
+
+		//Update physics 
+
+
+		DoPhysicsUpdate(deltaTime);
+
+		ProcessAsynKeys(window, deltaTime);
 
 	}//while (!glfwWindowShouldClose(window))
 
@@ -321,24 +201,9 @@ int main(void)
 // Loads the models we are drawing into the vector
 void LoadModelsIntoScene(void)
 {
-
-	{
-		cMeshObject* pBunny = new cMeshObject();
-		pBunny->position = glm::vec3(0.0f, 0.0f, 0.0f);
-		pBunny->nonUniformScale = glm::vec3(5.0f, 5.0f, 5.0f);
-		pBunny->objColour = glm::vec3(1.0f, 1.0f, 1.0f);
-		pBunny->meshName = "bun_res3_xyz.ply";
-		pBunny->bIsVisible = true;
-		vec_pObjectsToDraw.push_back(pBunny);
-	}
-
-	return;
-}
-
-void UpdateWindowTitle(void)
-{
-
-
+	loadPlayerFromJson();
+	loadEnemiesFromJson();
+	loadPlatformsFromJson();
 
 	return;
 }

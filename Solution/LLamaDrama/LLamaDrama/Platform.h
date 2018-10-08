@@ -9,13 +9,15 @@ public:
 	Platform()
 	{
 		this->model = new cMeshObject;
-		height = 0.0f;
+		this->height = 0.0f;
+		this->width = 0.0f;
 		return;
 	}
 
-	Platform(std::string meshName, std::string fName, float h, glm::vec3 position, glm::vec3 colour) : Platform()
+	Platform(std::string meshName, std::string fName, float h, float w, glm::vec3 position, glm::vec3 colour) : Platform()
 	{
 		this->height = h;
+		this->width = w;
 		this->model->meshName = meshName;
 		this->model->friendlyName = fName;
 		this->model->position = position;
@@ -25,6 +27,7 @@ public:
 	~Platform() { ; }
 
 	float height;
+	float width;
 	cMeshObject* model;
 };
 

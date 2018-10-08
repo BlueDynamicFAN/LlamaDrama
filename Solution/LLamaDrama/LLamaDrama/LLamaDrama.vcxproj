@@ -162,8 +162,10 @@
     <ClCompile Include="Enemies\cLevelEnemyType1.cpp" />
     <ClCompile Include="Enemies\cLevelEnemyType2.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="loadAllMeshes.cpp" />
     <ClCompile Include="loadFromJSON.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Physics.cpp" />
     <ClCompile Include="PlyFileLoader.cpp" />
     <ClCompile Include="sModelDrawInfo.cpp" />
     <ClCompile Include="UserIO.cpp" />
@@ -182,6 +184,7 @@
     <ClInclude Include="Enemies\cLevelEnemyType2.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="Platform.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="sModelDrawInfo.h" />
     <ClInclude Include="sPlyTriangle.h" />
     <ClInclude Include="sPlyVertex.h" />

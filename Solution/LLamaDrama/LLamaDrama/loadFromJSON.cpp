@@ -8,8 +8,11 @@
 #include <glm/vec3.hpp> 
 #include "cMeshObject.h"
 #include "Platform.h"
+#include "Player.h"
 
 std::vector <cEnemy*> pEnemies;
+std::vector <Platform*> pPlatforms;
+Player* thePlayer;
 extern std::vector< cMeshObject* > vec_pObjectsToDraw;
 
 void loadEnemiesFromJson() {
@@ -55,10 +58,11 @@ void loadPlatformsFromJson() {
 	for (nlohmann::json::iterator it = j.begin(); it != j.end(); ++it) {
 		std::string fName = it.key();
 		std::string meshName;
-		float h, x, y, z, r, g, b;
+		float h, w, x, y, z, r, g, b;
 
 		j[fName]["meshFileName"].get_to(meshName);
 		j[fName]["height"].get_to(h);
+		j[fName]["width"].get_to(w);
 		j[fName]["positionX"].get_to(x);
 		j[fName]["positionY"].get_to(y);
 		j[fName]["positionZ"].get_to(z);
@@ -66,7 +70,29 @@ void loadPlatformsFromJson() {
 		j[fName]["g"].get_to(g);
 		j[fName]["b"].get_to(b);
 
-		Platform* thePlatform = new Platform(meshName, fName, h, glm::vec3(x, y, z), glm::vec3(r, g, b));
+		Platform* thePlatform = new Platform(meshName, fName, h, w, glm::vec3(x, y, z), glm::vec3(r, g, b));
+		pPlatforms.push_back(thePlatform);
 		vec_pObjectsToDraw.push_back(thePlatform->model);
+	}
+}
+
+void loadPlayerFromJson() {
+	std::ifstream i("player.json");
+	nlohmann::json j;
+	i >> j;
+	i.close();
+
+	for (nlohmann::json::iterator it = j.begin(); it != j.end(); ++it) {
+		std::string fName = it.key();
+		std::string meshName;
+		float x, y, z;
+
+		j[fName]["meshFileName"].get_to(meshName);
+		j[fName]["positionX"].get_to(x);
+		j[fName]["positionY"].get_to(y);
+		j[fName]["positionZ"].get_to(z);
+
+		thePlayer = new Player(meshName, fName, glm::vec3(x, y, z));
+		vec_pObjectsToDraw.push_back(thePlayer->m_model);
 	}
 }
