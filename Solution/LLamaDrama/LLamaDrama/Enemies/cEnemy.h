@@ -1,3 +1,9 @@
+/**
+	cEnemy.h
+
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #ifndef _cEnemy_HG_
 #define _cEnemy_HG_
 #include <string>
@@ -14,7 +20,7 @@ public:
 	void setHealthLevel(int levelChange);
 	int getScoreValue(void);
 
-	cMeshObject* model;
+	cMeshObject* m_model;
 
 protected:
 	unsigned int m_healthLevel;

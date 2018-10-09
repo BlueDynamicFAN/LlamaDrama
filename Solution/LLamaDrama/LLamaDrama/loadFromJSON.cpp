@@ -57,7 +57,7 @@ void loadEnemiesFromJson() {
 		
 		newEnemy = factory->createEnemy(eType, healthLevel, score, glm::vec3(x,y,z) , meshName, fName);
 		pEnemies.push_back(newEnemy);
-		vec_pObjectsToDraw.push_back(newEnemy->model);
+		vec_pObjectsToDraw.push_back(newEnemy->m_model);
 	}
 }
 

@@ -1,3 +1,9 @@
+/**
+	cLevelBoss1.h
+
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #ifndef _cLevelBoss1_HG_
 #define _cLevelBoss1_HG_
 #include "cBoss.h"

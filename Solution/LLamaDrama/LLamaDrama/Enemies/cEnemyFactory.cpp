@@ -1,3 +1,9 @@
+/**
+	cEnemyFactory.cpp
+
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #include "cEnemyFactory.h"
 #include "cLevelEnemyType1.h"
 #include "cLevelEnemyType2.h"
@@ -10,15 +16,28 @@
 #include <iostream>
 #include <algorithm>
 
+/**
+		Default constructor
+*/
 cEnemyFactory::cEnemyFactory()
 {
 	return;
 }
+
+/**
+		Default destructor
+*/
 cEnemyFactory::~cEnemyFactory()
 {
 	return;
 }
 
+/**
+			Checking if provided enemy type is correct //NEED REVISION
+
+	@param string enemyType
+	@return bool
+*/
 bool cEnemyFactory::isEnemyTypeValid(std::string enemyType)
 {
 	std::vector<std::string> enemyTypes = {"levelboss1", "levelboss2", "finalboss", "levelenemytype1", "levelenemytype2"};
@@ -36,6 +55,13 @@ bool cEnemyFactory::isEnemyTypeValid(std::string enemyType)
 	std::cerr << "Error:: invalid enemy type" << std::endl;
 	return false;
 }
+
+/**
+			Creates a cEnemy according to type provided in params
+
+	@param string enemyType, unsigned int health, unsigned int score, glm::vec3 position, meshName, string name
+	@return cEnemy*
+*/
 cEnemy* cEnemyFactory::createEnemy(std::string enemyType, unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name)
 {
 	cEnemy* newEnemy = nullptr;

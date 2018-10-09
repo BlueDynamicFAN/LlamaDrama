@@ -1,3 +1,9 @@
+/**
+	cLevelEnemyType1.h
+
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #ifndef _cLevelEnemyType1_HG_
 #define _cLevelEnemyType1_HG_
 #include "cEnemy.h"

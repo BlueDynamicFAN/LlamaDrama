@@ -1,3 +1,9 @@
+/**
+	cEnemyFactory.h
+
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #ifndef _cEnemyFactory_HG_
 #define _cEnemyFactory_HG_
 #include <string>

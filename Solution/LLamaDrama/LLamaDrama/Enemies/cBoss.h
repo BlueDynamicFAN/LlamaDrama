@@ -1,3 +1,9 @@
+/**
+	cBoss.h
+
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #ifndef _cBoss_HG_
 #define _cBoss_HG_
 #include "cEnemy.h"
