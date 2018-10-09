@@ -2,8 +2,6 @@
 #define _Player_HG_
 #include <string>
 #include "../cMeshObject.h"
-//#include <glm/glm.hpp>
-//#include <glm/vec3.hpp>
 
 class Player
 {

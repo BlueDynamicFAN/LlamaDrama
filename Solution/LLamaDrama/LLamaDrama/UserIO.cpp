@@ -5,7 +5,7 @@
 
 // This has all the keyboard, mouse, and controller stuff
 
-const float moveSpeed = 1.0f;
+const float moveSpeed = 2.0f;
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
@@ -63,6 +63,39 @@ void ProcessAsynKeys(GLFWwindow* window, double deltaTime)
 	// If no keys are down, move the camera
 	if (AreAllModifiersUp(window))
 	{
+		if (glfwGetKey(window, GLFW_KEY_W))
+		{
+			if (isPlayerOnTopOfPlatfrom())
+			{
+				thePlayer->velocity.y = 2.5f * moveSpeed;
+			}
+		}
+
+		if (glfwGetKey(window, GLFW_KEY_S))
+		{
+			if (!isPlayerOnTopOfPlatfrom())
+			{
+				thePlayer->velocity.y = -moveSpeed;
+			}
+		}
+
+		if (glfwGetKey(window, GLFW_KEY_A))
+		{
+			thePlayer->velocity.x = -moveSpeed;
+			movingsUpdate(deltaTime);
+		}
+
+		if (glfwGetKey(window, GLFW_KEY_D))
+		{
+			thePlayer->velocity.x = moveSpeed;
+			movingsUpdate(deltaTime);
+		}
+	}//if(AreAllModifiersUp(window)
+
+
+	// Control (ctrl) key down? Player moves 
+	if (IsCtrlDown(window))
+	{
 		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 		{
 			g_CameraEye.z += cameraSpeed;
@@ -87,39 +120,6 @@ void ProcessAsynKeys(GLFWwindow* window, double deltaTime)
 		{
 			g_CameraEye.y -= cameraSpeed;
 		}
-	}//if(AreAllModifiersUp(window)
 
-
-	// Control (ctrl) key down? Player moves 
-	if (IsCtrlDown(window))
-	{
-
-		if (glfwGetKey(window, GLFW_KEY_W))
-		{
-			if (isPlayerOnTopOfPlatfrom())
-			{
-				thePlayer->velocity.y = 5*moveSpeed;
-			}
-		}
-
-
-		if (glfwGetKey(window, GLFW_KEY_S))
-		{
-			if (!isPlayerOnTopOfPlatfrom())
-			{
-				thePlayer->velocity.y = -moveSpeed;
-			}
-		}
-		if (glfwGetKey(window, GLFW_KEY_A))
-		{
-			thePlayer->velocity.x = -moveSpeed;
-			movingsUpdate(deltaTime);
-		}
-
-		if (glfwGetKey(window, GLFW_KEY_D))
-		{
-			thePlayer->velocity.x = moveSpeed;
-			movingsUpdate(deltaTime);
-		}
 	}//if(!IsCtrltDown(window) )
 }

@@ -29,8 +29,8 @@ float g_lightBrightness = 4.0f;
 
 unsigned int numberOfObjectsToDraw = 0;
 
-glm::vec3 g_CameraEye = glm::vec3(0.0, 0.0, +15.0f);
-glm::vec3 g_CameraAt = glm::vec3(0.0, 0.0, 0.0f);
+glm::vec3 g_CameraEye; 
+glm::vec3 g_CameraAt;
 
 cMeshObject* pRogerRabbit = NULL;
 
@@ -149,10 +149,14 @@ int main(void)
 
 		matProjection = glm::perspective(0.6f, ratio, 0.1f, 1000.0f);
 
-		///position 3D camera
-		matView = glm::lookAt(g_CameraEye, //EyE --- place camera in the world
-			g_CameraAt, ///At --- Look at origin
-			glm::vec3(0.0f, 1.0f, 0.0f));
+		g_CameraEye = glm::vec3(thePlayer->m_model->position.x, thePlayer->m_model->position.y, thePlayer->m_model->position.z + 15.0f);
+		g_CameraAt = glm::vec3(thePlayer->m_model->position);
+
+		//position 3D camera
+		matView = glm::lookAt(	g_CameraEye,					// Eye --- place camera in the world
+								g_CameraAt,	// At --- Look at player model
+								glm::vec3(0.0f, 1.0f, 0.0f)
+							 );
 
 		//glUniformMatrix4fv(matMoldel_location, 1, GL_FALSE, glm::value_ptr(m));
 		glUniformMatrix4fv(matView_location, 1, GL_FALSE, glm::value_ptr(matView));

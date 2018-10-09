@@ -26,9 +26,6 @@ extern glm::vec3 g_CameraAt;	// = glm::vec3( 0.0, 0.0, 0.0f );
 extern glm::vec3 g_lightPos;	// = glm::vec3( 4.0f, 4.0f, 0.0f );
 extern float g_lightBrightness;	// = 1.0f;
 
-// 1. ALWAYS put extern in front of .h variables
-// 2. NEVER assign them to anything
-
 // Signature for the ply loader function
 bool LoadPlyFileData(std::string fileName);
 
@@ -58,21 +55,6 @@ extern std::vector< cMeshObject* > vec_pObjectsToDraw;
 extern std::vector< std::string > vec_ModelFileNames;
 
 static const float PI = 3.14159f;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //Keeping distance to not cause a git merge conflict

@@ -30,12 +30,10 @@ bool isPlayerOnTopOfPlatfrom()
 void gravityUpdate(double deltaTime)
 {
 	const double LARGEST_DELTATIME = 0.10; //10 ms = 10Hz
-	if (deltaTime > LARGEST_DELTATIME) {
+	if (deltaTime > LARGEST_DELTATIME) 
+	{
 		deltaTime = LARGEST_DELTATIME;
 	}
-
-		//Euler integration
-		float delatX;
 
 		//thePlayer->velocity.x += thePlayer->accel.x * deltaTime;
 		thePlayer->velocity.y += thePlayer->accel.y * deltaTime;
@@ -63,9 +61,6 @@ void movingsUpdate(double deltaTime)
 	if (deltaTime > LARGEST_DELTATIME) {
 		deltaTime = LARGEST_DELTATIME;
 	}
-
-	//Euler integration
-	//float delatX;
 
 	thePlayer->velocity.x += thePlayer->accel.x * deltaTime;
 
