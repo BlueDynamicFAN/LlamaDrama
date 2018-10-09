@@ -1,3 +1,9 @@
+/**
+	loadFromJSON.cpp
+	Purpose: Loads objects from JSON
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #include <nlohmann/json.hpp>
 #include <vector>
 #include <string>
@@ -15,6 +21,12 @@ std::vector <Platform*> pPlatforms;
 Player* thePlayer;
 extern std::vector< cMeshObject* > vec_pObjectsToDraw;
 
+/**
+	Loads the ememies from JSON
+
+	@param: void
+	@return: void
+*/
 void loadEnemiesFromJson() {
 
 	cEnemyFactory* factory = new cEnemyFactory();
@@ -49,6 +61,12 @@ void loadEnemiesFromJson() {
 	}
 }
 
+/**
+	loads the platforms from JSON
+
+	@param: void
+	@return: void
+*/
 void loadPlatformsFromJson() {
 	std::ifstream i("platforms.json");
 	nlohmann::json j;
@@ -76,6 +94,12 @@ void loadPlatformsFromJson() {
 	}
 }
 
+/**
+	loads the player from JSON
+
+	@param: void
+	@return: void
+*/
 void loadPlayerFromJson() {
 	std::ifstream i("player.json");
 	nlohmann::json j;

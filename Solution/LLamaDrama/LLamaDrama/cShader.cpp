@@ -1,5 +1,11 @@
+/**
+	cShader.cpp
+	Purpose: Shader information (Shader manager taken from Feeney's graphics class)
+	@author: Michael Feeney
+	@version: 1.0.0
+*/
 #include "cShaderManager.h"
-#include "global.h"		// glfw.h, etc. (openGL.h)
+#include "global.h"
 
 cShaderManager::cShader::cShader()
 {
@@ -31,12 +37,6 @@ std::string cShaderManager::cShader::getShaderTypeString(void)
 	// Should never reach here...
 	return "UNKNOWN_SHADER_TYPE";
 }
-
-
-//// TODO: For the students to do, because it's FUN, FUN, FUN
-//std::map< std::string /*name of uniform variable*/,
-//		    unsigned int /* uniform location ID */ > 
-//						mapUniformName_to_UniformLocation;
 
 // Look up the uniform inside the shader, then save it, if it finds it
 bool cShaderManager::cShaderProgram::LoadUniformLocation(std::string variableName)

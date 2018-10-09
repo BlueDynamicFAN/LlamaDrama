@@ -1,12 +1,18 @@
+/**
+	cShaderManager.cpp
+	Purpose: Manages shaders (Shader manager taken from Feeney's graphics class)
+	@author: Michael Feeney
+	@version: 1.0.0
+*/
 #include "cShaderManager.h"
-#include <glad/glad.h>	// For all the OpenGL calls, etc.
+#include <glad/glad.h>
 
 #include <fstream>
-#include <sstream>		// "string stream"
+#include <sstream>
 #include <vector>
 
-#include <algorithm>		// for the std::copy
-#include <iterator>			// for the back_inserter
+#include <algorithm>
+#include <iterator>
 
 cShaderManager::cShaderManager()
 {
@@ -21,7 +27,6 @@ cShaderManager::~cShaderManager()
 bool cShaderManager::useShaderProgram(unsigned int ID)
 {
 	// Use the number directy... 
-	// TODO: Might do a lookup to see if we really have that ID...
 	glUseProgram(ID);
 	return true;
 }

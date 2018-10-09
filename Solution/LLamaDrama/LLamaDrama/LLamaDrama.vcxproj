@@ -152,7 +152,7 @@
     <ClCompile Include="cShader.cpp" />
     <ClCompile Include="cShaderManager.cpp" />
     <ClCompile Include="cVAOMeshManager.cpp" />
-    <ClCompile Include="DrawObject_call.cpp" />
+    <ClCompile Include="DrawObject.cpp" />
     <ClCompile Include="Enemies\cBoss.cpp" />
     <ClCompile Include="Enemies\cEnemy.cpp" />
     <ClCompile Include="Enemies\cEnemyFactory.cpp" />
@@ -166,7 +166,6 @@
     <ClCompile Include="loadFromJSON.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Physics.cpp" />
-    <ClCompile Include="PlyFileLoader.cpp" />
     <ClCompile Include="sModelDrawInfo.cpp" />
     <ClCompile Include="UserIO.cpp" />
   </ItemGroup>

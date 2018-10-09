@@ -54,12 +54,6 @@
     <ClCompile Include="UserIO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PlyFileLoader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DrawObject_call.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Enemies\cBoss.cpp">
       <Filter>Enemies</Filter>
     </ClCompile>
@@ -94,6 +88,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Physics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

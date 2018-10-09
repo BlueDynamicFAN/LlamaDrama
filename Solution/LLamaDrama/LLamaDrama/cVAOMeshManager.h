@@ -1,3 +1,9 @@
+/**
+	cVAOMeshManager.h
+	Purpose: Takes cMeshObject and loads it into the VAO (cVAOMeshManager taken from Feeney's graphics class)
+	@author: Michael Feeney
+	@version: 1.0.0
+*/
 #ifndef _cVAOMeshManager_HG_
 #define _cVAOMeshManager_HG_
 
@@ -18,8 +24,7 @@ public:
 	cVAOMeshManager();		// constructor
 	~cVAOMeshManager();		// destructor
 
-	// Note: the shader program ID is needed to tie 
-	// the buffer to the vertex layout of the shader
+	// Note: the shader program ID is needed to tie the buffer to the vertex layout of the shader
 	bool LoadModelIntoVAO(sModelDrawInfo &drawInfo,
 		unsigned int shaderProgramID);
 

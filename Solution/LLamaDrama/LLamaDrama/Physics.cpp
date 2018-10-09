@@ -1,13 +1,24 @@
-//Psysics.cpp
+/**
+	Physics.cpp
+	Purpose: Deals with all the physics
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #include "global.h"
 #include <glm/glm.hpp>
-#include "sMOdelDrawInfo.h"
+#include "sModelDrawInfo.h"
 #include <algorithm>
 #include <iostream>
 #include <vector>
 
 const float GROUND_PLANE_Y = -3.0f;
 
+/**
+	Checks if the player is on top of a platform
+
+	@param: void
+	@return: true or false
+*/
 bool isPlayerOnTopOfPlatfrom()
 {
 	for (std::vector <Platform*>::iterator itPlatform = pPlatforms.begin();
@@ -25,8 +36,12 @@ bool isPlayerOnTopOfPlatfrom()
 	return false;
 }
 
+/**
+	Updates the gravity of the player each frame
 
-//Called every frame
+	@param: the time
+	@return: void
+*/
 void gravityUpdate(double deltaTime)
 {
 	const double LARGEST_DELTATIME = 0.10; //10 ms = 10Hz
@@ -35,10 +50,8 @@ void gravityUpdate(double deltaTime)
 		deltaTime = LARGEST_DELTATIME;
 	}
 
-		//thePlayer->velocity.x += thePlayer->accel.x * deltaTime;
 		thePlayer->velocity.y += thePlayer->accel.y * deltaTime;
 
-		//thePlayer->m_model->position.x += thePlayer->velocity.x * deltaTime;
 		thePlayer->m_model->position.y += thePlayer->velocity.y * deltaTime;
 
 		//The object can't go any lower than "the ground"
@@ -50,11 +63,16 @@ void gravityUpdate(double deltaTime)
 		else {
 			thePlayer->accel.y = -9.8;
 		}
-		
 
 	return;
 }
 
+/**
+	Updates the movement of the player each frame
+
+	@param: the time
+	@return: void
+*/
 void movingsUpdate(double deltaTime)
 {
 	const double LARGEST_DELTATIME = 0.10; //10 ms = 10Hz

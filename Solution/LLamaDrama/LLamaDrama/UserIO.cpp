@@ -1,12 +1,22 @@
+/**
+	UserIO.cpp
+	Purpose: Controls all of the user input
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #include "global.h"
 
 #include <iostream>
 #include <fstream>
 
-// This has all the keyboard, mouse, and controller stuff
-
 const float moveSpeed = 2.0f;
 
+/**
+	Keyboard input
+
+	@param: the window, key that was pressed, scancode, action and mods
+	@return: void
+*/
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
@@ -16,6 +26,12 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	return;
 }
 
+/**
+	Checks if shift is pressed
+
+	@param: current window
+	@return: true or false
+*/
 bool IsShiftDown(GLFWwindow* window)
 {
 	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT)) { return true; }
@@ -24,6 +40,12 @@ bool IsShiftDown(GLFWwindow* window)
 	return false;
 }
 
+/**
+	Checks if ctrl is pressed
+
+	@param: current window
+	@return: true or false
+*/
 bool IsCtrlDown(GLFWwindow* window)
 {
 	if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL)) { return true; }
@@ -32,6 +54,12 @@ bool IsCtrlDown(GLFWwindow* window)
 	return false;
 }
 
+/**
+	Checks if alt is pressed
+
+	@param: current window
+	@return: true or false
+*/
 bool IsAltDown(GLFWwindow* window)
 {
 	if (glfwGetKey(window, GLFW_KEY_LEFT_ALT)) { return true; }
@@ -40,6 +68,12 @@ bool IsAltDown(GLFWwindow* window)
 	return false;
 }
 
+/**
+	Checks if all modifiers are not pressed
+
+	@param: current window
+	@return: true or false
+*/
 bool AreAllModifiersUp(GLFWwindow* window)
 {
 	if (IsShiftDown(window)) { return false; }
@@ -49,6 +83,12 @@ bool AreAllModifiersUp(GLFWwindow* window)
 	return true;
 }
 
+/**
+	Processes the key input
+
+	@param: current window
+	@return: void
+*/
 void ProcessAsynKeys(GLFWwindow* window, double deltaTime)
 {
 	const float CAMERA_SPEED_SLOW = 0.1f;

@@ -1,3 +1,9 @@
+/**
+	cMeshObject.cpp
+	Purpose: Contains all information for cMeshObject
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #include "cMeshObject.h"
 
 cMeshObject::cMeshObject()

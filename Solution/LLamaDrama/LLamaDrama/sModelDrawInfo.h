@@ -1,3 +1,9 @@
+/**
+	sModelDrawInfo.h
+	Purpose: Creates a struct with all of the model information (sModelDrawInfo taken from Feeney's graphics class)
+	@author: Michael Feeney
+	@version: 1.0.0
+*/
 #ifndef _sModelDrawInfo_HG_
 #define _sModelDrawInfo_HG_
 
@@ -21,7 +27,7 @@ struct sModelDrawInfo
 
 	std::string meshFileName;
 
-	unsigned int VAO_ID;					//***
+	unsigned int VAO_ID;
 
 	unsigned int vertexBufferID;
 	unsigned int vertexBuffer_start_index;
@@ -29,20 +35,18 @@ struct sModelDrawInfo
 
 	unsigned int indexBufferID;
 	unsigned int indexBuffer_start_index;
-	unsigned int numberOfIndices;			//***
+	unsigned int numberOfIndices;
 	unsigned int numberOfTriangles;
 
 	// This is the vertex information as read from the file
-	sPlyVertex* pVerticesFromFile;	// = 0
-	// These are the original triangle values from file,
-	//	but in the 'triangle' (or face) format
-	sPlyTriangle* pTriangles;	// = 0;
+	sPlyVertex* pVerticesFromFile;
+	// These are the original triangle values from file, but in the 'triangle' (or face) format
+	sPlyTriangle* pTriangles;
 
-	// This is the vertex information being passed to the GPU
-	// (is in format that the shader needs)
-	sVert_xyz_rgb* pVerticesToVBO;	// = new sVert_xyz_rgb[ARRAYSIZE]
+	// This is the vertex information being passed to the GPU (is in format that the shader needs)
+	sVert_xyz_rgb* pVerticesToVBO;
 	// This buffer is indices as a 1D array (that the GPU needs)
-	unsigned int* pIndices;		// = new unsigned int[ARRAYSIZE]
+	unsigned int* pIndices;
 
 	float maxX, maxY, maxZ;
 	float minX, minY, minZ;

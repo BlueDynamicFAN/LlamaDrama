@@ -1,17 +1,23 @@
+/**
+	Main.cpp
+	Purpose: Starting point of the program
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #include "global.h"
 
 #include <glm/glm.hpp>
-#include <glm/vec3.hpp> // glm::vec3
-#include <glm/vec4.hpp> // glm::vec4
-#include <glm/mat4x4.hpp> // glm::mat4
-#include <glm/gtc/matrix_transform.hpp> // glm::translate, glm::rotate, glm::scale, glm::perspective
-#include <glm/gtc/type_ptr.hpp> // glm::value_ptr
+#include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
+#include <glm/mat4x4.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <stdlib.h>
-#include <stdio.h>		// printf();
-#include <iostream>		// cout (console out)
+#include <stdio.h>
+#include <iostream>
 #include <sstream>
-#include <vector>		// "smart array" dynamic array
+#include <vector>
 
 #include "cShaderManager.h"
 #include "cMeshObject.h"
@@ -32,19 +38,20 @@ unsigned int numberOfObjectsToDraw = 0;
 glm::vec3 g_CameraEye; 
 glm::vec3 g_CameraAt;
 
-cMeshObject* pRogerRabbit = NULL;
+cMeshObject* pRogerRabbit = NULL;	
 
-// Stack based variable
-//cShaderManager Ted;		
-
-cShaderManager* pTheShaderManager = NULL;		// "Heap" variable
+cShaderManager* pTheShaderManager = NULL;
 cVAOMeshManager* g_pTheVAOMeshManager = NULL;
 
 // Loads the models we are drawing into the vector
 void LoadModelsIntoScene(void);
-void UpdateWindowTitle(void);
 
+/**
+	Displays an error message
 
+	@param: error number and the description
+	@return: void
+*/
 static void error_callback(int error, const char* description)
 {
 	fprintf(stderr, "Error: %s\n", description);
@@ -63,7 +70,7 @@ int main(void)
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
-	window = glfwCreateWindow(1600, 900, "INFO 6044, Checkpoint 1", NULL, NULL);
+	window = glfwCreateWindow(1600, 900, "Llama Drama", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -74,8 +81,7 @@ int main(void)
 	glfwMakeContextCurrent(window);
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 	glfwSwapInterval(1);
-
-
+	
 	// Create the shader manager...
 	pTheShaderManager = new cShaderManager();
 	pTheShaderManager->setBasePath("assets/shaders/");
@@ -92,7 +98,7 @@ int main(void)
 	if (pTheShaderManager->createProgramFromFile("myShader",
 		vertexShader,
 		fragmentShader))
-	{		// Shaders are OK
+	{
 		std::cout << "Compiled shaders OK." << std::endl;
 	}
 	else
@@ -104,8 +110,6 @@ int main(void)
 	GLuint program = pTheShaderManager->getIDFromFriendlyName("myShader");
 	
 	loadAllMeshes(program);
-	// At this point, mesh in in GPU
-	std::cout << "Mesh was loaded OK" << std::endl;
 
 	// Loading models was moved into this function
 	LoadModelsIntoScene();
@@ -138,8 +142,7 @@ int main(void)
 		glfwGetFramebufferSize(window, &width, &height);
 		ratio = width / (float)height;
 		glViewport(0, 0, width, height);
-
-
+		
 		glEnable(GL_DEPTH);	
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_CULL_FACE);	
@@ -152,29 +155,22 @@ int main(void)
 		g_CameraEye = glm::vec3(thePlayer->m_model->position.x, thePlayer->m_model->position.y, thePlayer->m_model->position.z + 15.0f);
 		g_CameraAt = glm::vec3(thePlayer->m_model->position);
 
-		//position 3D camera
-		matView = glm::lookAt(	g_CameraEye,					// Eye --- place camera in the world
-								g_CameraAt,	// At --- Look at player model
-								glm::vec3(0.0f, 1.0f, 0.0f)
-							 );
+		// Camera eye, at origin, looking up
+		matView = glm::lookAt(g_CameraEye, g_CameraAt, glm::vec3(0.0f, 1.0f, 0.0f));
 
 		//glUniformMatrix4fv(matMoldel_location, 1, GL_FALSE, glm::value_ptr(m));
 		glUniformMatrix4fv(matView_location, 1, GL_FALSE, glm::value_ptr(matView));
 		glUniformMatrix4fv(matProj_location, 1, GL_FALSE, glm::value_ptr(matProjection));
-
-
+		
 		double lastTime = glfwGetTime();
 
 		// Draw all the objects in the "scene"
-		for (unsigned int objIndex = 0;
-			objIndex != (unsigned int)vec_pObjectsToDraw.size();
-			objIndex++)
+		for (unsigned int objIndex = 0; objIndex != (unsigned int)vec_pObjectsToDraw.size(); objIndex++)
 		{
 			glm::mat4x4 matModel = glm::mat4(1.0f);
 			cMeshObject* pCurrentMesh = vec_pObjectsToDraw[objIndex];
 			DrawObject(pCurrentMesh, matModel, program);
-		}//for ( unsigned int objIndex = 0; 
-	
+		}
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
@@ -183,9 +179,7 @@ int main(void)
 		double deltaTime = currentTime - lastTime;
 		lastTime = currentTime;
 
-		//Update physics 
-
-
+		//Update physics
 		gravityUpdate(deltaTime);
 
 		ProcessAsynKeys(window, deltaTime);
@@ -201,8 +195,12 @@ int main(void)
 	exit(EXIT_SUCCESS);
 }
 
+/**
+	Loads the models we are drawing into the vector
 
-// Loads the models we are drawing into the vector
+	@param: void
+	@return: void
+*/
 void LoadModelsIntoScene(void)
 {
 	loadPlayerFromJson();
@@ -212,6 +210,12 @@ void LoadModelsIntoScene(void)
 	return;
 }
 
+/**
+	Finds an object by their "friendly name"
+
+	@param: the name to find
+	@return: the object with that name
+*/
 cMeshObject* findObjectByFriendlyName(std::string theNameToFind)
 {
 	for (unsigned int index = 0; index != vec_pObjectsToDraw.size(); index++)

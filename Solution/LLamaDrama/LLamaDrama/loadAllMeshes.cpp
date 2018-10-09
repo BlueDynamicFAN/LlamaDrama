@@ -1,6 +1,18 @@
+/**
+	loadAllMeshes.cpp
+	Purpose: Loads the meshes into the program
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #include "global.h"
 #include <iostream>
 
+/**
+	Loads the meshes into the program
+
+	@param: the program to laod it into
+	@return: void
+*/
 void loadAllMeshes(GLuint program) {
 	::g_pTheVAOMeshManager = new cVAOMeshManager();
 	

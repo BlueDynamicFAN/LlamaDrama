@@ -1,3 +1,9 @@
+/**
+	sModelDrawInfo.cpp
+	Purpose: Sets all of the information for the struct (sModelDrawInfo taken from Feeney's graphics class)
+	@author: Michael Feeney
+	@version: 1.0.0
+*/
 #include "sModelDrawInfo.h"
 
 sModelDrawInfo::sModelDrawInfo()
@@ -24,10 +30,6 @@ sModelDrawInfo::sModelDrawInfo()
 	this->minX = this->minY = this->minZ = 0.0f;
 	this->extentX = this->extentY = this->extentZ = 0.0f;
 	this->maxExtent = 0.0f;
-
-
-
-
 
 	return;
 }

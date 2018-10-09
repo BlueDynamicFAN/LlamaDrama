@@ -1,3 +1,9 @@
+/**
+	cShaderManager.h
+	Purpose: Manages shaders (Shader manager taken from Feeney's graphics class)
+	@author: Michael Feeney
+	@version: 1.0.0
+*/
 #ifndef _cShaderManager_HG_
 #define _cShaderManager_HG_
 
