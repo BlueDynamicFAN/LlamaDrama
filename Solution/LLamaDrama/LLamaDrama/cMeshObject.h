@@ -1,3 +1,9 @@
+/**
+	cMeshObject.cpp
+	Purpose: Contains the information for a model
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #ifndef _cMeshObject_HG_
 #define _cMeshObject_HG_
 
@@ -11,24 +17,20 @@ class cMeshObject
 public:
 	cMeshObject();
 
-	glm::vec3 preRotation;		// Happens BEFORE translation (move)
-	glm::vec3 position;
-	glm::vec3 postRotation;		// Happens AFTER translation (move)
-	glm::vec3 nonUniformScale;
-	std::string meshName;	// Model to draw
-	std::string friendlyName;	
-	glm::vec3 objColour;
+	glm::vec3 m_preRotation;		// Happens BEFORE translation (move)
+	glm::vec3 m_position;
+	glm::vec3 m_postRotation;		// Happens AFTER translation (move)
+	glm::vec3 m_nonUniformScale;
+	std::string m_meshName;		// Model to draw
+	std::string m_friendlyName;
+	glm::vec3 m_objColour;
 
-	bool bIsWireFrame;	//  = true;  C++
-	bool bIsVisible;
-
+	bool m_bIsWireFrame;
+	bool m_bIsVisible;
 
 	// Child objects inside this one
-	std::vector< cMeshObject* > vec_pChildObjectsToDraw;
+	std::vector< cMeshObject* > m_vec_pChildObjectsToDraw;
 
-
-	// In theory, it's faster. 
-	// Not likely. Suggestion, not a command
 	inline unsigned int getUniqueID(void)
 	{
 		return this->m_uniqueID;

@@ -19,13 +19,13 @@
 /**
 	Draws an object
 
-	@param: current object to draw, model, and sharder program
+	@param: current object to draw, model, and shader program
 	@return: void
 */
 void DrawObject(cMeshObject* pCurrentMesh, glm::mat4x4 &matModel, GLuint shaderProgramID)
 {
 	// Is this object visible
-	if (!pCurrentMesh->bIsVisible)
+	if (!pCurrentMesh->m_bIsVisible)
 	{
 		return;
 	}
@@ -35,45 +35,45 @@ void DrawObject(cMeshObject* pCurrentMesh, glm::mat4x4 &matModel, GLuint shaderP
 
 	// Pre movement rotation
 	glm::mat4 preRot_X = glm::rotate(glm::mat4(1.0f),
-		pCurrentMesh->preRotation.x,
+		pCurrentMesh->m_preRotation.x,
 		glm::vec3(1.0f, 0.0, 0.0f));
 	matModel = matModel * preRot_X;
 
 	glm::mat4 preRot_Y = glm::rotate(glm::mat4(1.0f),
-		pCurrentMesh->preRotation.y,
+		pCurrentMesh->m_preRotation.y,
 		glm::vec3(0.0f, 1.0, 0.0f));
 	matModel = matModel * preRot_Y;
 
 	glm::mat4 preRot_Z = glm::rotate(glm::mat4(1.0f),
-		pCurrentMesh->preRotation.z,
+		pCurrentMesh->m_preRotation.z,
 		glm::vec3(0.0f, 0.0, 1.0f));
 	matModel = matModel * preRot_Z;
 
 	// Movement
 	glm::mat4 matTranslation = glm::translate(glm::mat4(1.0f),
-		pCurrentMesh->position);
+		pCurrentMesh->m_position);
 
 	matModel = matModel * matTranslation;
 
 	// Post movement rotation
 	glm::mat4 postRot_X = glm::rotate(glm::mat4(1.0f),
-		pCurrentMesh->postRotation.x,
+		pCurrentMesh->m_postRotation.x,
 		glm::vec3(1.0f, 0.0, 0.0f));
 	matModel = matModel * postRot_X;
 
 	glm::mat4 postRot_Y = glm::rotate(glm::mat4(1.0f),
-		pCurrentMesh->postRotation.y,
+		pCurrentMesh->m_postRotation.y,
 		glm::vec3(0.0f, 1.0, 0.0f));
 	matModel = matModel * postRot_Y;
 
 	glm::mat4 postRot_Z = glm::rotate(glm::mat4(1.0f),
-		pCurrentMesh->postRotation.z,
+		pCurrentMesh->m_postRotation.z,
 		glm::vec3(0.0f, 0.0, 1.0f));
 	matModel = matModel * postRot_Z;
 
 	// Scale
 	glm::mat4 matScale = glm::scale(glm::mat4(1.0f),
-		pCurrentMesh->nonUniformScale);
+		pCurrentMesh->m_nonUniformScale);
 	matModel = matModel * matScale;
 
 	//************************************
@@ -94,15 +94,15 @@ void DrawObject(cMeshObject* pCurrentMesh, glm::mat4x4 &matModel, GLuint shaderP
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 	glUniform3f(objectColour_UniLoc,
-		pCurrentMesh->objColour.r,
-		pCurrentMesh->objColour.g,
-		pCurrentMesh->objColour.b);
+		pCurrentMesh->m_objColour.r,
+		pCurrentMesh->m_objColour.g,
+		pCurrentMesh->m_objColour.b);
 
 	glUniform3f(lightPos_UniLoc, g_lightPos.x, g_lightPos.y, g_lightPos.z);
 	glUniform1f(lightBrightness_UniLoc, ::g_lightBrightness);
 
 
-	if (pCurrentMesh->bIsWireFrame)
+	if (pCurrentMesh->m_bIsWireFrame)
 	{
 		// Yes, draw it wireframe
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -121,7 +121,7 @@ void DrawObject(cMeshObject* pCurrentMesh, glm::mat4x4 &matModel, GLuint shaderP
 
 
 	sModelDrawInfo modelInfo;
-	modelInfo.meshFileName = pCurrentMesh->meshName;
+	modelInfo.meshFileName = pCurrentMesh->m_meshName;
 
 	if (g_pTheVAOMeshManager->FindDrawInfoByModelName(modelInfo))
 	{

@@ -8,17 +8,17 @@
 
 cMeshObject::cMeshObject()
 {
-	this->preRotation = glm::vec3(0.0f);
-	this->position = glm::vec3(0.0f);
-	this->postRotation = glm::vec3(0.0f);
-	this->nonUniformScale = glm::vec3(1.0f);
-	this->bIsVisible = true;
-	this->bIsWireFrame = false;
+	this->m_preRotation = glm::vec3(0.0f);
+	this->m_position = glm::vec3(0.0f);
+	this->m_postRotation = glm::vec3(0.0f);
+	this->m_nonUniformScale = glm::vec3(1.0f);
+	this->m_bIsVisible = true;
+	this->m_bIsWireFrame = false;
 
 	// Set unique ID
 	this->m_uniqueID = cMeshObject::m_NextID;
 	// Increment
-	cMeshObject::m_NextID++;	
+	cMeshObject::m_NextID++;
 
 	return;
 }

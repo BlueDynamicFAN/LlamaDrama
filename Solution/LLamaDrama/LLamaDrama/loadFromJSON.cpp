@@ -13,12 +13,12 @@
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp> 
 #include "cMeshObject.h"
-#include "Platform.h"
-#include "Player.h"
+#include "cPlatform.h"
+#include "cPlayer.h"
 
 std::vector <cEnemy*> pEnemies;
-std::vector <Platform*> pPlatforms;
-Player* thePlayer;
+std::vector <cPlatform*> pPlatforms;
+cPlayer* thePlayer;
 extern std::vector< cMeshObject* > vec_pObjectsToDraw;
 
 /**
@@ -35,9 +35,9 @@ void loadEnemiesFromJson() {
 	nlohmann::json j;
 	i >> j;
 	i.close();
-	
+
 	for (nlohmann::json::iterator it = j.begin(); it != j.end(); ++it) {
-		
+
 		cEnemy* newEnemy;
 
 		std::string fName = it.key();
@@ -54,8 +54,8 @@ void loadEnemiesFromJson() {
 		j[fName]["positionX"].get_to(x);
 		j[fName]["positionY"].get_to(y);
 		j[fName]["positionZ"].get_to(z);
-		
-		newEnemy = factory->createEnemy(eType, healthLevel, score, glm::vec3(x,y,z) , meshName, fName);
+
+		newEnemy = factory->createEnemy(eType, healthLevel, score, glm::vec3(x, y, z), meshName, fName);
 		pEnemies.push_back(newEnemy);
 		vec_pObjectsToDraw.push_back(newEnemy->m_model);
 	}
@@ -88,9 +88,9 @@ void loadPlatformsFromJson() {
 		j[fName]["g"].get_to(g);
 		j[fName]["b"].get_to(b);
 
-		Platform* thePlatform = new Platform(meshName, fName, h, w, glm::vec3(x, y, z), glm::vec3(r, g, b));
+		cPlatform* thePlatform = new cPlatform(meshName, fName, h, w, glm::vec3(x, y, z), glm::vec3(r, g, b));
 		pPlatforms.push_back(thePlatform);
-		vec_pObjectsToDraw.push_back(thePlatform->model);
+		vec_pObjectsToDraw.push_back(thePlatform->m_model);
 	}
 }
 
@@ -116,7 +116,7 @@ void loadPlayerFromJson() {
 		j[fName]["positionY"].get_to(y);
 		j[fName]["positionZ"].get_to(z);
 
-		thePlayer = new Player(meshName, fName, glm::vec3(x, y, z));
-		vec_pObjectsToDraw.push_back(thePlayer->m_model);
+		thePlayer = cPlayer::getThePlayer(meshName, fName, glm::vec3(x, y, z));
+		vec_pObjectsToDraw.push_back(thePlayer->getModel());
 	}
 }

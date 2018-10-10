@@ -107,7 +107,7 @@ void ProcessAsynKeys(GLFWwindow* window, double deltaTime)
 		{
 			if (isPlayerOnTopOfPlatfrom())
 			{
-				thePlayer->velocity.y = 2.5f * moveSpeed;
+				thePlayer->setVelocityY(2.5f * moveSpeed);
 			}
 		}
 
@@ -115,19 +115,19 @@ void ProcessAsynKeys(GLFWwindow* window, double deltaTime)
 		{
 			if (!isPlayerOnTopOfPlatfrom())
 			{
-				thePlayer->velocity.y = -moveSpeed;
+				thePlayer->setVelocityY(-moveSpeed);
 			}
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_A))
 		{
-			thePlayer->velocity.x = -moveSpeed;
+			thePlayer->setVelocityX(-moveSpeed);
 			movingsUpdate(deltaTime);
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_D))
 		{
-			thePlayer->velocity.x = moveSpeed;
+			thePlayer->setVelocityX(moveSpeed);
 			movingsUpdate(deltaTime);
 		}
 	}//if(AreAllModifiersUp(window)

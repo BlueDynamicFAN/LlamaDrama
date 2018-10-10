@@ -35,10 +35,10 @@ float g_lightBrightness = 4.0f;
 
 unsigned int numberOfObjectsToDraw = 0;
 
-glm::vec3 g_CameraEye; 
+glm::vec3 g_CameraEye;
 glm::vec3 g_CameraAt;
 
-cMeshObject* pRogerRabbit = NULL;	
+cMeshObject* pRogerRabbit = NULL;
 
 cShaderManager* pTheShaderManager = NULL;
 cVAOMeshManager* g_pTheVAOMeshManager = NULL;
@@ -81,7 +81,7 @@ int main(void)
 	glfwMakeContextCurrent(window);
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 	glfwSwapInterval(1);
-	
+
 	// Create the shader manager...
 	pTheShaderManager = new cShaderManager();
 	pTheShaderManager->setBasePath("assets/shaders/");
@@ -108,7 +108,7 @@ int main(void)
 	}
 
 	GLuint program = pTheShaderManager->getIDFromFriendlyName("myShader");
-	
+
 	loadAllMeshes(program);
 
 	// Loading models was moved into this function
@@ -129,31 +129,31 @@ int main(void)
 		// Set the window title for the camera location
 		std::stringstream ssTitle;
 		ssTitle << "Model Selected: "
-			<< ::vec_pObjectsToDraw[SelectedModel]->friendlyName;
+			<< ::vec_pObjectsToDraw[SelectedModel]->m_friendlyName;
 
 		glfwSetWindowTitle(window, ssTitle.str().c_str());
 
 		float ratio;
 		int width, height;
-		
+
 		glm::mat4x4 matProjection = glm::mat4(1.0f);
 		glm::mat4x4	matView = glm::mat4(1.0f);
 
 		glfwGetFramebufferSize(window, &width, &height);
 		ratio = width / (float)height;
 		glViewport(0, 0, width, height);
-		
-		glEnable(GL_DEPTH);	
+
+		glEnable(GL_DEPTH);
 		glEnable(GL_DEPTH_TEST);
-		glEnable(GL_CULL_FACE);	
+		glEnable(GL_CULL_FACE);
 
 		// Colour and depth buffers are TWO DIFF THINGS.
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		matProjection = glm::perspective(0.6f, ratio, 0.1f, 1000.0f);
 
-		g_CameraEye = glm::vec3(thePlayer->m_model->position.x, thePlayer->m_model->position.y, thePlayer->m_model->position.z + 15.0f);
-		g_CameraAt = glm::vec3(thePlayer->m_model->position);
+		g_CameraEye = glm::vec3(thePlayer->getPosition().x, thePlayer->getPosition().y, thePlayer->getPosition().z + 15.0f);
+		g_CameraAt = glm::vec3(thePlayer->getPosition());
 
 		// Camera eye, at origin, looking up
 		matView = glm::lookAt(g_CameraEye, g_CameraAt, glm::vec3(0.0f, 1.0f, 0.0f));
@@ -161,7 +161,7 @@ int main(void)
 		//glUniformMatrix4fv(matMoldel_location, 1, GL_FALSE, glm::value_ptr(m));
 		glUniformMatrix4fv(matView_location, 1, GL_FALSE, glm::value_ptr(matView));
 		glUniformMatrix4fv(matProj_location, 1, GL_FALSE, glm::value_ptr(matProjection));
-		
+
 		double lastTime = glfwGetTime();
 
 		// Draw all the objects in the "scene"
@@ -221,7 +221,7 @@ cMeshObject* findObjectByFriendlyName(std::string theNameToFind)
 	for (unsigned int index = 0; index != vec_pObjectsToDraw.size(); index++)
 	{
 		// Is this it? 
-		if (vec_pObjectsToDraw[index]->friendlyName == theNameToFind)
+		if (vec_pObjectsToDraw[index]->m_friendlyName == theNameToFind)
 		{
 			return vec_pObjectsToDraw[index];
 		}

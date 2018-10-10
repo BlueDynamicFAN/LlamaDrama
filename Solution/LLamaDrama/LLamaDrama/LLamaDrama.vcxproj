@@ -149,6 +149,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cMeshObject.cpp" />
+    <ClCompile Include="cPlayer.cpp" />
     <ClCompile Include="cShader.cpp" />
     <ClCompile Include="cShaderManager.cpp" />
     <ClCompile Include="cVAOMeshManager.cpp" />
@@ -182,8 +183,8 @@
     <ClInclude Include="Enemies\cLevelEnemyType1.h" />
     <ClInclude Include="Enemies\cLevelEnemyType2.h" />
     <ClInclude Include="global.h" />
-    <ClInclude Include="Platform.h" />
-    <ClInclude Include="Player.h" />
+    <ClInclude Include="cPlatform.h" />
+    <ClInclude Include="cPlayer.h" />
     <ClInclude Include="sModelDrawInfo.h" />
     <ClInclude Include="sPlyTriangle.h" />
     <ClInclude Include="sPlyVertex.h" />

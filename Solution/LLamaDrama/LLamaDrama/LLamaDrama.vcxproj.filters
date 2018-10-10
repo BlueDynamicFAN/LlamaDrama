@@ -93,6 +93,9 @@
     <ClCompile Include="DrawObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="global.h">
@@ -140,10 +143,10 @@
     <ClInclude Include="Enemies\cEnemyFactory.h">
       <Filter>Enemies\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Platform.h">
+    <ClInclude Include="cPlatform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="cPlayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

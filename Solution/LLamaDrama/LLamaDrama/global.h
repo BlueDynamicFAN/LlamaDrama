@@ -1,6 +1,11 @@
+/**
+	global.cpp
+	Purpose: Contains the information that needs to be accessed in other files
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #ifndef _global_HG_
 #define _global_HG_
-// global.h 
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -15,9 +20,9 @@
 #include "cMeshObject.h"
 #include "sModelDrawInfo.h"
 #include "cVAOMeshManager.h"
-#include "Player.h"
+#include "cPlayer.h"
 #include "./Enemies/cEnemy.h"
-#include "Platform.h"
+#include "cPlatform.h"
 
 extern glm::vec3 g_CameraEye;	// = glm::vec3( 0.0, 0.0, +10.0f );
 extern glm::vec3 g_CameraAt;	// = glm::vec3( 0.0, 0.0, 0.0f );
@@ -26,16 +31,12 @@ extern glm::vec3 g_CameraAt;	// = glm::vec3( 0.0, 0.0, 0.0f );
 extern glm::vec3 g_lightPos;	// = glm::vec3( 4.0f, 4.0f, 0.0f );
 extern float g_lightBrightness;	// = 1.0f;
 
-// Signature for the ply loader function
-bool LoadPlyFileData(std::string fileName);
-
 // GFLW keyboard callback
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 //void ProcessAsynKeys(GLFWwindow* window);
 void ProcessAsynKeys(GLFWwindow* window, double deltaTime);
 
 cMeshObject* findObjectByFriendlyName(std::string theNameToFind);
-cMeshObject* findObjectByUniqueID(unsigned int IDToFind);
 
 // This is part of the physics stuff
 //void CalculateClosestPointsOnMesh(sModelDrawInfo theMeshDrawInfo,
@@ -62,9 +63,9 @@ void loadEnemiesFromJson();
 void loadPlatformsFromJson();
 void loadPlayerFromJson();
 void loadAllMeshes(GLuint program);
-extern Player* thePlayer;
+extern cPlayer* thePlayer;
 extern std::vector <cEnemy*> pEnemies;
-extern std::vector <Platform*> pPlatforms;
+extern std::vector <cPlatform*> pPlatforms;
 void gravityUpdate(double deltaTime);
 void movingsUpdate(double deltaTime);
 bool isPlayerOnTopOfPlatfrom();

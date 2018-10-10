@@ -31,8 +31,8 @@ cLevelBoss2::cLevelBoss2(unsigned int health, unsigned int score, glm::vec3 posi
 {
 	this->m_healthLevel = health;
 	this->m_scoreValue = score;
-	this->m_model->position = position;
-	this->m_model->meshName = meshName;
+	this->m_model->m_position = position;
+	this->m_model->m_meshName = meshName;
 
 	return;
 }
@@ -44,7 +44,7 @@ cLevelBoss2::cLevelBoss2(unsigned int health, unsigned int score, glm::vec3 posi
 */
 cLevelBoss2::cLevelBoss2(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name) : cLevelBoss2(health, score, position, meshName)
 {
-	this->m_model->friendlyName = name;
+	this->m_model->m_friendlyName = name;
 
 	return;
 }

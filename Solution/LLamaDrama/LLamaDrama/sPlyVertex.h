@@ -1,7 +1,11 @@
+/**
+	sPlyVertex.cpp
+	Purpose: Contains the coordinates for a point
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #ifndef _sPlyVertex_HG_
 #define _sPlyVertex_HG_
-
-/*	sPlyVertex.h	*/
 
 struct sPlyVertex
 {

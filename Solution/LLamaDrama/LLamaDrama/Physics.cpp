@@ -21,14 +21,14 @@ const float GROUND_PLANE_Y = -3.0f;
 */
 bool isPlayerOnTopOfPlatfrom()
 {
-	for (std::vector <Platform*>::iterator itPlatform = pPlatforms.begin();
+	for (std::vector <cPlatform*>::iterator itPlatform = pPlatforms.begin();
 		itPlatform != pPlatforms.end(); itPlatform++)
 	{
-		Platform* thePlatform = *itPlatform;
-		float yLimit = thePlatform->model->position.y + (thePlatform->height) / 2;
-		bool inXLimitsNeg = (thePlayer->m_model->position.x >= thePlatform->model->position.x - thePlatform->width / 2);
-		bool inXLimitsPos = (thePlayer->m_model->position.x <= thePlatform->model->position.x + thePlatform->width / 2);
-		if ((thePlayer->m_model->position.y <= yLimit) && inXLimitsNeg && inXLimitsPos)
+		cPlatform* thePlatform = *itPlatform;
+		float yLimit = thePlatform->m_model->m_position.y + (thePlatform->m_height) / 2;
+		bool inXLimitsNeg = (thePlayer->getPosition().x >= thePlatform->m_model->m_position.x - thePlatform->m_width / 2);
+		bool inXLimitsPos = (thePlayer->getPosition().x <= thePlatform->m_model->m_position.x + thePlatform->m_width / 2);
+		if ((thePlayer->getPosition().y <= yLimit) && inXLimitsNeg && inXLimitsPos)
 		{
 			return true;
 		}
@@ -45,24 +45,24 @@ bool isPlayerOnTopOfPlatfrom()
 void gravityUpdate(double deltaTime)
 {
 	const double LARGEST_DELTATIME = 0.10; //10 ms = 10Hz
-	if (deltaTime > LARGEST_DELTATIME) 
+	if (deltaTime > LARGEST_DELTATIME)
 	{
 		deltaTime = LARGEST_DELTATIME;
 	}
 
-		thePlayer->velocity.y += thePlayer->accel.y * deltaTime;
+	thePlayer->setVelocityY(thePlayer->getVelocity().y + (thePlayer->getAccel().y * deltaTime));
 
-		thePlayer->m_model->position.y += thePlayer->velocity.y * deltaTime;
+	thePlayer->setPositionY(thePlayer->getPosition().y + (thePlayer->getVelocity().y * deltaTime));
 
-		//The object can't go any lower than "the ground"
-		if(isPlayerOnTopOfPlatfrom())
-		{
-			thePlayer->velocity.y = 0.0;
-			thePlayer->accel.y = 0.0;
-		}
-		else {
-			thePlayer->accel.y = -9.8;
-		}
+	//The object can't go any lower than "the ground"
+	if (isPlayerOnTopOfPlatfrom())
+	{
+		thePlayer->setVelocityY(0.0f);
+		thePlayer->setAccelY(0.0f);
+	}
+	else {
+		thePlayer->setAccelY(-9.8f);
+	}
 
 	return;
 }
@@ -80,7 +80,7 @@ void movingsUpdate(double deltaTime)
 		deltaTime = LARGEST_DELTATIME;
 	}
 
-	thePlayer->velocity.x += thePlayer->accel.x * deltaTime;
+	thePlayer->setVelocityX(thePlayer->getVelocity().x + (thePlayer->getAccel().x * deltaTime));
 
-	thePlayer->m_model->position.x += thePlayer->velocity.x * deltaTime;
+	thePlayer->setPositionX(thePlayer->getPosition().x + (thePlayer->getVelocity().x * deltaTime));
 }

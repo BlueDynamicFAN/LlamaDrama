@@ -33,8 +33,8 @@ cLevelEnemyType1::cLevelEnemyType1(unsigned int health, unsigned int score, glm:
 {
 	this->m_healthLevel = health;
 	this->m_scoreValue = score;
-	this->m_model->position = position;
-	this->m_model->meshName = meshName;
+	this->m_model->m_position = position;
+	this->m_model->m_meshName = meshName;
 
 	return;
 }
@@ -46,7 +46,7 @@ cLevelEnemyType1::cLevelEnemyType1(unsigned int health, unsigned int score, glm:
 */
 cLevelEnemyType1::cLevelEnemyType1(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name) : cLevelEnemyType1(health, score, position, meshName)
 {
-	this->m_model->friendlyName = name;
+	this->m_model->m_friendlyName = name;
 
 	return;
 }
