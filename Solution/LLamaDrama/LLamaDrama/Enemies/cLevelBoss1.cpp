@@ -1,6 +1,7 @@
 /**
 	cLevelBoss1.cpp
 
+	Purpose: Contains the information for the level-boss in level 1
 	@author: BlueDynamic
 	@version: 1.0.0
 */
@@ -28,7 +29,7 @@ cLevelBoss1::~cLevelBoss1()
 /**
 		cLevelBoss1 constructor
 
-	@parm: unsigned int health, unsigned int score, glm::vec3 position, std::string meshName
+	@parm: health level, score value of enemy, position in the screem and mesh file name
 */
 cLevelBoss1::cLevelBoss1(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName)
 {
@@ -36,7 +37,7 @@ cLevelBoss1::cLevelBoss1(unsigned int health, unsigned int score, glm::vec3 posi
 	this->m_scoreValue = score;
 	this->m_model->m_position = position;
 	this->m_model->m_meshName = meshName;
-	this->m_model->m_objColour = glm::vec3(1.0f, 1.0f, 0.0f);
+	this->m_model->m_objColour = glm::vec3(1.0f, 1.0f, 0.0f); //Will be removed when we will add textures
 
 	return;
 }
@@ -44,11 +45,11 @@ cLevelBoss1::cLevelBoss1(unsigned int health, unsigned int score, glm::vec3 posi
 /**
 		cLevelBoss1 constructor
 
-	@parm: unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name
+	@parm: health level, score value of enemy, position in the screem, mesh file name, and friendly name of the mesh
 */
-cLevelBoss1::cLevelBoss1(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name) : cLevelBoss1(health, score, position, meshName)
+cLevelBoss1::cLevelBoss1(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string fname) : cLevelBoss1(health, score, position, meshName)
 {
-	this->m_model->m_friendlyName = name;
+	this->m_model->m_friendlyName = fname;
 
 	return;
 }

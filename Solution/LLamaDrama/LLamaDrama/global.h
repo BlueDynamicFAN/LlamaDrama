@@ -24,51 +24,46 @@
 #include "./Enemies/cEnemy.h"
 #include "cPlatform.h"
 
-extern glm::vec3 g_CameraEye;	// = glm::vec3( 0.0, 0.0, +10.0f );
-extern glm::vec3 g_CameraAt;	// = glm::vec3( 0.0, 0.0, 0.0f );
+static const float PI = 3.14159f;
+
+extern glm::vec3 g_CameraEye;
+extern glm::vec3 g_CameraAt;
 
 // NOTE: These are JUST FOR NOW!!!
-extern glm::vec3 g_lightPos;	// = glm::vec3( 4.0f, 4.0f, 0.0f );
-extern float g_lightBrightness;	// = 1.0f;
-
-// GFLW keyboard callback
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
-//void ProcessAsynKeys(GLFWwindow* window);
-void ProcessAsynKeys(GLFWwindow* window, double deltaTime);
-
-cMeshObject* findObjectByFriendlyName(std::string theNameToFind);
-
-// This is part of the physics stuff
-//void CalculateClosestPointsOnMesh(sModelDrawInfo theMeshDrawInfo,
-//	glm::vec3 pointToTest,
-//	std::vector<glm::vec3> &vecPoints);
-
-// function 
-void DrawObject(cMeshObject* pCurrentMesh,
-	glm::mat4x4 &matModel,
-	GLuint shaderProgramID);
-
-extern cVAOMeshManager* g_pTheVAOMeshManager;
+extern glm::vec3 g_lightPos;	
+extern float g_lightBrightness;	
 
 // Vector of Models loaded
 extern unsigned int SelectedModel;
 extern std::vector< cMeshObject* > vec_pObjectsToDraw;
 extern std::vector< std::string > vec_ModelFileNames;
 
-static const float PI = 3.14159f;
+//Game entites
+extern cPlayer* thePlayer;
+extern std::vector <cEnemy*> pEnemies;
+extern std::vector <cPlatform*> pPlatforms;
 
+//Meshes
+extern cVAOMeshManager* g_pTheVAOMeshManager;
+cMeshObject* findObjectByFriendlyName(std::string theNameToFind);
+void DrawObject(cMeshObject* pCurrentMesh,
+	glm::mat4x4 &matModel,
+	GLuint shaderProgramID);
 
-//Keeping distance to not cause a git merge conflict
+// GFLW keyboard callback
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+//void ProcessAsynKeys(GLFWwindow* window);
+void ProcessAsynKeys(GLFWwindow* window, double deltaTime);
+
+//JASON
 void loadEnemiesFromJson();
 void loadPlatformsFromJson();
 void loadPlayerFromJson();
 void loadAllMeshes(GLuint program);
-extern cPlayer* thePlayer;
-extern std::vector <cEnemy*> pEnemies;
-extern std::vector <cPlatform*> pPlatforms;
-void gravityUpdate(double deltaTime);
-void movingsUpdate(double deltaTime);
-bool isPlayerOnTopOfPlatfrom();
 
+//Physics
+void gravityUpdate(double deltaTime);
+void movesUpdate(double deltaTime);
+bool isPlayerOnTopOfAPlatform();
 
 #endif	// _globalStuff_HG_

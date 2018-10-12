@@ -1,6 +1,7 @@
 /**
 	cBoss.h
 
+	Purpose: Contains the information for the generic Boss
 	@author: BlueDynamic
 	@version: 1.0.0
 */

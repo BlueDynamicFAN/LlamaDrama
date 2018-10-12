@@ -13,7 +13,7 @@ class cPlayer
 {
 public:
 	~cPlayer();
-	static cPlayer* getThePlayer(std::string meshName, std::string fName, glm::vec3 position);
+	static cPlayer* getThePlayer(std::string meshName, std::string fName, glm::vec3 position, int healthLevel);
 
 	cMeshObject* getModel();
 	glm::vec3 getVelocity();
@@ -38,7 +38,7 @@ public:
 private:
 	cPlayer();
 
-	cPlayer(std::string meshName, std::string fName, glm::vec3 position);
+	cPlayer(std::string meshName, std::string fName, glm::vec3 position, int healthLevel);
 
 	static cPlayer* pOnlyPlayer;
 

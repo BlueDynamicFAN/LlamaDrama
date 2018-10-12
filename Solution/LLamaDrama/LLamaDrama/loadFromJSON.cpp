@@ -19,7 +19,9 @@
 std::vector <cEnemy*> pEnemies;
 std::vector <cPlatform*> pPlatforms;
 cPlayer* thePlayer;
+cEnemyFactory* factory;
 extern std::vector< cMeshObject* > vec_pObjectsToDraw;
+
 
 /**
 	Loads the ememies from JSON
@@ -29,7 +31,7 @@ extern std::vector< cMeshObject* > vec_pObjectsToDraw;
 */
 void loadEnemiesFromJson() {
 
-	cEnemyFactory* factory = new cEnemyFactory();
+	factory = new cEnemyFactory();
 
 	std::ifstream i("enemies.json");
 	nlohmann::json j;
@@ -110,13 +112,37 @@ void loadPlayerFromJson() {
 		std::string fName = it.key();
 		std::string meshName;
 		float x, y, z;
+		int healthLevel;
 
 		j[fName]["meshFileName"].get_to(meshName);
 		j[fName]["positionX"].get_to(x);
 		j[fName]["positionY"].get_to(y);
 		j[fName]["positionZ"].get_to(z);
+		j[fName]["health"].get_to(healthLevel);
 
-		thePlayer = cPlayer::getThePlayer(meshName, fName, glm::vec3(x, y, z));
+		thePlayer = cPlayer::getThePlayer(meshName, fName, glm::vec3(x, y, z), healthLevel);
 		vec_pObjectsToDraw.push_back(thePlayer->getModel());
 	}
+}
+
+/**
+	deleted created here objects
+
+	@param: void
+	@return: void
+*/
+void deleteModels()
+{
+	for (int i = 0; i != pEnemies.size(); i++)
+	{
+		delete pEnemies[i];
+	}
+
+	for (int i = 0; i != pPlatforms.size(); i++)
+	{
+		delete pPlatforms[i];
+	}
+
+	delete thePlayer;
+	delete factory;
 }

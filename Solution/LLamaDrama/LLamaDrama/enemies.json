@@ -1,11 +1,11 @@
 {
   "hunter": {
-    "type": "levelboss1",
-    "meshFileName": "bun_res3_xyz.ply",
+    "type": "levelBoss1",
+    "meshFileName": "homer.ply",
     "health": 100,
     "score": 100,
-    "positionX": -5.0,
-    "positionY": 0.0,
-    "positionZ": 0.0
+    "positionX": 12.0,
+    "positionY": 0.8,
+    "positionZ": 0.1
   }
 }

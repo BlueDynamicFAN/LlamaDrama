@@ -1,6 +1,7 @@
 /**
 	cLevelBoss2.cpp
 
+	Purpose: Contains the information for the level-boss in level 2
 	@author: BlueDynamic
 	@version: 1.0.0
 */
@@ -25,7 +26,7 @@ cLevelBoss2::~cLevelBoss2()
 /**
 		cLevelBoss2 constructor
 
-	@parm: unsigned int health, unsigned int score, glm::vec3 position, std::string meshName
+	@parm: health level, score value of enemy, position in the screem and mesh file name
 */
 cLevelBoss2::cLevelBoss2(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName)
 {
@@ -40,11 +41,11 @@ cLevelBoss2::cLevelBoss2(unsigned int health, unsigned int score, glm::vec3 posi
 /**
 		cLevelBoss2 constructor
 
-	@parm: unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name
+	@parm: health level, score value of enemy, position in the screem, mesh file name and friendly name of the mesh
 */
-cLevelBoss2::cLevelBoss2(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name) : cLevelBoss2(health, score, position, meshName)
+cLevelBoss2::cLevelBoss2(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string fname) : cLevelBoss2(health, score, position, meshName)
 {
-	this->m_model->m_friendlyName = name;
+	this->m_model->m_friendlyName = fname;
 
 	return;
 }

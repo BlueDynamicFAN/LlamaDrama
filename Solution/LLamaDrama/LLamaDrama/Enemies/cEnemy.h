@@ -1,6 +1,7 @@
 /**
 	cEnemy.h
 
+	Purpose: Contains the information for the generic enemy
 	@author: BlueDynamic
 	@version: 1.0.0
 */

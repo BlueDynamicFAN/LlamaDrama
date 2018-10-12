@@ -2,20 +2,31 @@
   "ground": {
     "meshFileName": "ground.ply",
     "height": 2.7,
-    "width": 90,
-    "positionX": 0.0,
+    "width": 35.1,
+    "positionX": 3.0,
     "positionY": -3.0,
     "positionZ": 0.0,
     "r": 0.439,
     "g": 0.294,
     "b": 0.141
   },
-  "grass": {
+  "grass1": {
     "meshFileName": "grass.ply",
-    "height": 0.675,
-    "width": 22.5,
+    "height": 0.1418,
+    "width": 6.75,
     "positionX": 10.0,
-    "positionY": -1.25,
+    "positionY": 0.0,
+    "positionZ": 0.0,
+    "r": 0.0,
+    "g": 1.0,
+    "b": 0.0
+  },
+  "grass2": {
+    "meshFileName": "grass.ply",
+    "height": 0.1418,
+    "width": 6.75,
+    "positionX": 2.0,
+    "positionY": -0.7,
     "positionZ": 0.0,
     "r": 0.0,
     "g": 1.0,

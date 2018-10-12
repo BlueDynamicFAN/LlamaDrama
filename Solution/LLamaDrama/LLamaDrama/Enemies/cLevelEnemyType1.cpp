@@ -1,6 +1,7 @@
 /**
 	cLevelEnemyType1.cpp
 
+	Purpose: Contains the information for the simple enemy in level 1
 	@author: BlueDynamic
 	@version: 1.0.0
 */
@@ -27,7 +28,7 @@ cLevelEnemyType1::~cLevelEnemyType1()
 /**
 		cLevelEnemyType1 constructor
 
-	@parm: unsigned int health, unsigned int score, glm::vec3 position, std::string meshName
+	@parm: health level, score value of enemy, position in the screem and mesh file name
 */
 cLevelEnemyType1::cLevelEnemyType1(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName)
 {
@@ -42,11 +43,11 @@ cLevelEnemyType1::cLevelEnemyType1(unsigned int health, unsigned int score, glm:
 /**
 		cLevelEnemyType1 constructor
 
-	@parm: unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name
+	@parm: health level, score value of enemy, position in the screem, mesh file name, and friendly name of the mesh
 */
-cLevelEnemyType1::cLevelEnemyType1(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name) : cLevelEnemyType1(health, score, position, meshName)
+cLevelEnemyType1::cLevelEnemyType1(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string fname) : cLevelEnemyType1(health, score, position, meshName)
 {
-	this->m_model->m_friendlyName = name;
+	this->m_model->m_friendlyName = fname;
 
 	return;
 }

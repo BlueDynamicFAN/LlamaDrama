@@ -15,11 +15,11 @@ cPlayer* cPlayer::pOnlyPlayer = NULL;
 	@param: the name of the mesh, friendly name and the position of the player
 	@return: the player
 */
-cPlayer* cPlayer::getThePlayer(std::string meshName, std::string fName, glm::vec3 position)
+cPlayer* cPlayer::getThePlayer(std::string meshName, std::string fName, glm::vec3 position, int healthLevel)
 {
 	if (pOnlyPlayer == NULL)
 	{
-		pOnlyPlayer = new cPlayer(meshName, fName, position);
+		pOnlyPlayer = new cPlayer(meshName, fName, position, healthLevel);
 	}
 	return pOnlyPlayer;
 }
@@ -33,30 +33,25 @@ cPlayer* cPlayer::getThePlayer(std::string meshName, std::string fName, glm::vec
 cPlayer::cPlayer()
 {
 	this->m_model = new cMeshObject();
-	this->m_model->m_objColour = glm::vec3(1.0f, 1.0f, 1.0f);
-	this->m_velocity = glm::vec3(1.0f, 0.0f, 0.0f);
-	this->m_accel = glm::vec3(0.0f, -9.8f, 0.0f);
+	this->m_model->m_objColour = glm::vec3(1.0f, 1.0f, 1.0f); //Will be removed when we add textures
+	this->m_velocity = glm::vec3(0.0f, 0.0f, 0.0f);
+	this->m_accel = glm::vec3(0.0f, 0.0f, 0.0f);
+	this->m_playerScore = 0;
+	this->m_numberOfKeys = 0;
 }
 
 /**
-	Constructor with info
+	Constructor with info, calls default constractor for initial set up
 
 	@param: the name of the mesh, friendly name and the position of the player
 	@return: void
 */
-cPlayer::cPlayer(std::string meshName, std::string fName, glm::vec3 position) : cPlayer()
+cPlayer::cPlayer(std::string meshName, std::string fName, glm::vec3 position, int healthLevel) : cPlayer()
 {
-	this->m_model = new cMeshObject();
 	this->m_model->m_meshName = meshName;
 	this->m_model->m_friendlyName = fName;
 	this->m_model->m_position = position;
-	this->m_model->m_objColour = glm::vec3(1.0f, 1.0f, 1.0f);
-	this->m_velocity = glm::vec3(1.0f, 0.0f, 0.0f);
-	this->m_accel = glm::vec3(0.0f, -9.8f, 0.0f);
-
-	this->m_playerHealth = 100;
-	this->m_playerScore = 0;
-	this->m_numberOfKeys = 0;
+	this->m_playerHealth = healthLevel;
 }
 
 /**

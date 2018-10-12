@@ -1,6 +1,7 @@
 /**
 	cEnemy.cpp
 
+	Purpose: Contains the information for generic Enemy
 	@author: BlueDynamic
 	@version: 1.0.0
 */

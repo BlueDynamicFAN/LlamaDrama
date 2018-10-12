@@ -31,7 +31,7 @@ std::vector< std::string > vec_ModelFileNames;
 
 // To the right, up 4.0 units, along the x axis
 glm::vec3 g_lightPos = glm::vec3(4.0f, 4.0f, 0.0f);
-float g_lightBrightness = 4.0f;
+float g_lightBrightness = 6.0f;
 
 unsigned int numberOfObjectsToDraw = 0;
 
@@ -45,6 +45,8 @@ cVAOMeshManager* g_pTheVAOMeshManager = NULL;
 
 // Loads the models we are drawing into the vector
 void LoadModelsIntoScene(void);
+//Delete models objects
+void deleteModels();
 
 /**
 	Displays an error message
@@ -189,6 +191,7 @@ int main(void)
 	// Delete stuff
 	delete pTheShaderManager;
 	delete ::g_pTheVAOMeshManager;
+	void deleteModels();
 
 	glfwDestroyWindow(window);
 	glfwTerminate();

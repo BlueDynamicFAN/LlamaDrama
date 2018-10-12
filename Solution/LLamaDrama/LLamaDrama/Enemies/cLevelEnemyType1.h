@@ -1,6 +1,7 @@
 /**
 	cLevelEnemyType1.h
 
+	Purpose: Contains the information for the simple enemy in level 1
 	@author: BlueDynamic
 	@version: 1.0.0
 */
@@ -15,7 +16,7 @@ public:
 	~cLevelEnemyType1();
 
 	cLevelEnemyType1(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName);
-	cLevelEnemyType1(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name);
+	cLevelEnemyType1(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string fname);
 
 	void attack(void);
 	void die(void);

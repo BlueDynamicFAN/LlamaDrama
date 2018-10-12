@@ -1,6 +1,7 @@
 /**
 	cFinalBoss.cpp
 
+	Purpose: Contains the information for the Final boss
 	@author: BlueDynamic
 	@version: 1.0.0
 */
@@ -26,7 +27,7 @@ cFinalBoss::~cFinalBoss()
 /**
 		cFinalBoss constructor
 
-	@parm: unsigned int health, unsigned int score, glm::vec3 position, std::string meshName
+	@parm: health level, score value of enemy, position in the screem and mesh file name
 */
 cFinalBoss::cFinalBoss(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName)
 {
@@ -41,11 +42,11 @@ cFinalBoss::cFinalBoss(unsigned int health, unsigned int score, glm::vec3 positi
 /**
 		cFinalBoss constructor
 
-	@parm: unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name
+	@parm: health level, score value of enemy, position in the screem, mesh file name, and friendly name of the mesh
 */
-cFinalBoss::cFinalBoss(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string name) : cFinalBoss(health, score, position, meshName)
+cFinalBoss::cFinalBoss(unsigned int health, unsigned int score, glm::vec3 position, std::string meshName, std::string fname) : cFinalBoss(health, score, position, meshName)
 {
-	this->m_model->m_friendlyName = name;
+	this->m_model->m_friendlyName = fname;
 
 	return;
 }

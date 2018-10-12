@@ -11,24 +11,27 @@
 #include <iostream>
 #include <vector>
 
-const float GROUND_PLANE_Y = -3.0f;
-
 /**
 	Checks if the player is on top of a platform
 
 	@param: void
 	@return: true or false
 */
-bool isPlayerOnTopOfPlatfrom()
+bool isPlayerOnTopOfAPlatform()
 {
+	const float EPSILON = 0.05;
+	const float OFFSET = 0.1;
 	for (std::vector <cPlatform*>::iterator itPlatform = pPlatforms.begin();
 		itPlatform != pPlatforms.end(); itPlatform++)
 	{
 		cPlatform* thePlatform = *itPlatform;
 		float yLimit = thePlatform->m_model->m_position.y + (thePlatform->m_height) / 2;
-		bool inXLimitsNeg = (thePlayer->getPosition().x >= thePlatform->m_model->m_position.x - thePlatform->m_width / 2);
-		bool inXLimitsPos = (thePlayer->getPosition().x <= thePlatform->m_model->m_position.x + thePlatform->m_width / 2);
-		if ((thePlayer->getPosition().y <= yLimit) && inXLimitsNeg && inXLimitsPos)
+		bool inYLimit = abs(thePlayer->getPosition().y - yLimit) <= EPSILON;
+		/*bool inXLimitsNeg = (thePlayer->getPosition().x >= thePlatform->m_model->m_position.x - thePlatform->m_width / 2);
+		bool inXLimitsPos = (thePlayer->getPosition().x <= thePlatform->m_model->m_position.x + thePlatform->m_width / 2);*/
+		bool inXLimitsNeg = (thePlayer->getPosition().x + OFFSET >= thePlatform->m_model->m_position.x - thePlatform->m_width / 2);
+		bool inXLimitsPos = (thePlayer->getPosition().x - OFFSET <= thePlatform->m_model->m_position.x + thePlatform->m_width / 2);
+		if (inYLimit && inXLimitsNeg && inXLimitsPos)
 		{
 			return true;
 		}
@@ -55,7 +58,7 @@ void gravityUpdate(double deltaTime)
 	thePlayer->setPositionY(thePlayer->getPosition().y + (thePlayer->getVelocity().y * deltaTime));
 
 	//The object can't go any lower than "the ground"
-	if (isPlayerOnTopOfPlatfrom())
+	if (isPlayerOnTopOfAPlatform())
 	{
 		thePlayer->setVelocityY(0.0f);
 		thePlayer->setAccelY(0.0f);
@@ -68,12 +71,12 @@ void gravityUpdate(double deltaTime)
 }
 
 /**
-	Updates the movement of the player each frame
+	Updates the movement of the player on user input
 
 	@param: the time
 	@return: void
 */
-void movingsUpdate(double deltaTime)
+void movesUpdate(double deltaTime)
 {
 	const double LARGEST_DELTATIME = 0.10; //10 ms = 10Hz
 	if (deltaTime > LARGEST_DELTATIME) {

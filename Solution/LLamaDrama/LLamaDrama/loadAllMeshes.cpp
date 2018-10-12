@@ -16,13 +16,13 @@
 void loadAllMeshes(GLuint program) {
 	::g_pTheVAOMeshManager = new cVAOMeshManager();
 	
-	sModelDrawInfo bunnyInfo;
-	bunnyInfo.meshFileName = "bun_res3_xyz.ply";
-	if (!::g_pTheVAOMeshManager->LoadModelIntoVAO(bunnyInfo, program))
+	sModelDrawInfo LevelBoss1Info;
+	LevelBoss1Info.meshFileName = "homer.ply";
+	if (!::g_pTheVAOMeshManager->LoadModelIntoVAO(LevelBoss1Info, program))
 	{
-		std::cout << "Didn't load the bunny" << std::endl;
+		std::cout << "Didn't load the player mesh" << std::endl;
 	}
-	vec_ModelFileNames.push_back(bunnyInfo.meshFileName);
+	vec_ModelFileNames.push_back(LevelBoss1Info.meshFileName);
 
 	sModelDrawInfo grassInfo;
 	grassInfo.meshFileName = "grass.ply";

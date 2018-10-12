@@ -86,7 +86,7 @@ bool AreAllModifiersUp(GLFWwindow* window)
 /**
 	Processes the key input
 
-	@param: current window
+	@param: current window, delatTime
 	@return: void
 */
 void ProcessAsynKeys(GLFWwindow* window, double deltaTime)
@@ -100,12 +100,12 @@ void ProcessAsynKeys(GLFWwindow* window, double deltaTime)
 		cameraSpeed = CAMERA_SPEED_FAST;
 	}
 
-	// If no keys are down, move the camera
+	// If no keys are down, move the player
 	if (AreAllModifiersUp(window))
 	{
 		if (glfwGetKey(window, GLFW_KEY_W))
 		{
-			if (isPlayerOnTopOfPlatfrom())
+			if (isPlayerOnTopOfAPlatform())
 			{
 				thePlayer->setVelocityY(2.5f * moveSpeed);
 			}
@@ -113,7 +113,7 @@ void ProcessAsynKeys(GLFWwindow* window, double deltaTime)
 
 		if (glfwGetKey(window, GLFW_KEY_S))
 		{
-			if (!isPlayerOnTopOfPlatfrom())
+			if (!isPlayerOnTopOfAPlatform())
 			{
 				thePlayer->setVelocityY(-moveSpeed);
 			}
@@ -122,18 +122,18 @@ void ProcessAsynKeys(GLFWwindow* window, double deltaTime)
 		if (glfwGetKey(window, GLFW_KEY_A))
 		{
 			thePlayer->setVelocityX(-moveSpeed);
-			movingsUpdate(deltaTime);
+			movesUpdate(deltaTime);
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_D))
 		{
 			thePlayer->setVelocityX(moveSpeed);
-			movingsUpdate(deltaTime);
+			movesUpdate(deltaTime);
 		}
 	}//if(AreAllModifiersUp(window)
 
 
-	// Control (ctrl) key down? Player moves 
+	// Control (ctrl) key down? move the camera. Used for debuging
 	if (IsCtrlDown(window))
 	{
 		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
