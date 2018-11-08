@@ -107,13 +107,13 @@ void loadPlatformsFromJson() {
 		j[fName]["positionY"].get_to(thePlatform->m_model->m_position.y);
 		j[fName]["positionZ"].get_to(thePlatform->m_model->m_position.z);
 	
-		j[fName]["textuteName"].get_to(texture.name);
-		j[fName]["textureStren"].get_to(texture.strength);
 		j[fName]["bIsVisiable"].get_to(thePlatform->m_model->m_bIsVisible);
-		j[fName]["noLight"].get_to(thePlatform->m_model->bDontLight);
 		j[fName]["bUseVertexColour"].get_to(thePlatform->m_model->bUseVertexColour);
 		std::vector<float> diffuse = j[fName]["diffuse"];
 		std::vector<float> specular = j[fName]["specular"];
+		j[fName]["noLight"].get_to(thePlatform->m_model->bDontLight);
+		j[fName]["textureStren"].get_to(texture.strength);
+		j[fName]["textuteName"].get_to(texture.name);
 
 		thePlatform->m_model->vecTextures.push_back(texture);
 		thePlatform->m_model->setDiffuseColour(glm::vec3(diffuse[0], diffuse[1], diffuse[2]));
@@ -121,7 +121,6 @@ void loadPlatformsFromJson() {
 		thePlatform->m_model->setSpecularPower(specular[3]);
 		thePlatform->m_model->setSpecularColour(glm::vec3(specular[0], specular[1], specular[2]));
 
-		
 		pPlatforms.push_back(thePlatform);
 		vec_pObjectsToDraw.push_back(thePlatform->m_model);
 	}

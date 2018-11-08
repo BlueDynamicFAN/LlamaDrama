@@ -204,7 +204,10 @@
   <ItemGroup>
     <None Include="assets\shaders\fragment01.glsl" />
     <None Include="assets\shaders\vertex01.glsl" />
+    <None Include="enemies.json" />
     <None Include="lights1.json" />
+    <None Include="platforms.json" />
+    <None Include="player.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

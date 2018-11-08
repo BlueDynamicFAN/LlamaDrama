@@ -1,5 +1,5 @@
 {
-  "ground": {
+  "grounda": {
     "meshFileName": "ground_blender_uv.ply",
     "height": 2.7,
     "width": 35.1,
@@ -24,6 +24,622 @@
     "textureStren": 1.0,
     "textuteName": "stones.bmp"
   },
+  "groundb": {
+    "meshFileName": "ground_blender_uv.ply",
+    "height": 2.7,
+    "width": 35.1,
+    "positionX": 38.1,
+    "positionY": -3.0,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": "stones.bmp"
+  },
+  "groundc": {
+    "meshFileName": "ground_blender_uv.ply",
+    "height": 2.7,
+    "width": 35.1,
+    "positionX": 82.7,
+    "positionY": -3.0,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": "stones.bmp"
+  },
+
+
+  "block1a": {
+    "meshFileName": "block1_xyz_n.ply",
+    "height": 0.3,
+    "width": 2.0,
+    "positionX": 2.0,
+    "positionY": 0.0,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.7,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block1b": {
+    "meshFileName": "block1_xyz_n.ply",
+    "height": 0.3,
+    "width": 2.0,
+    "positionX": 8.0,
+    "positionY": 0.0,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.7,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block1c": {
+    "meshFileName": "block1_xyz_n.ply",
+    "height": 0.3,
+    "width": 2.0,
+    "positionX": 10.0,
+    "positionY": 0.0,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.7,
+      1.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block1d": {
+    "meshFileName": "block1_xyz_n.ply",
+    "height": 0.3,
+    "width": 2.0,
+    "positionX": 12.0,
+    "positionY": 0.0,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.7,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block1e": {
+    "meshFileName": "block1_xyz_n.ply",
+    "height": 0.3,
+    "width": 2.0,
+    "positionX": 14.0,
+    "positionY": 0.0,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.7,
+      1.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block1f": {
+    "meshFileName": "block1_xyz_n.ply",
+    "height": 0.3,
+    "width": 2.0,
+    "positionX": 16.0,
+    "positionY": 0.0,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.7,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block1g": {
+    "meshFileName": "block1_xyz_n.ply",
+    "height": 0.3,
+    "width": 2.0,
+    "positionX": 12.0,
+    "positionY": 1.8,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.7,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block1h": {
+    "meshFileName": "block1_xyz_n.ply",
+    "height": 0.3,
+    "width": 2.0,
+    "positionX": 27.0,
+    "positionY": 1.8,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.7,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block1i": {
+    "meshFileName": "block1_xyz_n.ply",
+    "height": 0.3,
+    "width": 2.0,
+    "positionX": 31.0,
+    "positionY": 5.5,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.7,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block1j": {
+    "meshFileName": "block1_xyz_n.ply",
+    "height": 0.3,
+    "width": 2.0,
+    "positionX": 36.0,
+    "positionY": 6.5,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.7,
+      1.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block1k": {
+    "meshFileName": "block1_xyz_n.ply",
+    "height": 0.3,
+    "width": 2.0,
+    "positionX": 41.0,
+    "positionY": 7.5,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.7,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block1l": {
+    "meshFileName": "block1_xyz_n.ply",
+    "height": 0.3,
+    "width": 2.0,
+    "positionX": 46.0,
+    "positionY": 2.5,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.7,
+      1.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+
+
+
+  "block2a": {
+    "meshFileName": "block2_xyz_n.ply",
+    "height": 1.8,
+    "width": 2.0,
+    "positionX": 23.0,
+    "positionY": -0.75,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.3,
+      0.6,
+      0.4,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block2d": {
+    "meshFileName": "block2_xyz_n.ply",
+    "height": 1.8,
+    "width": 2.0,
+    "positionX": 31.0,
+    "positionY": 2.85,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.3,
+      0.6,
+      0.4,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block2e": {
+    "meshFileName": "block2_xyz_n.ply",
+    "height": 1.8,
+    "width": 2.0,
+    "positionX": 51.0,
+    "positionY": -0.75,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.3,
+      0.6,
+      0.4,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block2f": {
+    "meshFileName": "block2_xyz_n.ply",
+    "height": 1.8,
+    "width": 2.0,
+    "positionX": 51.0,
+    "positionY": 1.05,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.3,
+      0.6,
+      0.4,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block2g": {
+    "meshFileName": "block2_xyz_n.ply",
+    "height": 1.8,
+    "width": 2.0,
+    "positionX": 51.0,
+    "positionY": 2.85,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.3,
+      0.6,
+      0.4,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+
+  "block3a": {
+    "meshFileName": "block3_xyz_n.ply",
+    "height": 1.8,
+    "width": 4.0,
+    "positionX": 32.0,
+    "positionY": -0.75,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.8,
+      0.2,
+      0.4,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+
+  "block4a": {
+    "meshFileName": "block4_xyz_n.ply",
+    "height": 1.8,
+    "width": 3.0,
+    "positionX": 31.5,
+    "positionY": 1.05,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.2,
+      0.4,
+      0.8,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+
+  "block5a": {
+    "meshFileName": "block5_xyz_n.ply",
+    "height": 2.7,
+    "width": 0.5,
+    "positionX": 57.0,
+    "positionY": -3.0,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.8,
+      0.4,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block5b": {
+    "meshFileName": "block5_xyz_n.ply",
+    "height": 2.7,
+    "width": 0.5,
+    "positionX": 61.0,
+    "positionY": -3.0,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.8,
+      0.4,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  },
+  "block5c": {
+    "meshFileName": "block5_xyz_n.ply",
+    "height": 2.7,
+    "width": 0.5,
+    "positionX": 65.0,
+    "positionY": -3.0,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.6,
+      0.8,
+      0.4,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
+  }
+
+
+
+}
+
+/*
+
+
   "grass1": {
     "meshFileName": "grass.ply",
     "height": 0.1418,
@@ -73,5 +689,6 @@
     ],
     "textureStren": 1.0,
     "textuteName": ""
-  }
-}
+  },
+
+*/

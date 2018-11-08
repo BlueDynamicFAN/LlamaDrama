@@ -37,6 +37,9 @@
     <Filter Include="Textures">
       <UniqueIdentifier>{883a6153-888e-4d36-8230-5ffcf8582edb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JSON Files">
+      <UniqueIdentifier>{b0618654-e71a-4591-8f39-746e27eb61c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -201,6 +204,15 @@
     </None>
     <None Include="assets\shaders\vertex01.glsl">
       <Filter>Shader Manager\Shaders</Filter>
+    </None>
+    <None Include="enemies.json">
+      <Filter>JSON Files</Filter>
+    </None>
+    <None Include="platforms.json">
+      <Filter>JSON Files</Filter>
+    </None>
+    <None Include="player.json">
+      <Filter>JSON Files</Filter>
     </None>
   </ItemGroup>
 </Project>
