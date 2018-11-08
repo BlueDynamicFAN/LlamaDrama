@@ -24,6 +24,8 @@
 #include "cVAOMeshManager.h"
 #include "./Enemies/cEnemyFactory.h"
 #include "./Enemies/cFinalBoss.h"
+#include "cLightHelper.h"
+
 
 unsigned int SelectedModel = 0;
 std::vector< cMeshObject* > vec_pObjectsToDraw;
@@ -42,6 +44,8 @@ cMeshObject* pRogerRabbit = NULL;
 
 cShaderManager* pTheShaderManager = NULL;
 cVAOMeshManager* g_pTheVAOMeshManager = NULL;
+cBasicTextureManager* g_pTheTextureManager = NULL;
+cLightManager* pLightManager = NULL;
 
 // Loads the models we are drawing into the vector
 void LoadModelsIntoScene(void);
@@ -62,7 +66,7 @@ static void error_callback(int error, const char* description)
 int main(void)
 {
 	GLFWwindow* window;
-
+	pLightManager = new cLightManager();
 	glfwSetErrorCallback(error_callback);
 
 	if (!glfwInit())
@@ -94,7 +98,7 @@ int main(void)
 	vertexShader.fileName = "vertex01.glsl";
 	vertexShader.shaderType = cShaderManager::cShader::VERTEX_SHADER;
 
-	fragmentShader.fileName = "fragment01.glsl";
+	fragmentShader.fileName = "fragment.glsl";
 	fragmentShader.shaderType = cShaderManager::cShader::FRAGMENT_SHADER;
 
 	if (pTheShaderManager->createProgramFromFile("myShader",
@@ -109,8 +113,25 @@ int main(void)
 		std::cout << pTheShaderManager->getLastError() << std::endl;
 	}
 
+	// Load the uniform location values (some of them, anyway)
+	cShaderManager::cShaderProgram* pSP = ::pTheShaderManager->pGetShaderProgramFromFriendlyName("myShader");
+	pSP->LoadUniformLocation("texture00");
+	pSP->LoadUniformLocation("texture01");
+	pSP->LoadUniformLocation("texture02");
+	pSP->LoadUniformLocation("texture03");
+	pSP->LoadUniformLocation("texture04");
+	pSP->LoadUniformLocation("texture05");
+	pSP->LoadUniformLocation("texture06");
+	pSP->LoadUniformLocation("texture07");
+	pSP->LoadUniformLocation("texBlendWeights[0]");
+	pSP->LoadUniformLocation("texBlendWeights[1]");
+
+	// Create the texture manager
+	::g_pTheTextureManager = new cBasicTextureManager();
+
 	GLuint program = pTheShaderManager->getIDFromFriendlyName("myShader");
 
+	pLightManager->setLights(program, "lights1.json");
 	loadAllMeshes(program);
 
 	// Loading models was moved into this function
@@ -118,12 +139,13 @@ int main(void)
 
 	// Loading the uniform variables here (rather than the inner draw loop)
 	GLint objectColour_UniLoc = glGetUniformLocation(program, "objectColour");
-	GLint lightPos_UniLoc = glGetUniformLocation(program, "lightPos");
-	GLint lightBrightness_UniLoc = glGetUniformLocation(program, "lightBrightness");
-
+	
 	GLint matModel_location = glGetUniformLocation(program, "matModel");
 	GLint matView_location = glGetUniformLocation(program, "matView");
 	GLint matProj_location = glGetUniformLocation(program, "matProj");
+
+	GLint eyeLocation_location = glGetUniformLocation(program, "eyeLocation");
+
 
 	// Draw the "scene" (run the program)
 	while (!glfwWindowShouldClose(window))
@@ -161,11 +183,13 @@ int main(void)
 		matView = glm::lookAt(g_CameraEye, g_CameraAt, glm::vec3(0.0f, 1.0f, 0.0f));
 
 		//glUniformMatrix4fv(matMoldel_location, 1, GL_FALSE, glm::value_ptr(m));
+		glUniform3f(eyeLocation_location, ::g_CameraEye.x, ::g_CameraEye.y, ::g_CameraEye.z);
 		glUniformMatrix4fv(matView_location, 1, GL_FALSE, glm::value_ptr(matView));
 		glUniformMatrix4fv(matProj_location, 1, GL_FALSE, glm::value_ptr(matProjection));
 
 		double lastTime = glfwGetTime();
 
+		pLightManager->setLights(program, "lights1.json");
 		// Draw all the objects in the "scene"
 		for (unsigned int objIndex = 0; objIndex != (unsigned int)vec_pObjectsToDraw.size(); objIndex++)
 		{
@@ -192,6 +216,7 @@ int main(void)
 	delete pTheShaderManager;
 	delete ::g_pTheVAOMeshManager;
 	void deleteModels();
+	delete pLightManager;
 
 	glfwDestroyWindow(window);
 	glfwTerminate();

@@ -31,5 +31,11 @@ sModelDrawInfo::sModelDrawInfo()
 	this->extentX = this->extentY = this->extentZ = 0.0f;
 	this->maxExtent = 0.0f;
 
+
+	this->bVertexBufferIsDynamic = false;	
+
+	bool bIsIndexedModel = true;	
+
 	return;
 }
+

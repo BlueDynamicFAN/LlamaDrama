@@ -33,7 +33,7 @@ public:
 	void setPlayerHealth(unsigned int playerHealth);
 	void setPlayerScore(unsigned int playerScore);
 	void setNumberOfKeys(unsigned int playerKeys);
-
+	cMeshObject* m_model;
 
 private:
 	cPlayer();
@@ -42,7 +42,7 @@ private:
 
 	static cPlayer* pOnlyPlayer;
 
-	cMeshObject* m_model;
+	//cMeshObject* m_model;
 	glm::vec3 m_velocity;
 	glm::vec3 m_accel;
 

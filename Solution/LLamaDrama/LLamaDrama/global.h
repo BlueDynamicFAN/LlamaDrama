@@ -23,15 +23,16 @@
 #include "cPlayer.h"
 #include "./Enemies/cEnemy.h"
 #include "cPlatform.h"
+#include "TextureManager/cBasicTextureManager.h"
+#include "cLightManager.h"
 
 static const float PI = 3.14159f;
 
 extern glm::vec3 g_CameraEye;
 extern glm::vec3 g_CameraAt;
 
-// NOTE: These are JUST FOR NOW!!!
-extern glm::vec3 g_lightPos;	
-extern float g_lightBrightness;	
+
+extern cBasicTextureManager* g_pTheTextureManager;
 
 // Vector of Models loaded
 extern unsigned int SelectedModel;

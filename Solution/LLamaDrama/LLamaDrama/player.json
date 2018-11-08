@@ -1,9 +1,26 @@
 {
   "player": {
-    "meshFileName": "bun_res3_xyz_big.ply",
+    "meshFileName": "Llama.ply",
     "positionX": -6.0,
     "positionY": 0.0,
     "positionZ": 0.5,
-    "health": 100
+    "health": 100,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": "uv3.bmp"
   }
 }

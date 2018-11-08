@@ -12,6 +12,13 @@
 #include <string>
 #include <vector>
 
+struct sTextureInfo
+{
+	std::string name;
+	int cachedTextureID; 	// Set to -1 by default
+	float strength;		// Set to 0.0f by default
+};
+
 class cMeshObject
 {
 public:
@@ -25,11 +32,22 @@ public:
 	std::string m_friendlyName;
 	glm::vec3 m_objColour;
 
+	bool bUseVertexColour;
 	bool m_bIsWireFrame;
 	bool m_bIsVisible;
+	bool bDontLight;
 
 	// Child objects inside this one
 	std::vector< cMeshObject* > m_vec_pChildObjectsToDraw;
+	std::vector<sTextureInfo> vecTextures;
+
+	glm::vec4 materialDiffuse;		// RGB+Alpha
+	void setDiffuseColour(glm::vec3 newDiffuse);
+	void setAlphaTransparency(float newAlpha);
+	glm::vec4 materialSpecular;		// RGB+specular power
+	void setSpecularColour(glm::vec3 colourRGB);
+	void setSpecularPower(float specPower);
+
 
 	inline unsigned int getUniqueID(void)
 	{

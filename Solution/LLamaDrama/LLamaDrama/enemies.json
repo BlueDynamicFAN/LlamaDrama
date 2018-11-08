@@ -6,6 +6,22 @@
     "score": 100,
     "positionX": 12.0,
     "positionY": 0.8,
-    "positionZ": 0.1
+    "positionZ": 0.1,
+	"bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+            1.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+	"noLight": true,
+	"specular": [
+            1.0,
+            1.0,
+            1.0,
+            1.0 ],
+    "textureStren": 1.0,
+    "textuteName": "apple.bmp"
   }
 }

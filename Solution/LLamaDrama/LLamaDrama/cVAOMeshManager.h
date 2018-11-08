@@ -30,7 +30,7 @@ public:
 
 	// Looks up draw info by name (meshFileName)			
 	bool FindDrawInfoByModelName(sModelDrawInfo &drawInfo);
-
+	void UpdateModelVertexInformation(sModelDrawInfo &drawInfo);
 	void ShutDown(void);
 
 	std::string GetLastError(bool bClear = true);

@@ -1,14 +1,28 @@
 {
   "ground": {
-    "meshFileName": "ground.ply",
+    "meshFileName": "ground_blender_uv.ply",
     "height": 2.7,
     "width": 35.1,
     "positionX": 3.0,
     "positionY": -3.0,
     "positionZ": 0.0,
-    "r": 0.439,
-    "g": 0.294,
-    "b": 0.141
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": "stones.bmp"
   },
   "grass1": {
     "meshFileName": "grass.ply",
@@ -17,9 +31,23 @@
     "positionX": 10.0,
     "positionY": 0.0,
     "positionZ": 0.0,
-    "r": 0.0,
-    "g": 1.0,
-    "b": 0.0
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.0,
+      1.0,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
   },
   "grass2": {
     "meshFileName": "grass.ply",
@@ -28,8 +56,22 @@
     "positionX": 2.0,
     "positionY": -0.7,
     "positionZ": 0.0,
-    "r": 0.0,
-    "g": 1.0,
-    "b": 0.0
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.0,
+      1.0,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": ""
   }
 }
