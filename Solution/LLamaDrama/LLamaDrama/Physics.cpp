@@ -19,8 +19,8 @@
 */
 bool isPlayerOnTopOfAPlatform()
 {
-	const float EPSILON = 0.05;
-	const float OFFSET = 0.1;
+	const float EPSILON = 0.05f;
+	const float OFFSET = 0.1f;
 	for (std::vector <cPlatform*>::iterator itPlatform = pPlatforms.begin();
 		itPlatform != pPlatforms.end(); itPlatform++)
 	{
