@@ -1,27 +1,31 @@
 {
   "coin1": {
     "type": "coin",
-    "meshFileName": "coin.ply",
-    "value": 10,
-    "positionX": 70.0,
-    "positionY": 1.0,
-    "positionZ": 0.1,
-    "bIsVisiable": true,
-    "bUseVertexColour": false,
-    "diffuse": [
-      0.0,
-      0.0,
-      0.0,
-      1.0
-    ],
-    "noLight": true,
-    "specular": [
-      1.0,
-      1.0,
-      1.0,
-      1.0
-    ],
-    "textureStren": 1.0,
-    "textuteName": "coin-texture.bmp"
+    "size": [
+      0.4,
+      0.4],
+      "meshFileName" : "coin.ply",
+      "value" : 10,
+      "positionX" : 70.0,
+      "positionY" : 1.0,
+      "positionZ" : 0.1,
+      "bIsVisiable" : true,
+      "bUseVertexColour" : false,
+      "diffuse":
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "noLight" : true,
+      "specular" :[
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "textureStren" : 1.0,
+      "textuteName" : "coin-texture.bmp"
   }
 }

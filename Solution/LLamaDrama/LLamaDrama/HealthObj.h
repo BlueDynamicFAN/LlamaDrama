@@ -11,9 +11,13 @@ public:
 	cMeshObject* getModel();
 	void setValue(int value);
 	int getValue();
+	void setSize(glm::vec2 dimensions);
+	glm::vec2 getSize();
 private:
 	int m_healthValue;
 	cMeshObject* m_model;
+	float width;
+	float hight;
 };
 
 #endif

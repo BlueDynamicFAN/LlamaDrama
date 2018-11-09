@@ -27,3 +27,12 @@ int Coin::getValue()
 {
 	return m_moneyValue;
 }
+
+void Coin::setSize(glm::vec2 dimensions)
+{
+	this->radius = dimensions.x;
+}
+glm::vec2 Coin::getSize()
+{
+	return glm::vec2(radius, radius);
+}

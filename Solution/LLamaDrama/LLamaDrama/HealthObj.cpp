@@ -28,3 +28,13 @@ int HealthObj::getValue()
 {
 	return m_healthValue;
 }
+
+void HealthObj::setSize(glm::vec2 dimensions)
+{
+	this->width = dimensions.x;
+	this->hight = dimensions.x;
+}
+glm::vec2 HealthObj::getSize()
+{
+	return glm::vec2(this->width, this->hight);
+}

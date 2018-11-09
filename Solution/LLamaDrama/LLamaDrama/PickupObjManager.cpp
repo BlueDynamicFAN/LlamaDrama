@@ -59,6 +59,7 @@ void loadPickUpFromJson() {
 
 		std::vector<float> diffuse = j[fName]["diffuse"];
 		std::vector<float> specular = j[fName]["specular"];
+		std::vector<float> dimensions = j[fName]["size"];
 		model->m_meshName = meshName;
 		model->m_friendlyName = fName;
 		model->vecTextures.push_back(texture);
@@ -75,8 +76,9 @@ void loadPickUpFromJson() {
 		else if (type == "coin")
 		{
 			newPickUp = new Coin();
-		}
 
+		}
+		newPickUp->setSize(glm::vec2(dimensions[0], dimensions[1]));
 		newPickUp->setModel(model);
 		newPickUp->setValue(value);
 
@@ -84,4 +86,8 @@ void loadPickUpFromJson() {
 		pPickUpObj.push_back(newPickUp);
 		vec_pObjectsToDraw.push_back(model);
 	}
+}
+
+void savePickUpToJson() {
+
 }
