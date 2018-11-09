@@ -12,6 +12,20 @@
 #include <string>
 #include <vector>
 
+struct sSphere
+{
+	sSphere(float theRadius)
+	{
+		this->radius = theRadius;
+	}
+	float radius;
+};
+
+struct sTriangle
+{
+	glm::vec3 v[3];
+};
+
 struct sTextureInfo
 {
 	std::string name;
@@ -48,6 +62,16 @@ public:
 	void setSpecularColour(glm::vec3 colourRGB);
 	void setSpecularPower(float specPower);
 
+	enum eShape
+	{
+		UNKNOWN_SHAPE,
+		SPHERE,
+		TRIANGLE
+	};
+
+	// Allows me to point to anything (any type)
+	void* pTheShape;		// Details
+	eShape shapeType;		// What shape it is
 
 	inline unsigned int getUniqueID(void)
 	{

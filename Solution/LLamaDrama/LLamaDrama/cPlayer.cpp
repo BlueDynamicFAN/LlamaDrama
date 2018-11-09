@@ -52,6 +52,7 @@ cPlayer::cPlayer(std::string meshName, std::string fName, glm::vec3 position, in
 	this->m_model->m_friendlyName = fName;
 	this->m_model->m_position = position;
 	this->m_playerHealth = healthLevel;
+	this->m_playerScore = 0;
 }
 
 /**
@@ -117,7 +118,7 @@ glm::vec3 cPlayer::getPosition()
 */
 unsigned int cPlayer::getPlayerHealth()
 {
-
+	return this->m_playerHealth;
 }
 
 /**
@@ -128,7 +129,7 @@ unsigned int cPlayer::getPlayerHealth()
 */
 unsigned int cPlayer::getPlayerScore()
 {
-
+	return this->m_playerScore;
 }
 
 /**
@@ -139,7 +140,7 @@ unsigned int cPlayer::getPlayerScore()
 */
 unsigned int cPlayer::getNumberOfKeys()
 {
-
+	return this->m_numberOfKeys;
 }
 
 /**
@@ -203,9 +204,9 @@ void cPlayer::setPositionY(float value)
 	@param: the value
 	@return: void
 */
-void setPlayerHealth(unsigned int playerHealth)
+void cPlayer::setPlayerHealth(unsigned int playerHealth)
 {
-
+	this->m_playerHealth = playerHealth;
 }
 
 /**
@@ -214,9 +215,9 @@ void setPlayerHealth(unsigned int playerHealth)
 	@param: the value
 	@return: void
 */
-void setPlayerScore(unsigned int playerScore)
+void cPlayer::setPlayerScore(unsigned int playerScore)
 {
-
+	this->m_playerScore = playerScore;
 }
 
 /**
@@ -225,7 +226,7 @@ void setPlayerScore(unsigned int playerScore)
 	@param: the value
 	@return: void
 */
-void setNumberOfKeys(unsigned int playerKeys)
+void cPlayer::setNumberOfKeys(unsigned int playerKeys)
 {
-
+	this->m_numberOfKeys = playerKeys;
 }

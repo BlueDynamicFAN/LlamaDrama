@@ -26,7 +26,6 @@
 #include "./Enemies/cFinalBoss.h"
 #include "cLightHelper.h"
 
-
 unsigned int SelectedModel = 0;
 std::vector< cMeshObject* > vec_pObjectsToDraw;
 std::vector< std::string > vec_ModelFileNames;
@@ -146,7 +145,6 @@ int main(void)
 
 	GLint eyeLocation_location = glGetUniformLocation(program, "eyeLocation");
 
-
 	// Draw the "scene" (run the program)
 	while (!glfwWindowShouldClose(window))
 	{
@@ -207,6 +205,58 @@ int main(void)
 
 		//Update physics
 		gravityUpdate(deltaTime);
+
+		for (cMeshObject* pPickup : vec_pObjectsToDraw)
+		{
+			if (pPickup->m_meshName == "coin.ply" || pPickup->m_meshName == "health.ply")
+			{
+				sModelDrawInfo playerMesh;
+				playerMesh.meshFileName = "Llama.ply";
+				::g_pTheVAOMeshManager->FindDrawInfoByModelName(playerMesh);
+
+				// Change the terrain mesh (in the GPU)
+				::g_pTheVAOMeshManager->UpdateModelVertexInformation(playerMesh);
+
+				std::vector<sClosestPointData> vecClosestPointsRing;
+				CalculateClosestPointsOnMesh(playerMesh, pPickup->m_position, vecClosestPointsRing);
+
+				// Find the "closest triangle"
+				// Go through each point and compare, finding the closest
+				// (What if you have more than one that's the same distance?)
+				// Assume the 1st one is the closet one.
+				if (vecClosestPointsRing.size() != 0)
+				{
+					float minDistance = glm::distance(pPickup->m_position, vecClosestPointsRing[0].thePoint);
+					unsigned int minTriangleIndex = vecClosestPointsRing[0].triangleIndex;
+
+					for (unsigned int triIndex = 0; triIndex != vecClosestPointsRing.size(); triIndex++)
+					{
+
+						// glm::length() seems to work here, too 
+						float curDist = glm::distance(pPickup->m_position, vecClosestPointsRing[triIndex].thePoint);
+
+						if (curDist < minDistance)
+						{
+							minDistance = curDist;
+							minTriangleIndex = vecClosestPointsRing[triIndex].triangleIndex;
+						}
+					}
+
+					sTriangle* pTri = new sTriangle();
+					// This is the "phsyics object" for this triangle
+					// This is "model space"
+					pTri->v[0] = glm::vec3(playerMesh.pVerticesFromFile[playerMesh.pTriangles[minTriangleIndex].vertex_index_1].x, playerMesh.pVerticesFromFile[playerMesh.pTriangles[minTriangleIndex].vertex_index_1].y, playerMesh.pVerticesFromFile[playerMesh.pTriangles[minTriangleIndex].vertex_index_1].z);
+					pTri->v[1] = glm::vec3(playerMesh.pVerticesFromFile[playerMesh.pTriangles[minTriangleIndex].vertex_index_2].x, playerMesh.pVerticesFromFile[playerMesh.pTriangles[minTriangleIndex].vertex_index_2].y, playerMesh.pVerticesFromFile[playerMesh.pTriangles[minTriangleIndex].vertex_index_2].z);
+					pTri->v[2] = glm::vec3(playerMesh.pVerticesFromFile[playerMesh.pTriangles[minTriangleIndex].vertex_index_3].x, playerMesh.pVerticesFromFile[playerMesh.pTriangles[minTriangleIndex].vertex_index_3].y, playerMesh.pVerticesFromFile[playerMesh.pTriangles[minTriangleIndex].vertex_index_3].z);
+
+					vec_pObjectsToDraw[0]->pTheShape = pTri;
+					vec_pObjectsToDraw[0]->shapeType = cMeshObject::TRIANGLE;
+
+				}//if ( vecClosestPoints.size() != 0 )
+
+				collisionDetection();
+			}
+		}
 
 		ProcessAsynKeys(window, deltaTime);
 

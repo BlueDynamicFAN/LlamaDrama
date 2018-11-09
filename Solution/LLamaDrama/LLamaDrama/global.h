@@ -31,7 +31,6 @@ static const float PI = 3.14159f;
 extern glm::vec3 g_CameraEye;
 extern glm::vec3 g_CameraAt;
 
-
 extern cBasicTextureManager* g_pTheTextureManager;
 
 // Vector of Models loaded
@@ -53,10 +52,9 @@ void DrawObject(cMeshObject* pCurrentMesh,
 
 // GFLW keyboard callback
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
-//void ProcessAsynKeys(GLFWwindow* window);
 void ProcessAsynKeys(GLFWwindow* window, double deltaTime);
 
-//JASON
+//JSON
 void loadEnemiesFromJson();
 void loadPlatformsFromJson();
 void loadPlayerFromJson();
@@ -66,5 +64,15 @@ void loadAllMeshes(GLuint program);
 void gravityUpdate(double deltaTime);
 void movesUpdate(double deltaTime);
 bool isPlayerOnTopOfAPlatform();
+void collisionDetection();
 
+struct sClosestPointData
+{
+	glm::vec3 thePoint;
+	unsigned int triangleIndex;
+};
+
+void CalculateClosestPointsOnMesh(sModelDrawInfo theMeshDrawInfo,
+	glm::vec3 pointToTest,
+	std::vector<sClosestPointData> &vecPoints);
 #endif	// _globalStuff_HG_

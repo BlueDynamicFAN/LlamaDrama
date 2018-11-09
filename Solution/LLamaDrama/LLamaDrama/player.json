@@ -3,7 +3,7 @@
     "meshFileName": "Llama.ply",
     "positionX": 70.0,
     "positionY": 0.0,
-    "positionZ": 0.5,
+    "positionZ": 0.0,
     "health": 100,
     "bIsVisiable": true,
     "bUseVertexColour": false,

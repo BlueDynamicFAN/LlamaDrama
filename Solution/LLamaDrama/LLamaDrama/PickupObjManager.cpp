@@ -71,10 +71,14 @@ void loadPickUpFromJson() {
 
 		if (type == "health")
 		{
+			model->pTheShape = new sSphere(0.4f);
+			model->shapeType = cMeshObject::SPHERE;
 			newPickUp = new HealthObj();
 		}
 		else if (type == "coin")
 		{
+			model->pTheShape = new sSphere(0.4f);
+			model->shapeType = cMeshObject::SPHERE;
 			newPickUp = new Coin();
 
 		}
