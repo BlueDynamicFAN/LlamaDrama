@@ -1,31 +1,379 @@
 {
-  "coin1": {
-    "type": "coin",
-    "size": [
-      0.4,
-      0.4],
-      "meshFileName" : "coin.ply",
-      "value" : 10,
-      "positionX" : 70.0,
-      "positionY" : 1.0,
-      "positionZ" : 0.1,
-      "bIsVisiable" : true,
-      "bUseVertexColour" : false,
-      "diffuse":
-      [
-        0.0,
-        0.0,
-        0.0,
-        1.0
-      ],
-      "noLight" : true,
-      "specular" :[
-        1.0,
-        1.0,
-        1.0,
-        1.0
-      ],
-      "textureStren" : 1.0,
-      "textuteName" : "coin-texture.bmp"
-  }
+    "coin1": {
+        "bIsVisiable": true,
+        "bUseVertexColour": false,
+        "diffuse": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "meshFileName": "coin.ply",
+        "noLight": true,
+        "positionX": 78.19987487792969,
+        "positionY": 3.1999990940093994,
+        "positionZ": 0.5,
+        "size": [
+            0.4000000059604645,
+            0.4000000059604645
+        ],
+        "specular": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "textureStren": 1.0,
+        "textuteName": "coin-texture.bmp",
+        "type": "coin",
+        "value": 10
+    },
+    "coin10": {
+        "bIsVisiable": true,
+        "bUseVertexColour": false,
+        "diffuse": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "meshFileName": "coin.ply",
+        "noLight": true,
+        "positionX": 98.29956817626953,
+        "positionY": 0.9000002145767212,
+        "positionZ": 0.5,
+        "size": [
+            0.4000000059604645,
+            0.4000000059604645
+        ],
+        "specular": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "textureStren": 1.0,
+        "textuteName": "coin-texture.bmp",
+        "type": "coin",
+        "value": 10
+    },
+    "coin11": {
+        "bIsVisiable": true,
+        "bUseVertexColour": false,
+        "diffuse": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "meshFileName": "coin.ply",
+        "noLight": true,
+        "positionX": 65.00007629394531,
+        "positionY": 0.6000001430511475,
+        "positionZ": 0.5,
+        "size": [
+            0.4000000059604645,
+            0.4000000059604645
+        ],
+        "specular": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "textureStren": 1.0,
+        "textuteName": "coin-texture.bmp",
+        "type": "coin",
+        "value": 10
+    },
+    "coin12": {
+        "bIsVisiable": true,
+        "bUseVertexColour": false,
+        "diffuse": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "meshFileName": "coin.ply",
+        "noLight": true,
+        "positionX": 60.90013885498047,
+        "positionY": 0.6000001430511475,
+        "positionZ": 0.5,
+        "size": [
+            0.4000000059604645,
+            0.4000000059604645
+        ],
+        "specular": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "textureStren": 1.0,
+        "textuteName": "coin-texture.bmp",
+        "type": "coin",
+        "value": 10
+    },
+    "coin13": {
+        "bIsVisiable": true,
+        "bUseVertexColour": false,
+        "diffuse": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "meshFileName": "coin.ply",
+        "noLight": true,
+        "positionX": 106.19944763183594,
+        "positionY": 3.7999987602233887,
+        "positionZ": 0.5,
+        "size": [
+            0.4000000059604645,
+            0.4000000059604645
+        ],
+        "specular": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "textureStren": 1.0,
+        "textuteName": "coin-texture.bmp",
+        "type": "coin",
+        "value": 10
+    },
+    "coin2": {
+        "bIsVisiable": true,
+        "bUseVertexColour": false,
+        "diffuse": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "meshFileName": "coin.ply",
+        "noLight": true,
+        "positionX": 74.99992370605469,
+        "positionY": 1.5000001192092896,
+        "positionZ": 0.5,
+        "size": [
+            0.4000000059604645,
+            0.4000000059604645
+        ],
+        "specular": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "textureStren": 1.0,
+        "textuteName": "coin-texture.bmp",
+        "type": "coin",
+        "value": 10
+    },
+    "coin3": {
+        "bIsVisiable": true,
+        "bUseVertexColour": false,
+        "diffuse": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "meshFileName": "coin.ply",
+        "noLight": true,
+        "positionX": 87.19973754882813,
+        "positionY": 7.199995517730713,
+        "positionZ": 0.5,
+        "size": [
+            0.4000000059604645,
+            0.4000000059604645
+        ],
+        "specular": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "textureStren": 1.0,
+        "textuteName": "coin-texture.bmp",
+        "type": "coin",
+        "value": 10
+    },
+    "coin4": {
+        "bIsVisiable": true,
+        "bUseVertexColour": false,
+        "diffuse": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "meshFileName": "coin.ply",
+        "noLight": true,
+        "positionX": 84.2997817993164,
+        "positionY": 7.0999956130981445,
+        "positionZ": 0.5,
+        "size": [
+            0.4000000059604645,
+            0.4000000059604645
+        ],
+        "specular": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "textureStren": 1.0,
+        "textuteName": "coin-texture.bmp",
+        "type": "coin",
+        "value": 10
+    },
+    "coin5": {
+        "bIsVisiable": true,
+        "bUseVertexColour": false,
+        "diffuse": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "meshFileName": "coin.ply",
+        "noLight": true,
+        "positionX": 80.89983367919922,
+        "positionY": 4.999997615814209,
+        "positionZ": 0.5,
+        "size": [
+            0.4000000059604645,
+            0.4000000059604645
+        ],
+        "specular": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "textureStren": 1.0,
+        "textuteName": "coin-texture.bmp",
+        "type": "coin",
+        "value": 10
+    },
+    "coin6": {
+        "bIsVisiable": true,
+        "bUseVertexColour": false,
+        "diffuse": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "meshFileName": "coin.ply",
+        "noLight": true,
+        "positionX": 98.19956970214844,
+        "positionY": 3.4999990463256836,
+        "positionZ": 0.5,
+        "size": [
+            0.4000000059604645,
+            0.4000000059604645
+        ],
+        "specular": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "textureStren": 1.0,
+        "textuteName": "coin-texture.bmp",
+        "type": "coin",
+        "value": 10
+    },
+    "coin7": {
+        "bIsVisiable": true,
+        "bUseVertexColour": false,
+        "diffuse": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "meshFileName": "coin.ply",
+        "noLight": true,
+        "positionX": 98.19956970214844,
+        "positionY": 5.599997043609619,
+        "positionZ": 0.5,
+        "size": [
+            0.4000000059604645,
+            0.4000000059604645
+        ],
+        "specular": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "textureStren": 1.0,
+        "textuteName": "coin-texture.bmp",
+        "type": "coin",
+        "value": 10
+    },
+    "coin8": {
+        "bIsVisiable": true,
+        "bUseVertexColour": false,
+        "diffuse": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "meshFileName": "coin.ply",
+        "noLight": true,
+        "positionX": 93.29964447021484,
+        "positionY": 7.199995517730713,
+        "positionZ": 0.5,
+        "size": [
+            0.4000000059604645,
+            0.4000000059604645
+        ],
+        "specular": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "textureStren": 1.0,
+        "textuteName": "coin-texture.bmp",
+        "type": "coin",
+        "value": 10
+    },
+    "coin9": {
+        "bIsVisiable": true,
+        "bUseVertexColour": false,
+        "diffuse": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "meshFileName": "coin.ply",
+        "noLight": true,
+        "positionX": 90.09969329833984,
+        "positionY": 6.899995803833008,
+        "positionZ": 0.5,
+        "size": [
+            0.4000000059604645,
+            0.4000000059604645
+        ],
+        "specular": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "textureStren": 1.0,
+        "textuteName": "coin-texture.bmp",
+        "type": "coin",
+        "value": 10
+    }
 }

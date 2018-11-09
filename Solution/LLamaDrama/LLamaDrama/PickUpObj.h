@@ -14,6 +14,7 @@ public:
 	virtual int getValue() = 0;
 	virtual void setSize(glm::vec2 dimensions) = 0;
 	virtual glm::vec2 getSize() = 0;
+	virtual std::string getType() = 0;
 
 };
 

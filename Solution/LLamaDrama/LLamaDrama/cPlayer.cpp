@@ -117,7 +117,7 @@ glm::vec3 cPlayer::getPosition()
 */
 unsigned int cPlayer::getPlayerHealth()
 {
-
+	return this->m_playerHealth;
 }
 
 /**
@@ -128,7 +128,7 @@ unsigned int cPlayer::getPlayerHealth()
 */
 unsigned int cPlayer::getPlayerScore()
 {
-
+	return this->m_playerScore;
 }
 
 /**
@@ -139,7 +139,7 @@ unsigned int cPlayer::getPlayerScore()
 */
 unsigned int cPlayer::getNumberOfKeys()
 {
-
+	return this->m_numberOfKeys;
 }
 
 /**

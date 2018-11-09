@@ -2,10 +2,16 @@
 
 Coin::Coin()
 {
+	this->type = "coin";
 }
 
 Coin::~Coin()
 {
+}
+
+std::string Coin::getType()
+{
+	return this->type;
 }
 
 void Coin::setModel(cMeshObject* model)

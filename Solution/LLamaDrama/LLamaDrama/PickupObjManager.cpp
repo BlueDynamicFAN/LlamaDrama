@@ -8,6 +8,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <iomanip> 
 #include <fstream>
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp> 
@@ -88,6 +89,43 @@ void loadPickUpFromJson() {
 	}
 }
 
-void savePickUpToJson() {
+void savePickUpToJson() 
+{
+	std::string filename = "pickUp.json";
+	std::ofstream o(filename);
+	nlohmann::json j;
 
+	for (int i = 0; i < pPickUpObj.size(); i++)
+	{
+		cMeshObject* model = pPickUpObj[i]->getModel();
+		std::string fName = model->m_friendlyName;
+
+		j[fName]["type"] = pPickUpObj[i]->getType();
+		j[fName]["value"] = pPickUpObj[i]->getValue();
+		j[fName]["meshFileName"] = model->m_meshName;
+		j[fName]["positionX"] = model->m_position.x;
+		j[fName]["positionY"] = model->m_position.y;
+		j[fName]["positionZ"] = model->m_position.z;
+		j[fName]["textuteName"] = model->vecTextures[0].name;
+		j[fName]["textureStren"] = model->vecTextures[0].strength;
+		j[fName]["bIsVisiable"] = model->m_bIsVisible;
+		j[fName]["noLight"] = model->bDontLight;
+		j[fName]["bUseVertexColour"] = model->bUseVertexColour;
+
+		std::vector <float> diffuse = { model->materialDiffuse.r, model->materialDiffuse.g,
+								model->materialDiffuse.b, model->materialDiffuse.w };
+
+		std::vector <float> specular = {model->materialSpecular.r,model->materialSpecular.g,
+								model->materialSpecular.b, model->materialSpecular.w };
+
+		std::vector <float> size = { pPickUpObj[i]->getSize().x,  pPickUpObj[i]->getSize().y };
+
+		j[fName]["diffuse"] = diffuse;
+		j[fName]["specular"] = specular;
+		j[fName]["size"] = size;
+	}
+
+	std::cout << "Saving pick_up to JASON file - " << filename << std::endl;
+	o << std::setw(4) << j << std::endl;
+	o.close();
 }

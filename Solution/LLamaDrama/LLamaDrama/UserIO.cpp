@@ -8,8 +8,13 @@
 
 #include <iostream>
 #include <fstream>
+#include "PickUpObj.h"
 
 const float moveSpeed = 2.0f;
+extern std::vector <PickUpObj*> pPickUpObj;
+unsigned int activePickUpId = 0;
+PickUpObj* activePickUp = NULL;
+void savePickUpToJson();
 
 /**
 	Keyboard input
@@ -19,10 +24,43 @@ const float moveSpeed = 2.0f;
 */
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
+	activePickUp = pPickUpObj[activePickUpId];
+
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 	{
 		glfwSetWindowShouldClose(window, GLFW_TRUE);
 	}
+
+	if (key == GLFW_KEY_LEFT && action == GLFW_PRESS)
+	{
+		std::cout << "I am here" <<std::endl;
+		if (activePickUpId == 0) {
+			activePickUpId = (unsigned int)pPickUpObj.size();
+			activePickUpId -= 1;
+		}
+		else {
+			activePickUpId -= 1;
+		}
+
+		activePickUp = pPickUpObj[activePickUpId];
+		std::cout << activePickUpId << " " << activePickUp->getModel()->m_friendlyName << std::endl;
+	}
+
+	if (key == GLFW_KEY_RIGHT && action == GLFW_PRESS)
+	{
+		std::cout << "I am here" << std::endl;
+		unsigned int num = (unsigned int)pPickUpObj.size();
+		if (activePickUpId >= num - 1) {
+			activePickUpId = 0;
+		}
+		else {
+			activePickUpId += 1;
+		}
+
+		activePickUp = pPickUpObj[activePickUpId];
+		std::cout << activePickUpId << " " << activePickUp->getModel()->m_friendlyName << std::endl;
+	}
+
 	return;
 }
 
@@ -132,6 +170,13 @@ void ProcessAsynKeys(GLFWwindow* window, double deltaTime)
 		}
 	}//if(AreAllModifiersUp(window)
 
+	if (IsAltDown(window) && IsCtrlDown(window))
+	{
+		if (glfwGetKey(window, GLFW_KEY_S))
+		{
+			savePickUpToJson();
+		}
+	}
 
 	// Control (ctrl) key down? move the camera. Used for debuging
 	if (IsCtrlDown(window))
@@ -162,4 +207,16 @@ void ProcessAsynKeys(GLFWwindow* window, double deltaTime)
 		}
 
 	}//if(!IsCtrltDown(window) )
+
+
+	if (IsAltDown(window) && !IsCtrlDown(window))
+	{
+		//CHANGING POSITION of the Pick up objects
+	
+		if (glfwGetKey(window, GLFW_KEY_A)) { activePickUp->getModel()->m_position.x -= cameraSpeed; }
+		if (glfwGetKey(window, GLFW_KEY_D)) { activePickUp->getModel()->m_position.x += cameraSpeed; }
+		if (glfwGetKey(window, GLFW_KEY_W)) { activePickUp->getModel()->m_position.y += cameraSpeed; }
+		if (glfwGetKey(window, GLFW_KEY_S)) { activePickUp->getModel()->m_position.y -= cameraSpeed; }
+
+	}//if (IsAltDown(window)
 }

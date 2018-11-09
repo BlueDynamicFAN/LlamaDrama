@@ -2,11 +2,17 @@
 
 HealthObj::HealthObj()
 {
+	this->type = "health";
 }
 
 
 HealthObj::~HealthObj()
 {
+}
+
+std::string HealthObj::getType()
+{
+	return this->type;
 }
 
 void HealthObj::setModel(cMeshObject* model)
