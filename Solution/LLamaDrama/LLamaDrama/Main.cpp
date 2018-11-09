@@ -224,21 +224,6 @@ int main(void)
 }
 
 /**
-	Loads the models we are drawing into the vector
-
-	@param: void
-	@return: void
-*/
-void LoadModelsIntoScene(void)
-{
-	loadPlayerFromJson();
-	loadEnemiesFromJson();
-	loadPlatformsFromJson();
-
-	return;
-}
-
-/**
 	Finds an object by their "friendly name"
 
 	@param: the name to find

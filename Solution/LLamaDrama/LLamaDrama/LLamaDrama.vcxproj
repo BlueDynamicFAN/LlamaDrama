@@ -152,6 +152,7 @@
     <ClCompile Include="cLightHelper.cpp" />
     <ClCompile Include="cLightManager.cpp" />
     <ClCompile Include="cMeshObject.cpp" />
+    <ClCompile Include="Coin.cpp" />
     <ClCompile Include="cPlayer.cpp" />
     <ClCompile Include="cShader.cpp" />
     <ClCompile Include="cShaderManager.cpp" />
@@ -166,10 +167,12 @@
     <ClCompile Include="Enemies\cLevelEnemyType1.cpp" />
     <ClCompile Include="Enemies\cLevelEnemyType2.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="HealthObj.cpp" />
     <ClCompile Include="loadAllMeshes.cpp" />
     <ClCompile Include="loadFromJSON.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Physics.cpp" />
+    <ClCompile Include="PickupObjManager.cpp" />
     <ClCompile Include="sModelDrawInfo.cpp" />
     <ClCompile Include="TextureManager\C24BitBMPpixel.cpp" />
     <ClCompile Include="TextureManager\cBasicTextureManager.cpp" />
@@ -181,6 +184,7 @@
     <ClInclude Include="cLightHelper.h" />
     <ClInclude Include="cLightManager.h" />
     <ClInclude Include="cMeshObject.h" />
+    <ClInclude Include="Coin.h" />
     <ClInclude Include="cShaderManager.h" />
     <ClInclude Include="cVAOMeshManager.h" />
     <ClInclude Include="Enemies\cBoss.h" />
@@ -194,6 +198,8 @@
     <ClInclude Include="global.h" />
     <ClInclude Include="cPlatform.h" />
     <ClInclude Include="cPlayer.h" />
+    <ClInclude Include="HealthObj.h" />
+    <ClInclude Include="PickUpObj.h" />
     <ClInclude Include="sModelDrawInfo.h" />
     <ClInclude Include="sPlyTriangle.h" />
     <ClInclude Include="sPlyVertex.h" />
@@ -206,6 +212,7 @@
     <None Include="assets\shaders\vertex01.glsl" />
     <None Include="enemies.json" />
     <None Include="lights1.json" />
+    <None Include="pickUp.json" />
     <None Include="platforms.json" />
     <None Include="player.json" />
   </ItemGroup>

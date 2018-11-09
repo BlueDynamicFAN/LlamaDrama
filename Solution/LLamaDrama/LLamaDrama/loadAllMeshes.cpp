@@ -6,7 +6,7 @@
 */
 #include "global.h"
 #include <iostream>
-
+void loadPickUpFromJson();
 /**
 	Loads the meshes into the program
 
@@ -22,6 +22,8 @@ void loadAllMeshes(GLuint program) {
 	::g_pTheTextureManager->Create2DTextureFromBMPFile("apple.bmp", true);
 	
 	::g_pTheTextureManager->Create2DTextureFromBMPFile("stones.bmp", true);
+
+	::g_pTheTextureManager->Create2DTextureFromBMPFile("coin-texture.bmp", true);
 
 	::g_pTheVAOMeshManager = new cVAOMeshManager();
 	
@@ -97,4 +99,29 @@ void loadAllMeshes(GLuint program) {
 	}
 	vec_ModelFileNames.push_back(block5Info.meshFileName);
 
+	sModelDrawInfo coinInfo;
+	coinInfo.meshFileName = "coin.ply";
+	if (!::g_pTheVAOMeshManager->LoadModelIntoVAO(coinInfo, program))
+	{
+		std::cout << "Didn't load the coin mesh" << std::endl;
+	}
+	vec_ModelFileNames.push_back(coinInfo.meshFileName);
+
+}
+
+
+/**
+	Loads the models we are drawing into the vector
+
+	@param: void
+	@return: void
+*/
+void LoadModelsIntoScene(void)
+{
+	loadPlayerFromJson();
+	loadEnemiesFromJson();
+	loadPlatformsFromJson();
+	loadPickUpFromJson();
+
+	return;
 }

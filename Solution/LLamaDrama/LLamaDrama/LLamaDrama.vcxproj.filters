@@ -40,6 +40,9 @@
     <Filter Include="JSON Files">
       <UniqueIdentifier>{b0618654-e71a-4591-8f39-746e27eb61c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pick_up">
+      <UniqueIdentifier>{d3dc85e7-6df3-43cb-83b4-e0bb83752025}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -123,6 +126,15 @@
     <ClCompile Include="TextureManager\CTextureFromBMP.cpp">
       <Filter>Textures</Filter>
     </ClCompile>
+    <ClCompile Include="Coin.cpp">
+      <Filter>Pick_up</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthObj.cpp">
+      <Filter>Pick_up</Filter>
+    </ClCompile>
+    <ClCompile Include="PickupObjManager.cpp">
+      <Filter>Pick_up</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="global.h">
@@ -194,6 +206,15 @@
     <ClInclude Include="TextureManager\CTextureFromBMP.h">
       <Filter>Textures</Filter>
     </ClInclude>
+    <ClInclude Include="Coin.h">
+      <Filter>Pick_up</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthObj.h">
+      <Filter>Pick_up</Filter>
+    </ClInclude>
+    <ClInclude Include="PickUpObj.h">
+      <Filter>Pick_up</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="lights1.json">
@@ -213,6 +234,9 @@
     </None>
     <None Include="player.json">
       <Filter>JSON Files</Filter>
+    </None>
+    <None Include="pickUp.json">
+      <Filter>Pick_up</Filter>
     </None>
   </ItemGroup>
 </Project>
