@@ -1,7 +1,7 @@
 {
   "player": {
     "meshFileName": "Llama.ply",
-    "positionX": 70.0,
+    "positionX": -6.0,
     "positionY": 0.0,
     "positionZ": 0.5,
     "health": 100,

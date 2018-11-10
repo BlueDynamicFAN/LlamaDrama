@@ -53,6 +53,31 @@
     "meshFileName": "ground_blender_uv.ply",
     "height": 2.7,
     "width": 35.1,
+    "positionX": 139.55,
+    "positionY": -3.0,
+    "positionZ": 0.0,
+    "bIsVisiable": true,
+    "bUseVertexColour": false,
+    "diffuse": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "noLight": true,
+    "specular": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "textureStren": 1.0,
+    "textuteName": "stones.bmp"
+  },
+  "groundd": {
+    "meshFileName": "ground_blender_uv.ply",
+    "height": 2.7,
+    "width": 35.1,
     "positionX": 84.7,
     "positionY": -3.0,
     "positionZ": 0.0,
@@ -74,6 +99,7 @@
     "textureStren": 1.0,
     "textuteName": "stones.bmp"
   },
+
 
 
   "block1a": {
@@ -784,7 +810,7 @@
     "meshFileName": "block2_xyz_n.ply",
     "height": 1.8,
     "width": 2.0,
-    "positionX": 107.0,
+    "positionX": 111.0,
     "positionY": -0.75,
     "positionZ": 0.0,
     "bIsVisiable": true,
@@ -809,8 +835,8 @@
     "meshFileName": "block2_xyz_n.ply",
     "height": 1.8,
     "width": 2.0,
-    "positionX": 106.0,
-    "positionY": 1.05,
+    "positionX": 117.0,
+    "positionY": -0.75,
     "positionZ": 0.0,
     "bIsVisiable": true,
     "bUseVertexColour": false,
@@ -830,6 +856,7 @@
     "textureStren": 1.0,
     "textuteName": ""
   },
+
 
 
   "block3a": {
