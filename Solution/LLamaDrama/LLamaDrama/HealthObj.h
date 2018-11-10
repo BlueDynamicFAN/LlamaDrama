@@ -1,3 +1,10 @@
+/**
+	HealthObj.h
+
+	Purpose: Contains the information for the HealthObj class
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #ifndef _HealthObj_HG
 #define _HealthObj_HG
 #include "PickUpObj.h"

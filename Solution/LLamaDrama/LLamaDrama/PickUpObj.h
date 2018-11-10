@@ -1,3 +1,11 @@
+/**
+	PickUpObj.cpp
+
+	Purpose: This interface descibes the methods that Coin and Health pack classes must implement.
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
+
 #ifndef _PickUpObj_HG
 #define _PickUpObj_HG
 #include "../cMeshObject.h"

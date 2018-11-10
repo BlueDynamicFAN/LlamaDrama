@@ -1,6 +1,6 @@
 {
     "coin1": {
-        "bIsVisiable": true,
+       "bIsVisiable": true,
         "bUseVertexColour": false,
         "diffuse": [
             0.0,
@@ -10,8 +10,8 @@
         ],
         "meshFileName": "coin.ply",
         "noLight": true,
-        "positionX": 8.199874877929688,
-        "positionY": 0.19999909400939941,
+        "positionX": 23.099931716918945,
+        "positionY": 3.7999978065490723,
         "positionZ": 0.5,
         "size": [
             0.4000000059604645,
@@ -39,8 +39,8 @@
         ],
         "meshFileName": "coin.ply",
         "noLight": true,
-        "positionX": 28.29956817626953,
-        "positionY": 0.10000022500753403,
+        "positionX": 73.29895782470703,
+        "positionY": 2.5,
         "positionZ": 0.5,
         "size": [
             0.4000000059604645,
@@ -69,7 +69,7 @@
         "meshFileName": "coin.ply",
         "noLight": true,
         "positionX": 65.00007629394531,
-        "positionY": -0.09999986737966537,
+        "positionY": 1.6000003814697266,
         "positionZ": 0.5,
         "size": [
             0.4000000059604645,
@@ -87,7 +87,7 @@
         "value": 10
     },
     "coin12": {
-        "bIsVisiable": true,
+       "bIsVisiable": true,
         "bUseVertexColour": false,
         "diffuse": [
             0.0,
@@ -97,8 +97,8 @@
         ],
         "meshFileName": "coin.ply",
         "noLight": true,
-        "positionX": 60.90013885498047,
-        "positionY": 1.341104507446289e-07,
+        "positionX": 61.100135803222656,
+        "positionY": 1.7000004053115845,
         "positionZ": 0.5,
         "size": [
             0.4000000059604645,
@@ -116,7 +116,7 @@
         "value": 10
     },
     "coin13": {
-        "bIsVisiable": true,
+       "bIsVisiable": true,
         "bUseVertexColour": false,
         "diffuse": [
             0.0,
@@ -126,8 +126,8 @@
         ],
         "meshFileName": "coin.ply",
         "noLight": true,
-        "positionX": 2.0994515419006348,
-        "positionY": 2.899998188018799,
+        "positionX": 1.5994514226913452,
+        "positionY": 3.199997901916504,
         "positionZ": 0.5,
         "size": [
             0.4000000059604645,
@@ -145,7 +145,7 @@
         "value": 10
     },
     "coin2": {
-        "bIsVisiable": true,
+       "bIsVisiable": true,
         "bUseVertexColour": false,
         "diffuse": [
             0.0,
@@ -155,8 +155,8 @@
         ],
         "meshFileName": "coin.ply",
         "noLight": true,
-        "positionX": 9.299925804138184,
-        "positionY": 2.6999998092651367,
+        "positionX": 8.299921989440918,
+        "positionY": 3.1999993324279785,
         "positionZ": 0.5,
         "size": [
             0.4000000059604645,
@@ -174,7 +174,7 @@
         "value": 10
     },
     "coin3": {
-        "bIsVisiable": true,
+       "bIsVisiable": true,
         "bUseVertexColour": false,
         "diffuse": [
             0.0,
@@ -184,8 +184,8 @@
         ],
         "meshFileName": "coin.ply",
         "noLight": true,
-        "positionX": 10.199737548828125,
-        "positionY": 0.39999550580978394,
+        "positionX": 26.89980125427246,
+        "positionY": 5.8999924659729,
         "positionZ": 0.5,
         "size": [
             0.4000000059604645,
@@ -203,7 +203,7 @@
         "value": 10
     },
     "coin4": {
-        "bIsVisiable": true,
+       "bIsVisiable": true,
         "bUseVertexColour": false,
         "diffuse": [
             0.0,
@@ -213,8 +213,8 @@
         ],
         "meshFileName": "coin.ply",
         "noLight": true,
-        "positionX": 9.299782752990723,
-        "positionY": 3.0999948978424072,
+        "positionX": 46.19965362548828,
+        "positionY": 1.3999959230422974,
         "positionZ": 0.5,
         "size": [
             0.4000000059604645,
@@ -232,7 +232,7 @@
         "value": 10
     },
     "coin5": {
-        "bIsVisiable": true,
+       "bIsVisiable": true,
         "bUseVertexColour": false,
         "diffuse": [
             0.0,
@@ -242,8 +242,8 @@
         ],
         "meshFileName": "coin.ply",
         "noLight": true,
-        "positionX": 14.799848556518555,
-        "positionY": 0.999997615814209,
+        "positionX": 35.49986267089844,
+        "positionY": 1.2999975681304932,
         "positionZ": 0.5,
         "size": [
             0.4000000059604645,
@@ -261,7 +261,7 @@
         "value": 10
     },
     "coin6": {
-        "bIsVisiable": true,
+       "bIsVisiable": true,
         "bUseVertexColour": false,
         "diffuse": [
             0.0,
@@ -271,8 +271,8 @@
         ],
         "meshFileName": "coin.ply",
         "noLight": true,
-        "positionX": 11.299581527709961,
-        "positionY": 1.099999189376831,
+        "positionX": 56.19929122924805,
+        "positionY": 1.5999993085861206,
         "positionZ": 0.5,
         "size": [
             0.4000000059604645,
@@ -290,7 +290,7 @@
         "value": 10
     },
     "coin7": {
-        "bIsVisiable": true,
+       "bIsVisiable": true,
         "bUseVertexColour": false,
         "diffuse": [
             0.0,
@@ -300,8 +300,8 @@
         ],
         "meshFileName": "coin.ply",
         "noLight": true,
-        "positionX": 12.399585723876953,
-        "positionY": 4.599995136260986,
+        "positionX": 12.599586486816406,
+        "positionY": 4.899994850158691,
         "positionZ": 0.5,
         "size": [
             0.4000000059604645,
@@ -319,7 +319,7 @@
         "value": 10
     },
     "coin8": {
-        "bIsVisiable": true,
+       "bIsVisiable": true,
         "bUseVertexColour": false,
         "diffuse": [
             0.0,
@@ -329,8 +329,8 @@
         ],
         "meshFileName": "coin.ply",
         "noLight": true,
-        "positionX": 3.2996444702148438,
-        "positionY": 0.1999955177307129,
+        "positionX": 16.09967041015625,
+        "positionY": 3.0999951362609863,
         "positionZ": 0.5,
         "size": [
             0.4000000059604645,
@@ -348,7 +348,7 @@
         "value": 10
     },
     "coin9": {
-        "bIsVisiable": true,
+       "bIsVisiable": true,
         "bUseVertexColour": false,
         "diffuse": [
             0.0,
@@ -358,8 +358,8 @@
         ],
         "meshFileName": "coin.ply",
         "noLight": true,
-        "positionX": 10.099693298339844,
-        "positionY": 0.8999958038330078,
+        "positionX": -9.600310325622559,
+        "positionY": 1.4999959468841553,
         "positionZ": 0.5,
         "size": [
             0.4000000059604645,

@@ -1,5 +1,6 @@
 /**
 	PickUpObjManager.cpp
+
 	Purpose: creates health and coin objects
 	@author: BlueDynamic
 	@version: 1.0.0
@@ -21,7 +22,7 @@ std::vector <PickUpObj*> pPickUpObj;
 extern std::vector< cMeshObject* > vec_pObjectsToDraw;
 
 /**
-	Loads the pickUp objects from JSON
+	Loads the pickUp objects from JSON file
 
 	@param: void
 	@return: void
@@ -92,6 +93,13 @@ void loadPickUpFromJson() {
 		vec_pObjectsToDraw.push_back(model);
 	}
 }
+
+/**
+	Saves the pickUp objects to the JSON file
+
+	@param: void
+	@return: void
+*/
 
 void savePickUpToJson() 
 {

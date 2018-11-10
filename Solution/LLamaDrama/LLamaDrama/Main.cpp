@@ -30,7 +30,6 @@ unsigned int SelectedModel = 0;
 std::vector< cMeshObject* > vec_pObjectsToDraw;
 std::vector< std::string > vec_ModelFileNames;
 
-// To the right, up 4.0 units, along the x axis
 glm::vec3 g_lightPos = glm::vec3(4.0f, 4.0f, 0.0f);
 float g_lightBrightness = 6.0f;
 
@@ -178,7 +177,7 @@ int main(void)
 		g_CameraAt = glm::vec3(thePlayer->getPosition());
 
 		// Camera eye, at origin, looking up
-		matView = glm::lookAt(g_CameraEye, g_CameraAt, glm::vec3(0.0f, 1.0f, 0.0f));
+		matView = glm::lookAt(g_CameraEye, g_CameraAt, glm::vec3(0.0f, 5.0f, 0.0f));
 
 		//glUniformMatrix4fv(matMoldel_location, 1, GL_FALSE, glm::value_ptr(m));
 		glUniform3f(eyeLocation_location, ::g_CameraEye.x, ::g_CameraEye.y, ::g_CameraEye.z);

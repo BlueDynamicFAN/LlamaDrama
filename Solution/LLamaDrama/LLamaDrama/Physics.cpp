@@ -2,7 +2,7 @@
 	Physics.cpp
 	Purpose: Deals with all the physics
 	@author: BlueDynamic
-	@version: 1.0.0
+	@version: 1.0.1
 */
 #include "global.h"
 #include <glm/glm.hpp>
@@ -92,6 +92,13 @@ void movesUpdate(double deltaTime)
 	thePlayer->setPositionX(thePlayer->getPosition().x + (thePlayer->getVelocity().x * deltaTime));
 }
 
+
+/**
+	Calculates closest point on the triangle to provided position. 
+
+	@param: 4 vec3, 1st parameter is a positipn of the point to test, the last 3 parameters are vertices of a triangle
+	@return: vec3, the coordinates to closest point in the provided triangle
+*/
 Point ClosestPtPointTriangle(Point p, Point a, Point b, Point c)
 {
 	Vector ab = b - a;
@@ -160,11 +167,14 @@ Point ClosestPtPointTriangle(Point p, Point a, Point b, Point c)
 	return u * a + v * b + w * c;
 }
 
-// Pass in the terrain
-// Pass in the location of the Bunny (the one I can move)
-// "return" (by reference) as list of points
-// --> then I can draw those points
+/**
+	Finds the closest point on the the mesh to the provided point(origin of the mesh usually).
 
+	@param: sModelDrawInfo - VBO information of the mesh,
+	vec3 pointToTest - coordinates of point to test
+	vector<sClosestPointData> &vecPoints - where the vector of closest points will be saved
+	@return: void
+*/
 void CalculateClosestPointsOnMesh(sModelDrawInfo theMeshDrawInfo,
 	glm::vec3 pointToTest,
 	std::vector<sClosestPointData> &vecPoints)
@@ -196,6 +206,12 @@ void CalculateClosestPointsOnMesh(sModelDrawInfo theMeshDrawInfo,
 	}//for ( unsigned int triIndex = 0
 }
 
+/**
+	Test if a Sphere and Triangles colide
+
+	@param: cMeshObject ofTriangle, cMeshObject ofSphere
+	@return: void
+*/
 bool SphereTraingleTest(cMeshObject* pTriangle, cMeshObject* pSphere)
 {
 	sTriangle* pTri = (sTriangle*)(pTriangle->pTheShape);
@@ -206,22 +222,6 @@ bool SphereTraingleTest(cMeshObject* pTriangle, cMeshObject* pSphere)
 	glm::vec3 vActual[3];
 
 	glm::mat4 matWorld = glm::mat4(1.0f);
-
-	// Take into account the rotation in the world
-	//glm::mat4 preRot_X = glm::rotate(glm::mat4(1.0f),
-	//	pTriangle->m_preRotation.x,
-	//	glm::vec3(1.0f, 0.0, 0.0f));
-	//matWorld = matWorld * preRot_X;
-
-	//glm::mat4 preRot_Y = glm::rotate(glm::mat4(1.0f),
-	//	pTriangle->m_preRotation.y,
-	//	glm::vec3(0.0f, 1.0, 0.0f));
-	//matWorld = matWorld * preRot_Y;
-
-	//glm::mat4 preRot_Z = glm::rotate(glm::mat4(1.0f),
-	//	pTriangle->m_preRotation.z,
-	//	glm::vec3(0.0f, 0.0, 1.0f));
-	//matWorld = matWorld * preRot_Z;
 
 
 	// Move it (translation)
@@ -238,10 +238,7 @@ bool SphereTraingleTest(cMeshObject* pTriangle, cMeshObject* pSphere)
 	glm::vec3 closestPointToTri = ClosestPtPointTriangle(pSphere->m_position,
 		vActual[0], vActual[1], vActual[2]);
 
-	//std::cout << "DIS: " << glm::distance(closestPointToTri, pSphere->m_position) << std::endl;
-	//std::cout << "RADIUS: " << pSphereB->radius << std::endl;
-
-	// is this point LESS THAN the radius of the sphere? 
+	
 	if (glm::distance(closestPointToTri, pSphere->m_position) <= pSphereB->radius)
 	{
 		return true;
@@ -250,6 +247,12 @@ bool SphereTraingleTest(cMeshObject* pTriangle, cMeshObject* pSphere)
 	return false;
 }
 
+/**
+	Check if the objects are a sphere and a trinagles
+
+	@param: cMeshObject, cMeshObject 
+	@return: void
+*/
 bool TestForCollision(cMeshObject* pA, cMeshObject* pB)
 {
 	if (pA->pTheShape == NULL) { return false; }
@@ -263,6 +266,12 @@ bool TestForCollision(cMeshObject* pA, cMeshObject* pB)
 	return false;
 }
 
+/**
+	Check if different shapes of objects are colide with the player, then call specific function.
+
+	@param: cMeshObject 
+	@return: void
+*/
 void collisionDetection(cMeshObject* pickupObject)
 {
 	// Test for collisions

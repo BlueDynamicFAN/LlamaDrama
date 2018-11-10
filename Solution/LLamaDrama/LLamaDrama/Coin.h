@@ -1,3 +1,10 @@
+/**
+	Coin.h
+
+	Purpose: Contains the information for the Coin class
+	@author: BlueDynamic
+	@version: 1.0.0
+*/
 #ifndef _Coin_HG
 #define _Coin_HG
 #include "PickUpObj.h"
