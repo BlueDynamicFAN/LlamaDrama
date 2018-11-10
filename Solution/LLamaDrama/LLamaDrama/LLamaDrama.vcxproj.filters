@@ -236,7 +236,7 @@
       <Filter>JSON Files</Filter>
     </None>
     <None Include="pickUp.json">
-      <Filter>Pick_up</Filter>
+      <Filter>JSON Files</Filter>
     </None>
   </ItemGroup>
 </Project>

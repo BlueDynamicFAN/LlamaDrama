@@ -119,7 +119,7 @@ void loadAllMeshes(GLuint program) {
 void LoadModelsIntoScene(void)
 {
 	loadPlayerFromJson();
-	loadEnemiesFromJson();
+	//loadEnemiesFromJson();
 	loadPlatformsFromJson();
 	loadPickUpFromJson();
 
