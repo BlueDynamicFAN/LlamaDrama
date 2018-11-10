@@ -2,6 +2,7 @@
 ## Milestone II
 
 * Implemented collision detection
+* Added coin pick ups
 * Added textures and llama model
 * Added more level design
 * Created basic pipeline
