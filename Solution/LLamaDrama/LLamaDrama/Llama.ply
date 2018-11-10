@@ -1,7 +1,7 @@
 ply
 format ascii 1.0
 comment VCGLIB generated
-comment TextureFile uv3.bmp
+comment TextureFile assets/textures/uv3.bmp
 element vertex 426
 property float x
 property float y

@@ -64,7 +64,7 @@ void loadAllMeshes(GLuint program);
 void gravityUpdate(double deltaTime);
 void movesUpdate(double deltaTime);
 bool isPlayerOnTopOfAPlatform();
-void collisionDetection();
+void collisionDetection(cMeshObject* pickupObject);
 
 struct sClosestPointData
 {

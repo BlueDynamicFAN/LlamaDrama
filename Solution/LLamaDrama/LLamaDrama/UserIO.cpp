@@ -10,7 +10,7 @@
 #include <fstream>
 #include "PickUpObj.h"
 
-const float moveSpeed = 2.0f;
+const float moveSpeed = 3.0f;
 extern std::vector <PickUpObj*> pPickUpObj;
 unsigned int activePickUpId = 0;
 PickUpObj* activePickUp = NULL;
@@ -145,7 +145,7 @@ void ProcessAsynKeys(GLFWwindow* window, double deltaTime)
 		{
 			if (isPlayerOnTopOfAPlatform())
 			{
-				thePlayer->setVelocityY(3.0f * moveSpeed);
+				thePlayer->setVelocityY(2.0f * moveSpeed);
 			}
 		}
 

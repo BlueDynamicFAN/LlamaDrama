@@ -23,7 +23,7 @@ typedef glm::vec3 Vector;
 */
 bool isPlayerOnTopOfAPlatform()
 {
-	const float EPSILON = 0.05f;
+	const float EPSILON = 0.1f;
 	const float OFFSET = 0.1f;
 	for (std::vector <cPlatform*>::iterator itPlatform = pPlatforms.begin();
 		itPlatform != pPlatforms.end(); itPlatform++)
@@ -238,8 +238,8 @@ bool SphereTraingleTest(cMeshObject* pTriangle, cMeshObject* pSphere)
 	glm::vec3 closestPointToTri = ClosestPtPointTriangle(pSphere->m_position,
 		vActual[0], vActual[1], vActual[2]);
 
-	std::cout << "DIS: " << glm::distance(closestPointToTri, pSphere->m_position) << std::endl;
-	std::cout << "RADIUS: " << pSphereB->radius << std::endl;
+	//std::cout << "DIS: " << glm::distance(closestPointToTri, pSphere->m_position) << std::endl;
+	//std::cout << "RADIUS: " << pSphereB->radius << std::endl;
 
 	// is this point LESS THAN the radius of the sphere? 
 	if (glm::distance(closestPointToTri, pSphere->m_position) <= pSphereB->radius)
@@ -263,14 +263,12 @@ bool TestForCollision(cMeshObject* pA, cMeshObject* pB)
 	return false;
 }
 
-void collisionDetection()
+void collisionDetection(cMeshObject* pickupObject)
 {
 	// Test for collisions
-	for (std::vector< cMeshObject* >::iterator pickupObject = vec_pObjectsToDraw.begin();
-		pickupObject != vec_pObjectsToDraw.end(); pickupObject++)
-	{
+
 		cMeshObject* pObjectA = thePlayer->getModel();
-		cMeshObject* pObjectB = *pickupObject;
+		cMeshObject* pObjectB = pickupObject;
 
 		// Same?
 		if (pObjectA != pObjectB)
@@ -304,5 +302,4 @@ void collisionDetection()
 			}
 		}//if(pObjectA != pObjectB)
 	}// inner loop
-}// outer loop
 

@@ -254,7 +254,7 @@ int main(void)
 
 				}//if ( vecClosestPoints.size() != 0 )
 
-				collisionDetection();
+				collisionDetection(pPickup);
 			}
 		}
 
