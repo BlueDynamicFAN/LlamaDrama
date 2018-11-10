@@ -1,4 +1,13 @@
 # LlamaDrama
+## Milestone II
+
+* Implemented collision detection
+* Added textures and llama model
+* Added more level design
+* Created basic pipeline
+  - To run the pipeline, run the Pipeline.bat file in the LlamaPictures folder
+  - Images in the LlamaPictures folder will be compressed and then converted to .pvr files.
+
 ## Milestone I
 
 * Implemented simple Factory and Singleton design patterns.
