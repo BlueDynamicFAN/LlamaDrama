@@ -8,6 +8,8 @@
   - To run the pipeline, run the Pipeline.bat file in the LlamaPictures folder
   - Images in the LlamaPictures folder will be compressed and then converted to .pvr files.
 
+![Screen Shot](https://github.com/BlueDynamicFAN/LlamaDrama/blob/master/Llama_drama.PNG)
+
 ## Milestone I
 
 * Implemented simple Factory and Singleton design patterns.
