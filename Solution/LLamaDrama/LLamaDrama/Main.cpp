@@ -26,6 +26,14 @@
 #include "./Enemies/cFinalBoss.h"
 #include "cLightHelper.h"
 
+#include <fmod.hpp>
+
+//FMOD Globals
+FMOD_RESULT _result = FMOD_OK;
+FMOD::System *_system = NULL;
+FMOD::Sound *_sound = NULL;
+FMOD::Channel *_channel = NULL;
+
 unsigned int SelectedModel = 0;
 std::vector< cMeshObject* > vec_pObjectsToDraw;
 std::vector< std::string > vec_ModelFileNames;
@@ -143,6 +151,9 @@ int main(void)
 	GLint matProj_location = glGetUniformLocation(program, "matProj");
 
 	GLint eyeLocation_location = glGetUniformLocation(program, "eyeLocation");
+
+	//Init FMOD
+	assert(init_fmod());
 
 	// Draw the "scene" (run the program)
 	while (!glfwWindowShouldClose(window))
@@ -267,6 +278,9 @@ int main(void)
 	void deleteModels();
 	delete pLightManager;
 
+	//Shut down FMOD
+	assert(shutdown_fmod());
+
 	glfwDestroyWindow(window);
 	glfwTerminate();
 	exit(EXIT_SUCCESS);
@@ -290,4 +304,42 @@ cMeshObject* findObjectByFriendlyName(std::string theNameToFind)
 	}
 	// Didn't find it.
 	return NULL;	// 0 or nullptr
+}
+
+/*
+	Initializes FMOD
+
+*/
+bool init_fmod() {
+
+	//Create the main system object
+	_result = FMOD::System_Create(&_system);
+	//TODO: CHECK FOR FMOD ERRORS, IMPLEMENT YOUR OWN FUNCTION
+	assert(!_result);
+	//Initializes the system object, and the msound device. This has to be called at the start of the user's program
+	_result = _system->init(512, FMOD_INIT_NORMAL, NULL);
+	assert(!_result);
+
+
+	return true;
+}
+
+/*
+	Safely shuts down FMOD
+	
+*/
+bool shutdown_fmod() {
+
+	if (_sound) {
+		_result = _sound->release();
+		assert(!_result);
+	}
+	if (_system) {
+		_result = _system->close();
+		assert(!_result);
+		_result = _system->release();
+		assert(!_result);
+	}
+
+	return true;
 }
