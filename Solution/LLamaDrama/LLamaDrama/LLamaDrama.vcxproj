@@ -73,23 +73,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SourcePath)include;$(IncludePath);C:\Thrift\src;C:\local\boost_1_59_0</IncludePath>
-    <LibraryPath>C:\Thrift\lib\$(IntDir);C:\local\boost_1_59_0\lib32-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64</LibraryPath>
+    <IncludePath>$(SourcePath)include;$(IncludePath);C:\Thrift\thrift-0.9.1\src;C:\local\boost_1_59_0</IncludePath>
+    <LibraryPath>C:\Thrift\thrift-0.9.1\lib\$(IntDir);C:\local\boost_1_59_0\lib32-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SourcePath)inc;$(SourcePath)include;$(IncludePath);C:\Thrift\src;C:\local\boost_1_59_0</IncludePath>
-    <LibraryPath>C:\local\boost_1_59_0\lib64-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64;C:\Thrift\lib\x64\Debug</LibraryPath>
+    <IncludePath>$(SourcePath)inc;$(SourcePath)include;$(IncludePath);C:\Thrift\thrift-0.9.1\src;C:\local\boost_1_59_0</IncludePath>
+    <LibraryPath>C:\local\boost_1_59_0\lib64-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64;C:\Thrift\thrift-0.9.1\lib\x64\Debug</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SourcePath)include;$(IncludePath);C:\Thrift\src;C:\local\boost_1_59_0</IncludePath>
-    <LibraryPath>C:\Thrift\lib\$(IntDir);C:\local\boost_1_59_0\lib32-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64</LibraryPath>
+    <IncludePath>$(SourcePath)include;$(IncludePath);C:\Thrift\thrift-0.9.1\src;C:\local\boost_1_59_0</IncludePath>
+    <LibraryPath>C:\Thrift\thrift-0.9.1\lib\$(IntDir);C:\local\boost_1_59_0\lib32-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SourcePath)include;$(IncludePath);C:\Thrift\src;C:\local\boost_1_59_0</IncludePath>
-    <LibraryPath>C:\local\boost_1_59_0\lib64-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64;C:\Thrift\lib\x64\Release</LibraryPath>
+    <IncludePath>$(SourcePath)include;$(IncludePath);C:\Thrift\thrift-0.9.1\src;C:\local\boost_1_59_0</IncludePath>
+    <LibraryPath>C:\local\boost_1_59_0\lib64-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64;C:\Thrift\thrift-0.9.1\lib\x64\Release</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -173,6 +173,7 @@
     <ClCompile Include="Enemies\cLevelEnemyType2.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="cHealth.cpp" />
+    <ClCompile Include="Leaderboard-client.cpp" />
     <ClCompile Include="loadAllMeshes.cpp" />
     <ClCompile Include="loadFromJSON.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -184,6 +185,9 @@
     <ClCompile Include="TextureManager\C24BitBMPpixel.cpp" />
     <ClCompile Include="TextureManager\cBasicTextureManager.cpp" />
     <ClCompile Include="TextureManager\CTextureFromBMP.cpp" />
+    <ClCompile Include="Thrift\Leaderboard.cpp" />
+    <ClCompile Include="Thrift\leaderboard_constants.cpp" />
+    <ClCompile Include="Thrift\leaderboard_types.cpp" />
     <ClCompile Include="UserIO.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +220,9 @@
     <ClInclude Include="TextureManager\C24BitBMPpixel.h" />
     <ClInclude Include="TextureManager\cBasicTextureManager.h" />
     <ClInclude Include="TextureManager\CTextureFromBMP.h" />
+    <ClInclude Include="Thrift\Leaderboard.h" />
+    <ClInclude Include="Thrift\leaderboard_constants.h" />
+    <ClInclude Include="Thrift\leaderboard_types.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\fragment01.glsl" />

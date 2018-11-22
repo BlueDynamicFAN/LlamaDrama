@@ -33,6 +33,14 @@ class LeaderboardHandler : virtual public LeaderboardIf {
 };
 
 int main(int argc, char **argv) {
+
+	WSAData wsaData;
+	int initializationResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+	if (initializationResult != 0) {
+		printf("Failed to init winsock %d\n", initializationResult);
+		return 1;
+	}
+
   int port = 9090;
   shared_ptr<LeaderboardHandler> handler(new LeaderboardHandler());
   shared_ptr<TProcessor> processor(new LeaderboardProcessor(handler));

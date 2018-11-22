@@ -46,6 +46,9 @@
     <Filter Include="Database">
       <UniqueIdentifier>{5a2a7697-a4a0-4903-ad08-fe76a4fc5d62}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Thrift">
+      <UniqueIdentifier>{d3ebd9f6-67d0-4186-82b0-3a6f2aca2f67}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -147,6 +150,18 @@
     <ClCompile Include="sqlite3.c">
       <Filter>Database</Filter>
     </ClCompile>
+    <ClCompile Include="Thrift\Leaderboard.cpp">
+      <Filter>Thrift</Filter>
+    </ClCompile>
+    <ClCompile Include="Thrift\leaderboard_constants.cpp">
+      <Filter>Thrift</Filter>
+    </ClCompile>
+    <ClCompile Include="Thrift\leaderboard_types.cpp">
+      <Filter>Thrift</Filter>
+    </ClCompile>
+    <ClCompile Include="Leaderboard-client.cpp">
+      <Filter>Thrift</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="global.h">
@@ -235,6 +250,15 @@
     </ClInclude>
     <ClInclude Include="sqlite3ext.h">
       <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Thrift\Leaderboard.h">
+      <Filter>Thrift</Filter>
+    </ClInclude>
+    <ClInclude Include="Thrift\leaderboard_constants.h">
+      <Filter>Thrift</Filter>
+    </ClInclude>
+    <ClInclude Include="Thrift\leaderboard_types.h">
+      <Filter>Thrift</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
