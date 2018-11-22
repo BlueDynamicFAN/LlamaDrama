@@ -13,12 +13,12 @@
 #include <fstream>
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp> 
-#include "Coin.h"
-#include "PickUpObj.h"
-#include "HealthObj.h"
+#include "cCoin.h"
+#include "cPickUp.h"
+#include "cHealth.h"
 #include "../cMeshObject.h"
 
-std::vector <PickUpObj*> pPickUpObj;
+std::vector <cPickUp*> pPickUpObj;
 extern std::vector< cMeshObject* > vec_pObjectsToDraw;
 
 /**
@@ -38,7 +38,7 @@ void loadPickUpFromJson() {
 
 		std::string fName = it.key();
 
-		PickUpObj* newPickUp;
+		cPickUp* newPickUp;
 		cMeshObject* model = new cMeshObject();
 		sTextureInfo texture;
 		std::string meshName;
@@ -75,13 +75,13 @@ void loadPickUpFromJson() {
 		{
 			model->pTheShape = new sSphere(0.4f);
 			model->shapeType = cMeshObject::SPHERE;
-			newPickUp = new HealthObj();
+			newPickUp = new cHealth();
 		}
 		else if (type == "coin")
 		{
 			model->pTheShape = new sSphere(0.4f);
 			model->shapeType = cMeshObject::SPHERE;
-			newPickUp = new Coin();
+			newPickUp = new cCoin();
 
 		}
 		newPickUp->setSize(glm::vec2(dimensions[0], dimensions[1]));

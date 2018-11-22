@@ -43,6 +43,9 @@
     <Filter Include="Pick_up">
       <UniqueIdentifier>{d3dc85e7-6df3-43cb-83b4-e0bb83752025}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Database">
+      <UniqueIdentifier>{5a2a7697-a4a0-4903-ad08-fe76a4fc5d62}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -126,14 +129,23 @@
     <ClCompile Include="TextureManager\CTextureFromBMP.cpp">
       <Filter>Textures</Filter>
     </ClCompile>
-    <ClCompile Include="Coin.cpp">
-      <Filter>Pick_up</Filter>
-    </ClCompile>
-    <ClCompile Include="HealthObj.cpp">
-      <Filter>Pick_up</Filter>
-    </ClCompile>
     <ClCompile Include="PickupObjManager.cpp">
       <Filter>Pick_up</Filter>
+    </ClCompile>
+    <ClCompile Include="cHealth.cpp">
+      <Filter>Pick_up</Filter>
+    </ClCompile>
+    <ClCompile Include="cCoin.cpp">
+      <Filter>Pick_up</Filter>
+    </ClCompile>
+    <ClCompile Include="DAO.cpp">
+      <Filter>Database</Filter>
+    </ClCompile>
+    <ClCompile Include="shell.c">
+      <Filter>Database</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlite3.c">
+      <Filter>Database</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,14 +218,23 @@
     <ClInclude Include="TextureManager\CTextureFromBMP.h">
       <Filter>Textures</Filter>
     </ClInclude>
-    <ClInclude Include="Coin.h">
+    <ClInclude Include="cPickUp.h">
       <Filter>Pick_up</Filter>
     </ClInclude>
-    <ClInclude Include="HealthObj.h">
+    <ClInclude Include="cHealth.h">
       <Filter>Pick_up</Filter>
     </ClInclude>
-    <ClInclude Include="PickUpObj.h">
+    <ClInclude Include="cCoin.h">
       <Filter>Pick_up</Filter>
+    </ClInclude>
+    <ClInclude Include="DAO.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite3.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite3ext.h">
+      <Filter>Database</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

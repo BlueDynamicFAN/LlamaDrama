@@ -8,14 +8,15 @@
 
 #include <iostream>
 #include <fstream>
-#include "PickUpObj.h"
+#include "cPickUp.h"
+#include "DAO.h"
 
 const float moveSpeed = 3.0f;
-extern std::vector <PickUpObj*> pPickUpObj;
+extern std::vector <cPickUp*> pPickUpObj;
 unsigned int activePickUpId = 0;
-PickUpObj* activePickUp = NULL;
+cPickUp* activePickUp = NULL;
 void savePickUpToJson();
-
+DAO dao;
 /**
 	Keyboard input
 
@@ -29,6 +30,12 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 	{
 		glfwSetWindowShouldClose(window, GLFW_TRUE);
+	}
+
+	if (key == GLFW_KEY_ENTER && action == GLFW_PRESS)
+	{
+		dao.setHighScore(0, thePlayer->getPlayerScore());
+		dao.getHighScore(0);
 	}
 
 	if (key == GLFW_KEY_LEFT && action == GLFW_PRESS)

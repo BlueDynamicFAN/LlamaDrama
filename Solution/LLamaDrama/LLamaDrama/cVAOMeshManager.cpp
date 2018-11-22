@@ -80,7 +80,7 @@ bool cVAOMeshManager::FindDrawInfoByModelName(sModelDrawInfo &drawInfo)
 bool cVAOMeshManager::m_LoadModelFromFile(sModelDrawInfo &drawInfo)
 {
 	// Open the file that you asked.
-	std::ifstream theFile(drawInfo.meshFileName.c_str());
+	std::ifstream theFile(std::string("assets/models/") + drawInfo.meshFileName.c_str());
 
 	// if ( theFile.is_open() == false )
 	if (!theFile.is_open())			// More "c" or "C++" ish

@@ -78,7 +78,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(SourcePath)inc;$(SourcePath)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(sourcePath)lib;$(SourcePath)lib/x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SourcePath)lib/x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -86,8 +86,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SourcePath)inc;$(SourcePath)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(sourcePath)lib;$(SourcePath)lib/x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SourcePath)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SourcePath)lib/x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -152,11 +152,12 @@
     <ClCompile Include="cLightHelper.cpp" />
     <ClCompile Include="cLightManager.cpp" />
     <ClCompile Include="cMeshObject.cpp" />
-    <ClCompile Include="Coin.cpp" />
+    <ClCompile Include="cCoin.cpp" />
     <ClCompile Include="cPlayer.cpp" />
     <ClCompile Include="cShader.cpp" />
     <ClCompile Include="cShaderManager.cpp" />
     <ClCompile Include="cVAOMeshManager.cpp" />
+    <ClCompile Include="DAO.cpp" />
     <ClCompile Include="DrawObject.cpp" />
     <ClCompile Include="Enemies\cBoss.cpp" />
     <ClCompile Include="Enemies\cEnemy.cpp" />
@@ -167,13 +168,15 @@
     <ClCompile Include="Enemies\cLevelEnemyType1.cpp" />
     <ClCompile Include="Enemies\cLevelEnemyType2.cpp" />
     <ClCompile Include="glad.c" />
-    <ClCompile Include="HealthObj.cpp" />
+    <ClCompile Include="cHealth.cpp" />
     <ClCompile Include="loadAllMeshes.cpp" />
     <ClCompile Include="loadFromJSON.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="PickupObjManager.cpp" />
+    <ClCompile Include="shell.c" />
     <ClCompile Include="sModelDrawInfo.cpp" />
+    <ClCompile Include="sqlite3.c" />
     <ClCompile Include="TextureManager\C24BitBMPpixel.cpp" />
     <ClCompile Include="TextureManager\cBasicTextureManager.cpp" />
     <ClCompile Include="TextureManager\CTextureFromBMP.cpp" />
@@ -184,9 +187,10 @@
     <ClInclude Include="cLightHelper.h" />
     <ClInclude Include="cLightManager.h" />
     <ClInclude Include="cMeshObject.h" />
-    <ClInclude Include="Coin.h" />
+    <ClInclude Include="cCoin.h" />
     <ClInclude Include="cShaderManager.h" />
     <ClInclude Include="cVAOMeshManager.h" />
+    <ClInclude Include="DAO.h" />
     <ClInclude Include="Enemies\cBoss.h" />
     <ClInclude Include="Enemies\cEnemy.h" />
     <ClInclude Include="Enemies\cEnemyFactory.h" />
@@ -198,11 +202,13 @@
     <ClInclude Include="global.h" />
     <ClInclude Include="cPlatform.h" />
     <ClInclude Include="cPlayer.h" />
-    <ClInclude Include="HealthObj.h" />
-    <ClInclude Include="PickUpObj.h" />
+    <ClInclude Include="cHealth.h" />
+    <ClInclude Include="cPickUp.h" />
     <ClInclude Include="sModelDrawInfo.h" />
     <ClInclude Include="sPlyTriangle.h" />
     <ClInclude Include="sPlyVertex.h" />
+    <ClInclude Include="sqlite3.h" />
+    <ClInclude Include="sqlite3ext.h" />
     <ClInclude Include="TextureManager\C24BitBMPpixel.h" />
     <ClInclude Include="TextureManager\cBasicTextureManager.h" />
     <ClInclude Include="TextureManager\CTextureFromBMP.h" />

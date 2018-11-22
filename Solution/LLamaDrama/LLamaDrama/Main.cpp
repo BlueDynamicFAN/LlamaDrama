@@ -26,7 +26,7 @@
 #include "./Enemies/cFinalBoss.h"
 #include "cLightHelper.h"
 
-#include <fmod.hpp>
+#include <fmod/fmod.hpp>
 
 //FMOD Globals
 FMOD_RESULT _result = FMOD_OK;
