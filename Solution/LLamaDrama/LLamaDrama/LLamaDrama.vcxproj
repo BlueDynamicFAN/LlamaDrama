@@ -73,21 +73,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SourcePath)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SourcePath)include;$(IncludePath);C:\Thrift\src;C:\local\boost_1_59_0</IncludePath>
+    <LibraryPath>C:\Thrift\lib\$(IntDir);C:\local\boost_1_59_0\lib32-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SourcePath)inc;$(SourcePath)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SourcePath)lib/x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SourcePath)inc;$(SourcePath)include;$(IncludePath);C:\Thrift\src;C:\local\boost_1_59_0</IncludePath>
+    <LibraryPath>C:\local\boost_1_59_0\lib64-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64;C:\Thrift\lib\x64\Debug</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SourcePath)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SourcePath)include;$(IncludePath);C:\Thrift\src;C:\local\boost_1_59_0</IncludePath>
+    <LibraryPath>C:\Thrift\lib\$(IntDir);C:\local\boost_1_59_0\lib32-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SourcePath)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SourcePath)lib/x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SourcePath)include;$(IncludePath);C:\Thrift\src;C:\local\boost_1_59_0</IncludePath>
+    <LibraryPath>C:\local\boost_1_59_0\lib64-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64;C:\Thrift\lib\x64\Release</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -99,6 +101,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>libthrift.lib;glfw3.lib;fmodL_vc.lib;libboost_thread-vc140-mt-gd-1_59.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -111,7 +114,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>fmod64_vc.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libthrift.lib;libboost_thread-vc140-mt-gd-1_59.lib;fmod64_vc.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -128,6 +131,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>libthrift.lib;glfw3.lib;fmodL_vc.lib;libboost_thread-vc140-mt-1_59.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -144,7 +148,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>fmodL64_vc.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libthrift.lib;glfw3.lib;libboost_thread-vc140-mt-1_59.lib;fmodL64_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

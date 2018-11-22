@@ -52,6 +52,8 @@ cShaderManager* pTheShaderManager = NULL;
 cVAOMeshManager* g_pTheVAOMeshManager = NULL;
 cBasicTextureManager* g_pTheTextureManager = NULL;
 cLightManager* pLightManager = NULL;
+bool init_fmod();
+bool shutdown_fmod();
 
 // Loads the models we are drawing into the vector
 void LoadModelsIntoScene(void);

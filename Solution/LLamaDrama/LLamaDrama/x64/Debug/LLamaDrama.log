@@ -1,0 +1,26 @@
+﻿LINK : warning LNK4067: ambiguous entry point; selected 'mainCRTStartup'
+Main.obj : error LNK2019: unresolved external symbol glfwInit referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwTerminate referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwSetErrorCallback referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwWindowHint referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwDestroyWindow referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwWindowShouldClose referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwSetWindowTitle referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwGetFramebufferSize referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwPollEvents referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwSetKeyCallback referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwGetTime referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwSwapBuffers referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwSwapInterval referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwGetProcAddress referenced in function main
+Main.obj : error LNK2019: unresolved external symbol FMOD_System_Create referenced in function "enum FMOD_RESULT __cdecl FMOD::System_Create(class FMOD::System * *)" (?System_Create@FMOD@@YA?AW4FMOD_RESULT@@PEAPEAVSystem@1@@Z)
+Main.obj : error LNK2019: unresolved external symbol "public: enum FMOD_RESULT __cdecl FMOD::System::release(void)" (?release@System@FMOD@@QEAA?AW4FMOD_RESULT@@XZ) referenced in function "bool __cdecl shutdown_fmod(void)" (?shutdown_fmod@@YA_NXZ)
+Main.obj : error LNK2019: unresolved external symbol "public: enum FMOD_RESULT __cdecl FMOD::System::init(int,unsigned int,void *)" (?init@System@FMOD@@QEAA?AW4FMOD_RESULT@@HIPEAX@Z) referenced in function "bool __cdecl init_fmod(void)" (?init_fmod@@YA_NXZ)
+Main.obj : error LNK2019: unresolved external symbol "public: enum FMOD_RESULT __cdecl FMOD::System::close(void)" (?close@System@FMOD@@QEAA?AW4FMOD_RESULT@@XZ) referenced in function "bool __cdecl shutdown_fmod(void)" (?shutdown_fmod@@YA_NXZ)
+Main.obj : error LNK2019: unresolved external symbol "public: enum FMOD_RESULT __cdecl FMOD::Sound::release(void)" (?release@Sound@FMOD@@QEAA?AW4FMOD_RESULT@@XZ) referenced in function "bool __cdecl shutdown_fmod(void)" (?shutdown_fmod@@YA_NXZ)
+UserIO.obj : error LNK2019: unresolved external symbol glfwSetWindowShouldClose referenced in function "void __cdecl key_callback(struct GLFWwindow *,int,int,int,int)" (?key_callback@@YAXPEAUGLFWwindow@@HHHH@Z)
+UserIO.obj : error LNK2019: unresolved external symbol glfwGetKey referenced in function "bool __cdecl IsAltDown(struct GLFWwindow *)" (?IsAltDown@@YA_NPEAUGLFWwindow@@@Z)
+UserIO.obj : error LNK2019: unresolved external symbol glfwGetMouseButton referenced in function "void __cdecl ProcessAsynKeys(struct GLFWwindow *,double)" (?ProcessAsynKeys@@YAXPEAUGLFWwindow@@N@Z)
+C:\Users\Veronika\Desktop\git\LlamaDrama\LlamaDrama\Solution\LLamaDrama\x64\Debug\LlamaDrama.exe : fatal error LNK1120: 24 unresolved externals
