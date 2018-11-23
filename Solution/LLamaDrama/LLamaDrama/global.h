@@ -25,6 +25,7 @@
 #include "cPlatform.h"
 #include "TextureManager/cBasicTextureManager.h"
 #include "cLightManager.h"
+#include "DAO.h"
 
 static const float PI = 3.14159f;
 
@@ -32,6 +33,7 @@ extern glm::vec3 g_CameraEye;
 extern glm::vec3 g_CameraAt;
 
 extern cBasicTextureManager* g_pTheTextureManager;
+extern DAO dao;
 
 // Vector of Models loaded
 extern unsigned int SelectedModel;

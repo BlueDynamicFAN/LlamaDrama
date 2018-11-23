@@ -9,7 +9,6 @@
 #include <iostream>
 #include <fstream>
 #include "cPickUp.h"
-#include "DAO.h"
 
 const float moveSpeed = 3.0f;
 extern std::vector <cPickUp*> pPickUpObj;
@@ -17,6 +16,7 @@ unsigned int activePickUpId = 0;
 cPickUp* activePickUp = NULL;
 void savePickUpToJson();
 DAO dao;
+
 /**
 	Keyboard input
 
@@ -34,8 +34,9 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 
 	if (key == GLFW_KEY_ENTER && action == GLFW_PRESS)
 	{
-		dao.setHighScore(1, thePlayer->getPlayerScore());
-		dao.getHighScore(1);
+		std::cout << "Current score: " << thePlayer->getPlayerScore() << std::endl;
+		std::cout << "Database scores: " << std::endl;
+		dao.getHighScore(0);
 	}
 
 	if (key == GLFW_KEY_LEFT && action == GLFW_PRESS)

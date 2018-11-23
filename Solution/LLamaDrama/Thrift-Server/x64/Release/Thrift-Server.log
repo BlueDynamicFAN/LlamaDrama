@@ -1,0 +1,12 @@
+﻿  Leaderboard.cpp
+  Unknown compiler version - please run the configure tests and report the results
+c:\users\cryst\downloads\gdp semester 1\6024 - components\llamadrama\solution\llamadrama\thrift-server\leaderboard.cpp(392): warning C4101: 'e': unreferenced local variable
+  leaderboard_constants.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  Leaderboard_server.cpp
+  Unknown compiler version - please run the configure tests and report the results
+c:\users\cryst\downloads\gdp semester 1\6024 - components\llamadrama\solution\llamadrama\thrift-server\leaderboard_server.cpp(51): warning C4101: 'j': unreferenced local variable
+  leaderboard_types.cpp
+  Unknown compiler version - please run the configure tests and report the results
+LINK : fatal error C1047: The object or library file 'C:\Thrift\lib\x64\Release\libthrift.lib' was created with an older compiler than other objects; rebuild old objects and libraries
+LINK : fatal error LNK1257: code generation failed

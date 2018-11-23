@@ -74,7 +74,7 @@
     <LibraryPath>$(SolutionDir)hiredis;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;C:\local\boost_1_59_0\lib32-msvc-14.0;C:\Thrift\thrift-0.9.1\lib\$(IntDir)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Thrift\src;C:\local\boost_1_59_0;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Thrift\thrift-0.9.1\src;C:\local\boost_1_59_0;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)hiredis;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;C:\local\boost_1_59_0\lib32-msvc-14.0;C:\Thrift\thrift-0.9.1\lib\$(IntDir)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

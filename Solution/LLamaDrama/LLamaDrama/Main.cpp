@@ -282,7 +282,9 @@ int main(void)
 
 	}//while (!glfwWindowShouldClose(window))
 
+	dao.setHighScore(0, thePlayer->getPlayerScore());
 	client->setHighScore(0, thePlayer->getPlayerScore());
+
 	// Delete stuff
 	delete pTheShaderManager;
 	delete ::g_pTheVAOMeshManager;
