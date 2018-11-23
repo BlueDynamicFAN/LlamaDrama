@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="hireRedis">
+      <UniqueIdentifier>{ffa4e96e-3844-45d8-8784-142feb133f56}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Leaderboard.cpp">
@@ -27,6 +30,21 @@
     <ClCompile Include="leaderboard_types.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="hiredis-win\async.c">
+      <Filter>hireRedis</Filter>
+    </ClCompile>
+    <ClCompile Include="hiredis-win\dict.c">
+      <Filter>hireRedis</Filter>
+    </ClCompile>
+    <ClCompile Include="hiredis-win\hiredis.c">
+      <Filter>hireRedis</Filter>
+    </ClCompile>
+    <ClCompile Include="hiredis-win\net.c">
+      <Filter>hireRedis</Filter>
+    </ClCompile>
+    <ClCompile Include="hiredis-win\sds.c">
+      <Filter>hireRedis</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Leaderboard.h">
@@ -37,6 +55,27 @@
     </ClInclude>
     <ClInclude Include="leaderboard_types.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis-win\async.h">
+      <Filter>hireRedis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis-win\dict.h">
+      <Filter>hireRedis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis-win\fmacros.h">
+      <Filter>hireRedis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis-win\hiredis.h">
+      <Filter>hireRedis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis-win\net.h">
+      <Filter>hireRedis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis-win\resource.h">
+      <Filter>hireRedis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis-win\sds.h">
+      <Filter>hireRedis</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

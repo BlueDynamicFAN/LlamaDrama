@@ -25,8 +25,12 @@
 #include "./Enemies/cEnemyFactory.h"
 #include "./Enemies/cFinalBoss.h"
 #include "cLightHelper.h"
+#include "./Thrift/Leaderboard.h"
 
 #include <fmod/fmod.hpp>
+
+//THRIFT
+extern LeaderboardClient* client;
 
 //FMOD Globals
 FMOD_RESULT _result = FMOD_OK;
@@ -60,6 +64,9 @@ void LoadModelsIntoScene(void);
 //Delete models objects
 void deleteModels();
 
+//THRIFT 
+void connectToLeaderBoard();
+
 /**
 	Displays an error message
 
@@ -76,6 +83,7 @@ int main(void)
 	GLFWwindow* window;
 	pLightManager = new cLightManager();
 	glfwSetErrorCallback(error_callback);
+	connectToLeaderBoard();
 
 	if (!glfwInit())
 	{
@@ -274,6 +282,7 @@ int main(void)
 
 	}//while (!glfwWindowShouldClose(window))
 
+	client->setHighScore(0, thePlayer->getPlayerScore());
 	// Delete stuff
 	delete pTheShaderManager;
 	delete ::g_pTheVAOMeshManager;

@@ -71,11 +71,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>C:\Thrift\src;C:\local\boost_1_59_0;$(IncludePath)</IncludePath>
-    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;C:\local\boost_1_59_0\lib32-msvc-14.0</LibraryPath>
+    <LibraryPath>$(SolutionDir)hiredis;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;C:\local\boost_1_59_0\lib32-msvc-14.0;C:\Thrift\thrift-0.9.1\lib\$(IntDir)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\Thrift\src;C:\local\boost_1_59_0;$(IncludePath)</IncludePath>
-    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;C:\local\boost_1_59_0\lib32-msvc-14.0</LibraryPath>
+    <LibraryPath>$(SolutionDir)hiredis;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;C:\local\boost_1_59_0\lib32-msvc-14.0;C:\Thrift\thrift-0.9.1\lib\$(IntDir)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\Thrift\src;C:\local\boost_1_59_0;$(IncludePath)</IncludePath>
@@ -93,6 +93,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <CompileAs>Default</CompileAs>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -130,6 +131,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -138,12 +140,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="hiredis-win\async.c" />
+    <ClCompile Include="hiredis-win\dict.c" />
+    <ClCompile Include="hiredis-win\hiredis.c" />
+    <ClCompile Include="hiredis-win\net.c" />
+    <ClCompile Include="hiredis-win\sds.c" />
     <ClCompile Include="Leaderboard.cpp" />
     <ClCompile Include="leaderboard_constants.cpp" />
     <ClCompile Include="Leaderboard_server.cpp" />
     <ClCompile Include="leaderboard_types.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="hiredis-win\async.h" />
+    <ClInclude Include="hiredis-win\dict.h" />
+    <ClInclude Include="hiredis-win\fmacros.h" />
+    <ClInclude Include="hiredis-win\hiredis.h" />
+    <ClInclude Include="hiredis-win\net.h" />
+    <ClInclude Include="hiredis-win\resource.h" />
+    <ClInclude Include="hiredis-win\sds.h" />
     <ClInclude Include="Leaderboard.h" />
     <ClInclude Include="leaderboard_constants.h" />
     <ClInclude Include="leaderboard_types.h" />

@@ -34,8 +34,8 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 
 	if (key == GLFW_KEY_ENTER && action == GLFW_PRESS)
 	{
-		dao.setHighScore(0, thePlayer->getPlayerScore());
-		dao.getHighScore(0);
+		dao.setHighScore(1, thePlayer->getPlayerScore());
+		dao.getHighScore(1);
 	}
 
 	if (key == GLFW_KEY_LEFT && action == GLFW_PRESS)

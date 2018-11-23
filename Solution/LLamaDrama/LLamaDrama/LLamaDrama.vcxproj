@@ -74,17 +74,17 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(SourcePath)include;$(IncludePath);C:\Thrift\thrift-0.9.1\src;C:\local\boost_1_59_0</IncludePath>
-    <LibraryPath>C:\Thrift\thrift-0.9.1\lib\$(IntDir);C:\local\boost_1_59_0\lib32-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64</LibraryPath>
+    <LibraryPath>C:\Thrift\thrift-0.9.1\lib\$(IntDir);C:\local\boost_1_59_0\lib32-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x86;$(SourcePath)lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(SourcePath)inc;$(SourcePath)include;$(IncludePath);C:\Thrift\thrift-0.9.1\src;C:\local\boost_1_59_0</IncludePath>
-    <LibraryPath>C:\local\boost_1_59_0\lib64-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64;C:\Thrift\thrift-0.9.1\lib\x64\Debug</LibraryPath>
+    <LibraryPath>C:\local\boost_1_59_0\lib64-msvc-14.0;$(LibraryPath);C:\Thrift\thrift-0.9.1\lib\x64\Debug;$(SourcePath)lib/x64;$(SourcePath)lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(SourcePath)include;$(IncludePath);C:\Thrift\thrift-0.9.1\src;C:\local\boost_1_59_0</IncludePath>
-    <LibraryPath>C:\Thrift\thrift-0.9.1\lib\$(IntDir);C:\local\boost_1_59_0\lib32-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64</LibraryPath>
+    <LibraryPath>C:\Thrift\thrift-0.9.1\lib\$(IntDir);C:\local\boost_1_59_0\lib32-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x86;$(SourcePath)lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
