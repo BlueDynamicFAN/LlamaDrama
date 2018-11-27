@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <winsock2.h>
+#include <iostream>
 
 
 extern "C" {
@@ -27,6 +28,10 @@ using namespace ::apache::thrift::server;
 
 using boost::shared_ptr;
 
+unsigned int j;
+redisContext *c;
+redisReply *reply;
+
 
 class LeaderboardHandler : virtual public LeaderboardIf {
  public:
@@ -35,13 +40,32 @@ class LeaderboardHandler : virtual public LeaderboardIf {
   }
 
   void setHighScore(const int32_t playerId, const int32_t highScore) {
-    // Your implementation goes here
-    printf("setHighScore\n");
+	  // Your implementation goes here
+	  printf("setHighScore\n");
+	  printf("%i ID, %i score", playerId, highScore);
+	  int id = playerId;
+	  int score = highScore;
+	  reply = (redisReply *)redisCommand(c, "ZADD leaderBoard %i %i", score, id);
+	  freeReplyObject(reply);
   }
 
   void getTop20(std::map<int32_t, int32_t> & _return) {
-    // Your implementation goes here
-    printf("getTop20\n");
+
+	  reply = (redisReply *)redisCommand(c, "ZRANGEBYSCORE leaderBoard -inf +inf WITHSCORES LIMIT 0 20");
+	  if (reply->type == 2) {
+		  for (j = 0; j < reply->elements; j += 2) {
+			  std::cout << reply->element[j]->str << " " << reply->element[j + 1]->str << std::endl;
+			  std::string id = reply->element[j]->str;
+			  std::string score = reply->element[j + 1]->str;
+
+			  int iID = std::stoi(id);
+			  int iScore = std::stoi(score);
+			  _return.insert(std::pair<int32_t, int32_t>(iID, iScore));
+		  }
+	  }
+	  freeReplyObject(reply);
+
+	  printf("getTop20\n");
   }
 
 };

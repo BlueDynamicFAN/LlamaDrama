@@ -40,6 +40,18 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		dao.getHighScore(thePlayer->getId());
 	}
 
+	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
+	{
+		top20.clear();
+		client->getTop20(top20);
+
+		std::map<int32_t, int32_t>::iterator it;
+		std::cout << "[PlayerID][Score]:" << std::endl;
+		for (it = top20.begin(); it != top20.end(); it++) {
+			std::cout << it->first << " " << it->second << std::endl;
+		}
+	}
+
 	if (key == GLFW_KEY_LEFT && action == GLFW_PRESS)
 	{
 		std::cout << "I am here" <<std::endl;

@@ -25,12 +25,12 @@
 #include "./Enemies/cEnemyFactory.h"
 #include "./Enemies/cFinalBoss.h"
 #include "cLightHelper.h"
-#include "./Thrift/Leaderboard.h"
 
 #include <fmod/fmod.hpp>
 
 //THRIFT
 extern LeaderboardClient* client;
+std::map<int32_t, int32_t> top20;
 
 //FMOD Globals
 FMOD_RESULT _result = FMOD_OK;

@@ -14,6 +14,7 @@
 
 #include <string>
 #include <vector>
+#include <map>
 
 #include "sPlyVertex.h"
 #include "sPlyTriangle.h"
@@ -26,6 +27,8 @@
 #include "TextureManager/cBasicTextureManager.h"
 #include "cLightManager.h"
 #include "DAO.h"
+
+#include "./Thrift/Leaderboard.h"
 
 static const float PI = 3.14159f;
 
@@ -67,6 +70,10 @@ void gravityUpdate(double deltaTime);
 void movesUpdate(double deltaTime);
 bool isPlayerOnTopOfAPlatform();
 void collisionDetection(cMeshObject* pickupObject);
+
+//Thrift
+extern std::map<int32_t, int32_t> top20;
+extern LeaderboardClient* client;
 
 struct sClosestPointData
 {
