@@ -59,7 +59,7 @@ void DAO::setHighScore(int id, int score)
 		sqlStr = "SELECT * FROM Player WHERE id = " + std::to_string(id) + ";";
 		int result = sqlite3_exec(highscoreDB, sqlStr.c_str(), ResultCallback, &count, &errMsg);
 
-		sqlStr = "UPDATE Player SET score=" + std::to_string(count) + " WHERE id=" + std::to_string(id) + ";";
+		sqlStr = "UPDATE Player SET score=" + std::to_string(count + score) + " WHERE id=" + std::to_string(id) + ";";
 		result = sqlite3_exec(highscoreDB, sqlStr.c_str(), ResultCallback, 0, &errMsg);
 	}
 }

@@ -297,14 +297,14 @@ void collisionDetection(cMeshObject* pickupObject)
 							int score = thePlayer->getPlayerScore();
 							score += 10;
 							thePlayer->setPlayerScore(score);
-							std::cout << "Score: " << score << std::endl;
+							std::cout << "Current score: " << score << std::endl;
 						}
 						else if (pObjectB->m_meshName == "health.ply")
 						{
 							int health = thePlayer->getPlayerHealth();
 							health += 10;
 							thePlayer->setPlayerHealth(health);
-							std::cout << "Health: " << health << std::endl;
+							std::cout << "Current health: " << health << std::endl;
 						}
 					}
 				}//if(TestForCollision(...

@@ -23,6 +23,7 @@ public:
 	unsigned int getPlayerHealth();
 	unsigned int getPlayerScore();
 	unsigned int getNumberOfKeys();
+	unsigned int getId();
 
 	void setVelocityX(float value);
 	void setVelocityY(float value);
@@ -49,6 +50,8 @@ private:
 	unsigned int m_playerHealth;
 	unsigned int m_playerScore;
 	unsigned int m_numberOfKeys;
+
+	unsigned int m_id;
 };
 
 #endif

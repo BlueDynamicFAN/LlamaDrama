@@ -34,9 +34,10 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 
 	if (key == GLFW_KEY_ENTER && action == GLFW_PRESS)
 	{
+		std::cout << "Player Id: " << thePlayer->getId() << std::endl;
 		std::cout << "Current score: " << thePlayer->getPlayerScore() << std::endl;
 		std::cout << "Database scores: " << std::endl;
-		dao.getHighScore(0);
+		dao.getHighScore(thePlayer->getId());
 	}
 
 	if (key == GLFW_KEY_LEFT && action == GLFW_PRESS)

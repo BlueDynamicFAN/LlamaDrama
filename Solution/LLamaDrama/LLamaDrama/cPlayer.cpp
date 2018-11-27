@@ -5,6 +5,7 @@
 	@version: 1.0.0
 */
 #include "cPlayer.h"
+#include <time.h>
 
 // static
 cPlayer* cPlayer::pOnlyPlayer = NULL;
@@ -38,6 +39,9 @@ cPlayer::cPlayer()
 	this->m_accel = glm::vec3(0.0f, 0.0f, 0.0f);
 	this->m_playerScore = 0;
 	this->m_numberOfKeys = 0;
+
+	srand(time(NULL));
+	this->m_id = (rand() % static_cast<int>(20 - 1 + 1));
 }
 
 /**
@@ -141,6 +145,17 @@ unsigned int cPlayer::getPlayerScore()
 unsigned int cPlayer::getNumberOfKeys()
 {
 	return this->m_numberOfKeys;
+}
+
+/**
+	Getter for the id
+
+	@param: void
+	@return: id
+*/
+unsigned int cPlayer::getId()
+{
+	return this->m_id;
 }
 
 /**
