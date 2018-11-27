@@ -41,7 +41,7 @@ int ResultCallback(void* notUsed, int argc, char** argv, char** azColName)
 	return 0;
 }
 
-void DAO::setHighScore(int id, int score)
+int DAO::setHighScore(int id, int score)
 {
 	char* errMsg;
 	int count = 0;
@@ -62,6 +62,7 @@ void DAO::setHighScore(int id, int score)
 		sqlStr = "UPDATE Player SET score=" + std::to_string(count + score) + " WHERE id=" + std::to_string(id) + ";";
 		result = sqlite3_exec(highscoreDB, sqlStr.c_str(), ResultCallback, 0, &errMsg);
 	}
+	return count + score;
 }
 
 const std::vector<Score>& DAO::getHighScore(int id)

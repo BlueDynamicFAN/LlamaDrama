@@ -17,7 +17,7 @@ public:
 	DAO(void);
 	~DAO(void);
 
-	void setHighScore(int id, int score);
+	int setHighScore(int id, int score);
 	const std::vector<Score>& getHighScore(int id);
 
 private:
