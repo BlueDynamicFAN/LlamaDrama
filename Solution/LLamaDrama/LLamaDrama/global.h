@@ -35,6 +35,16 @@ extern glm::vec3 g_CameraAt;
 extern cBasicTextureManager* g_pTheTextureManager;
 extern DAO dao;
 
+// FMOD
+bool init_fmod();
+bool shutdown_fmod();
+std::string CheckFmodResult(int result);
+
+// Sounds 
+void LoadSoundsFromFile();
+extern bool isJump;
+extern bool coinGot;
+
 // Vector of Models loaded
 extern unsigned int SelectedModel;
 extern std::vector< cMeshObject* > vec_pObjectsToDraw;

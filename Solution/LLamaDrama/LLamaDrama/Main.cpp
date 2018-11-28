@@ -27,16 +27,22 @@
 #include "cLightHelper.h"
 #include "./Thrift/Leaderboard.h"
 
-#include <fmod/fmod.hpp>
+#include <fmod.hpp>
 
-//THRIFT
-extern LeaderboardClient* client;
+#define NUM_OF_SOUNDS 10
+#define NUM_OF_CHANNELS 10
 
 //FMOD Globals
 FMOD_RESULT _result = FMOD_OK;
-FMOD::System *_system = NULL;
-FMOD::Sound *_sound = NULL;
-FMOD::Channel *_channel = NULL;
+FMOD::System *_system;
+FMOD::Sound* soundArray[NUM_OF_SOUNDS];
+FMOD::Channel* channelArray[NUM_OF_CHANNELS];
+const char* fileNameArray[NUM_OF_SOUNDS];
+bool isJump = false;
+bool coinGot = false;
+
+//THRIFT
+extern LeaderboardClient* client;
 
 unsigned int SelectedModel = 0;
 std::vector< cMeshObject* > vec_pObjectsToDraw;
@@ -80,6 +86,9 @@ static void error_callback(int error, const char* description)
 
 int main(void)
 {
+	//Init FMOD
+	init_fmod();
+
 	GLFWwindow* window;
 	pLightManager = new cLightManager();
 	glfwSetErrorCallback(error_callback);
@@ -162,8 +171,12 @@ int main(void)
 
 	GLint eyeLocation_location = glGetUniformLocation(program, "eyeLocation");
 
-	//Init FMOD
-	assert(init_fmod());
+	// Load sounds from .txt file
+	LoadSoundsFromFile();
+
+	// Play background music
+	_result = _system->playSound(soundArray[0], 0, false, &channelArray[0]);
+	std::cout << CheckFmodResult(_result) << std::endl;
 
 	// Draw the "scene" (run the program)
 	while (!glfwWindowShouldClose(window))
@@ -222,6 +235,20 @@ int main(void)
 		double currentTime = glfwGetTime();
 		double deltaTime = currentTime - lastTime;
 		lastTime = currentTime;
+
+		// Jump sound
+		if (isJump)
+		{
+			_result = _system->playSound(soundArray[1], 0, false, &channelArray[1]);
+			isJump = false;
+		}
+
+		// Coin sound
+		if (coinGot)
+		{
+			_result = _system->playSound(soundArray[2], 0, false, &channelArray[2]);
+			coinGot = false;
+		}
 
 		//Update physics
 		gravityUpdate(deltaTime);
@@ -292,7 +319,7 @@ int main(void)
 	delete pLightManager;
 
 	//Shut down FMOD
-	assert(shutdown_fmod());
+	shutdown_fmod();
 
 	glfwDestroyWindow(window);
 	glfwTerminate();
@@ -327,32 +354,329 @@ bool init_fmod() {
 
 	//Create the main system object
 	_result = FMOD::System_Create(&_system);
-	//TODO: CHECK FOR FMOD ERRORS, IMPLEMENT YOUR OWN FUNCTION
-	assert(!_result);
+	std::cout << CheckFmodResult(_result) << std::endl;
 	//Initializes the system object, and the msound device. This has to be called at the start of the user's program
 	_result = _system->init(512, FMOD_INIT_NORMAL, NULL);
-	assert(!_result);
-
+	std::cout << CheckFmodResult(_result) << std::endl;
 
 	return true;
 }
 
 /*
 	Safely shuts down FMOD
-	
+
 */
 bool shutdown_fmod() {
 
-	if (_sound) {
-		_result = _sound->release();
-		assert(!_result);
+	for (unsigned int i = 0; i < NUM_OF_SOUNDS; i++)
+	{
+		if (soundArray[i]) {
+			_result = soundArray[i]->release();
+			std::cout << CheckFmodResult(_result) << std::endl;
+		}
 	}
+
 	if (_system) {
 		_result = _system->close();
-		assert(!_result);
+		std::cout << CheckFmodResult(_result) << std::endl;
 		_result = _system->release();
-		assert(!_result);
+		std::cout << CheckFmodResult(_result) << std::endl;
 	}
 
 	return true;
+}
+
+//Load mp3 files from a text file so that they can be changed without the need to recompile.
+void LoadSoundsFromFile()
+{
+	std::ifstream myfile("soundFiles.txt");
+
+	if (myfile.is_open())
+	{
+		std::string path_start = "assets/SoundFiles/";
+		std::string file_path;
+		const char* full_path;
+		unsigned int index = 0;
+
+		for (std::string line; getline(myfile, line); )
+		{
+			// Get full file name
+			file_path = "";
+			file_path += path_start;
+			file_path += line;
+
+			// Convert to char*
+			full_path = file_path.c_str();
+
+			// Slap into fileNameArray
+			fileNameArray[index] = full_path;
+
+			// Turn it into a sound and put that into soundArray
+			_result = _system->createSound(fileNameArray[index], FMOD_DEFAULT, 0, &soundArray[index]);
+			std::cout << CheckFmodResult(_result) << std::endl;
+
+			// Increment index
+			index++;
+		}
+		myfile.close();
+	}
+	else
+		std::cout << "Can't open .MP3 file" << std::endl;
+}
+
+std::string CheckFmodResult(int result)
+{
+	std::string res = "";
+
+	switch (result)
+	{
+	case FMOD_OK:
+		res = "FMOD_OK";
+		break;
+	case FMOD_ERR_BADCOMMAND:
+		res = "FMOD_ERR_BADCOMMAND";
+		break;
+	case FMOD_ERR_CHANNEL_ALLOC:
+		res = "FMOD_ERR_CHANNEL_ALLOC";
+		break;
+	case FMOD_ERR_CHANNEL_STOLEN:
+		res = "FMOD_ERR_CHANNEL_STOLEN";
+		break;
+	case FMOD_ERR_DMA:
+		res = "FMOD_ERR_DMA";
+		break;
+	case FMOD_ERR_DSP_CONNECTION:
+		res = "FMOD_ERR_DSP_CONNECTION";
+		break;
+	case FMOD_ERR_DSP_DONTPROCESS:
+		res = "FMOD_ERR_DSP_DONTPROCESS";
+		break;
+	case FMOD_ERR_DSP_FORMAT:
+		res = "FMOD_ERR_DSP_FORMAT";
+		break;
+	case FMOD_ERR_DSP_INUSE:
+		res = "FMOD_ERR_DSP_INUSE";
+		break;
+	case FMOD_ERR_DSP_NOTFOUND:
+		res = "FMOD_ERR_DSP_NOTFOUND";
+		break;
+	case FMOD_ERR_DSP_RESERVED:
+		res = "FMOD_ERR_DSP_RESERVED";
+		break;
+	case FMOD_ERR_DSP_SILENCE:
+		res = "FMOD_ERR_DSP_SILENCE";
+		break;
+	case FMOD_ERR_DSP_TYPE:
+		res = "FMOD_ERR_DSP_TYPE";
+		break;
+	case FMOD_ERR_FILE_BAD:
+		res = "FMOD_ERR_FILE_BAD";
+		break;
+	case FMOD_ERR_FILE_COULDNOTSEEK:
+		res = "FMOD_ERR_FILE_COULDNOTSEEK";
+		break;
+	case FMOD_ERR_FILE_DISKEJECTED:
+		res = "FMOD_ERR_FILE_DISKEJECTED";
+		break;
+	case FMOD_ERR_FILE_EOF:
+		res = "FMOD_ERR_FILE_EOF";
+		break;
+	case FMOD_ERR_FILE_ENDOFDATA:
+		res = "FMOD_ERR_FILE_ENDOFDATA";
+		break;
+	case FMOD_ERR_FILE_NOTFOUND:
+		res = "FMOD_ERR_FILE_NOTFOUND";
+		break;
+	case FMOD_ERR_FORMAT:
+		res = "FMOD_ERR_FORMAT";
+		break;
+	case FMOD_ERR_HEADER_MISMATCH:
+		res = "FMOD_ERR_HEADER_MISMATCH";
+		break;
+	case FMOD_ERR_HTTP:
+		res = "FMOD_ERR_HTTP";
+		break;
+	case FMOD_ERR_HTTP_ACCESS:
+		res = "FMOD_ERR_HTTP_ACCESS";
+		break;
+	case FMOD_ERR_HTTP_PROXY_AUTH:
+		res = "FMOD_ERR_HTTP_PROXY_AUTH";
+		break;
+	case FMOD_ERR_HTTP_SERVER_ERROR:
+		res = "FMOD_ERR_HTTP_SERVER_ERROR";
+		break;
+	case FMOD_ERR_HTTP_TIMEOUT:
+		res = "FMOD_ERR_HTTP_TIMEOUT";
+		break;
+	case FMOD_ERR_INITIALIZATION:
+		res = "FMOD_ERR_INITIALIZATION";
+		break;
+	case FMOD_ERR_INITIALIZED:
+		res = "FMOD_ERR_INITIALIZED";
+		break;
+	case FMOD_ERR_INTERNAL:
+		res = "FMOD_ERR_INTERNAL";
+		break;
+	case FMOD_ERR_INVALID_FLOAT:
+		res = "FMOD_ERR_INVALID_FLOAT";
+		break;
+	case FMOD_ERR_INVALID_HANDLE:
+		res = "FMOD_ERR_INVALID_HANDLE";
+		break;
+	case FMOD_ERR_INVALID_PARAM:
+		res = "FMOD_ERR_INVALID_PARAM";
+		break;
+	case FMOD_ERR_INVALID_POSITION:
+		res = "FMOD_ERR_INVALID_POSITION";
+		break;
+	case FMOD_ERR_INVALID_SPEAKER:
+		res = "FMOD_ERR_INVALID_SPEAKER";
+		break;
+	case FMOD_ERR_INVALID_SYNCPOINT:
+		res = "FMOD_ERR_INVALID_SYNCPOINT";
+		break;
+	case FMOD_ERR_INVALID_THREAD:
+		res = "FMOD_ERR_INVALID_THREAD";
+		break;
+	case FMOD_ERR_INVALID_VECTOR:
+		res = "FMOD_ERR_INVALID_VECTOR";
+		break;
+	case FMOD_ERR_MAXAUDIBLE:
+		res = "FMOD_ERR_MAXAUDIBLE";
+		break;
+	case FMOD_ERR_MEMORY:
+		res = "FMOD_ERR_MEMORY";
+		break;
+	case FMOD_ERR_MEMORY_CANTPOINT:
+		res = "FMOD_ERR_MEMORY_CANTPOINT";
+		break;
+	case FMOD_ERR_NEEDS3D:
+		res = "FMOD_ERR_NEEDS3D";
+		break;
+	case FMOD_ERR_NEEDSHARDWARE:
+		res = "FMOD_ERR_NEEDSHARDWARE";
+		break;
+	case FMOD_ERR_NET_CONNECT:
+		res = "FMOD_ERR_NET_CONNECT";
+		break;
+	case FMOD_ERR_NET_SOCKET_ERROR:
+		res = "FMOD_ERR_NET_SOCKET_ERROR";
+		break;
+	case FMOD_ERR_NET_URL:
+		res = "FMOD_ERR_NET_URL";
+		break;
+	case FMOD_ERR_NET_WOULD_BLOCK:
+		res = "FMOD_ERR_NET_WOULD_BLOCK";
+		break;
+	case FMOD_ERR_NOTREADY:
+		res = "FMOD_ERR_NOTREADY";
+		break;
+	case FMOD_ERR_OUTPUT_ALLOCATED:
+		res = "FMOD_ERR_OUTPUT_ALLOCATED";
+		break;
+	case FMOD_ERR_OUTPUT_CREATEBUFFER:
+		res = "FMOD_ERR_OUTPUT_CREATEBUFFER";
+		break;
+	case FMOD_ERR_OUTPUT_DRIVERCALL:
+		res = "FMOD_ERR_OUTPUT_FORMAT";
+		break;
+	case FMOD_ERR_OUTPUT_FORMAT:
+		res = "FMOD_ERR_OUTPUT_FORMAT";
+		break;
+	case FMOD_ERR_OUTPUT_INIT:
+		res = "FMOD_ERR_OUTPUT_INIT";
+		break;
+	case FMOD_ERR_OUTPUT_NODRIVERS:
+		res = "FMOD_ERR_OUTPUT_NODRIVERS";
+		break;
+	case FMOD_ERR_PLUGIN:
+		res = "FMOD_ERR_PLUGIN";
+		break;
+	case FMOD_ERR_PLUGIN_MISSING:
+		res = "FMOD_ERR_PLUGIN_MISSING";
+		break;
+	case FMOD_ERR_PLUGIN_RESOURCE:
+		res = "FMOD_ERR_PLUGIN_RESOURCE";
+		break;
+	case FMOD_ERR_PLUGIN_VERSION:
+		res = "FMOD_ERR_PLUGIN_VERSION";
+		break;
+	case FMOD_ERR_RECORD:
+		res = "FMOD_ERR_RECORD";
+		break;
+	case FMOD_ERR_REVERB_CHANNELGROUP:
+		res = "FMOD_ERR_REVERB_CHANNELGROUP";
+		break;
+	case FMOD_ERR_REVERB_INSTANCE:
+		res = "FMOD_ERR_REVERB_INSTANCE";
+		break;
+	case FMOD_ERR_SUBSOUNDS:
+		res = "FMOD_ERR_SUBSOUNDS";
+		break;
+	case FMOD_ERR_SUBSOUND_ALLOCATED:
+		res = "FMOD_ERR_SUBSOUND_ALLOCATED";
+		break;
+	case FMOD_ERR_SUBSOUND_CANTMOVE:
+		res = "FMOD_ERR_SUBSOUND_CANTMOVE";
+		break;
+	case FMOD_ERR_TAGNOTFOUND:
+		res = "FMOD_ERR_TAGNOTFOUND";
+		break;
+	case FMOD_ERR_TOOMANYCHANNELS:
+		res = "FMOD_ERR_TOOMANYCHANNELS";
+		break;
+	case FMOD_ERR_TRUNCATED:
+		res = "FMOD_ERR_TRUNCATED";
+		break;
+	case FMOD_ERR_UNIMPLEMENTED:
+		res = "FMOD_ERR_UNIMPLEMENTED";
+		break;
+	case FMOD_ERR_UNINITIALIZED:
+		res = "FMOD_ERR_UNINITIALIZED";
+		break;
+	case FMOD_ERR_UNSUPPORTED:
+		res = "FMOD_ERR_UNSUPPORTED";
+		break;
+	case FMOD_ERR_VERSION:
+		res = "FMOD_ERR_VERSION";
+		break;
+	case FMOD_ERR_EVENT_ALREADY_LOADED:
+		res = "FMOD_ERR_EVENT_ALREADY_LOADED";
+		break;
+	case FMOD_ERR_EVENT_LIVEUPDATE_BUSY:
+		res = "FMOD_ERR_EVENT_LIVEUPDATE_BUSY";
+		break;
+	case FMOD_ERR_EVENT_LIVEUPDATE_MISMATCH:
+		res = "FMOD_ERR_EVENT_LIVEUPDATE_MISMATCH";
+		break;
+	case FMOD_ERR_EVENT_LIVEUPDATE_TIMEOUT:
+		res = "FMOD_ERR_EVENT_LIVEUPDATE_TIMEOUT";
+		break;
+	case FMOD_ERR_EVENT_NOTFOUND:
+		res = "FMOD_ERR_EVENT_NOTFOUND";
+		break;
+	case FMOD_ERR_STUDIO_UNINITIALIZED:
+		res = "FMOD_ERR_STUDIO_UNINITIALIZED";
+		break;
+	case FMOD_ERR_STUDIO_NOT_LOADED:
+		res = "FMOD_ERR_STUDIO_NOT_LOADED";
+		break;
+	case FMOD_ERR_INVALID_STRING:
+		res = "FMOD_ERR_INVALID_STRING";
+		break;
+	case FMOD_ERR_ALREADY_LOCKED:
+		res = "FMOD_ERR_ALREADY_LOCKED";
+		break;
+	case FMOD_ERR_NOT_LOCKED:
+		res = "FMOD_ERR_NOT_LOCKED";
+		break;
+	case FMOD_ERR_RECORD_DISCONNECTED:
+		res = "FMOD_ERR_RECORD_DISCONNECTED";
+		break;
+	case FMOD_ERR_TOOMANYSAMPLES:
+		res = "FMOD_ERR_TOOMANYSAMPLES";
+		break;
+	}
+
+	return res;
 }

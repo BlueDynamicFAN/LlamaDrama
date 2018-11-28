@@ -155,6 +155,7 @@ void ProcessAsynKeys(GLFWwindow* window, double deltaTime)
 			if (isPlayerOnTopOfAPlatform())
 			{
 				thePlayer->setVelocityY(2.0f * moveSpeed);
+				isJump = true;
 			}
 		}
 

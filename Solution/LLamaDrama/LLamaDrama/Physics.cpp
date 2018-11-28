@@ -296,6 +296,7 @@ void collisionDetection(cMeshObject* pickupObject)
 						{
 							int score = thePlayer->getPlayerScore();
 							score += 10;
+							coinGot = true;
 							thePlayer->setPlayerScore(score);
 							std::cout << "Current score: " << score << std::endl;
 						}
