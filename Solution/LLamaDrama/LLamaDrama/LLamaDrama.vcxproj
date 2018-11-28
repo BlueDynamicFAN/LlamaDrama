@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SourcePath)inc;$(SourcePath)include;$(IncludePath);C:\Thrift\thrift-0.9.1\src;C:\local\boost_1_59_0</IncludePath>
-    <LibraryPath>C:\local\boost_1_59_0\lib64-msvc-14.0;$(LibraryPath);C:\Thrift\thrift-0.9.1\lib\x64\Debug;$(SourcePath)lib/x64;$(SourcePath)lib</LibraryPath>
+    <IncludePath>$(SolutionDir)inc;$(SourcePath)inc;$(SourcePath)include;$(IncludePath);C:\Thrift\thrift-0.9.1\src;C:\local\boost_1_59_0</IncludePath>
+    <LibraryPath>$(SolutionDir)lib;C:\local\boost_1_59_0\lib64-msvc-14.0;$(LibraryPath);C:\Thrift\thrift-0.9.1\lib\x64\Debug;$(SourcePath)lib/x64;$(SourcePath)lib</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -88,8 +88,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SourcePath)include;$(IncludePath);C:\Thrift\thrift-0.9.1\src;C:\local\boost_1_59_0</IncludePath>
-    <LibraryPath>C:\local\boost_1_59_0\lib64-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64;C:\Thrift\thrift-0.9.1\lib\x64\Release</LibraryPath>
+    <IncludePath>$(SolutionDir)inc;$(SourcePath)include;$(IncludePath);C:\Thrift\thrift-0.9.1\src;C:\local\boost_1_59_0</IncludePath>
+    <LibraryPath>$(SolutionDir)lib;C:\local\boost_1_59_0\lib64-msvc-14.0;$(LibraryPath);$(SourcePath)lib/x64;C:\Thrift\thrift-0.9.1\lib\x64\Release</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -114,7 +114,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>libthrift.lib;libboost_thread-vc140-mt-gd-1_59.lib;fmod64_vc.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>fmod64_vc.lib;libthrift.lib;libboost_thread-vc140-mt-gd-1_59.lib;fmod64_vc.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -148,7 +148,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>libthrift.lib;glfw3.lib;libboost_thread-vc140-mt-1_59.lib;fmodL64_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>fmodL64_vc.lib;libthrift.lib;glfw3.lib;libboost_thread-vc140-mt-1_59.lib;fmodL64_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
