@@ -43,6 +43,7 @@ bool coinGot = false;
 
 //THRIFT
 extern LeaderboardClient* client;
+std::map<int32_t, int32_t> top20;
 
 unsigned int SelectedModel = 0;
 std::vector< cMeshObject* > vec_pObjectsToDraw;
