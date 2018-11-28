@@ -5,10 +5,13 @@ DAO::DAO(void)
 	int result = sqlite3_open("highscore.db", &highscoreDB);
 	if (result != 0)
 	{
-		printf("Failed to open the entities database! Error code %d\n", result);
+		printf("Failed to open the database! Error code %d\n", result);
 		return;
 	}
-	printf("Successfully opened the entities database!\n");
+	printf("Successfully opened the database!\n");
+
+	const char* sql = "CREATE TABLE Player(Id INT PRIMARY KEY NOT NULL, Highscore INT NOT NULL);";
+	result = sqlite3_exec(highscoreDB, sql, NULL, NULL, NULL);
 }
 
 DAO::~DAO(void)
