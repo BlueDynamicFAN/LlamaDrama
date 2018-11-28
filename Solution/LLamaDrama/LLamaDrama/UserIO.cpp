@@ -48,7 +48,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		std::map<int32_t, int32_t>::iterator it;
 		std::cout << "[PlayerID][Score]:" << std::endl;
 		for (it = top20.begin(); it != top20.end(); it++) {
-			std::cout << it->first << " " << it->second << std::endl;
+			std::cout << "[ " << it->first << " ][ " << it->second << " ]" << std::endl;
 		}
 	}
 

@@ -51,7 +51,8 @@ class LeaderboardHandler : virtual public LeaderboardIf {
 
   void getTop20(std::map<int32_t, int32_t> & _return) {
 
-	  reply = (redisReply *)redisCommand(c, "ZRANGEBYSCORE leaderBoard -inf +inf WITHSCORES LIMIT 0 20");
+	  //reply = (redisReply *)redisCommand(c, "ZRANGEBYSCORE leaderBoard -inf +inf WITHSCORES LIMIT 0 20");
+	  reply = (redisReply *)redisCommand(c, "ZRANGE leaderBoard 0 -1 WITHSCORES");
 	  if (reply->type == 2) {
 		  for (j = 0; j < reply->elements; j += 2) {
 			  std::cout << reply->element[j]->str << " " << reply->element[j + 1]->str << std::endl;
@@ -71,10 +72,6 @@ class LeaderboardHandler : virtual public LeaderboardIf {
 };
 
 int main(int argc, char **argv) {
-
-	unsigned int j;
-	redisContext *c;
-	redisReply *reply;
 
 	struct timeval timeout = { 5, 500000 }; // 5.5 seconds
 

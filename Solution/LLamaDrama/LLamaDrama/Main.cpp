@@ -282,8 +282,18 @@ int main(void)
 
 	}//while (!glfwWindowShouldClose(window))
 
-	dao.setHighScore(thePlayer->getId(), thePlayer->getPlayerScore());
-	client->setHighScore(thePlayer->getId(), thePlayer->getPlayerScore());
+	int newScore = dao.setHighScore(thePlayer->getId(), thePlayer->getPlayerScore());
+	client->setHighScore(thePlayer->getId(), newScore);
+
+	client->setHighScore(1, thePlayer->getPlayerScore());
+	client->getTop20(top20);
+
+	std::map<int32_t, int32_t>::iterator it;
+	std::cout << "[PlayerID][Score]:" << std::endl;
+	for (it = top20.begin(); it != top20.end(); it++) {
+		std::cout << "[ "<<it->first << " ][ " << it->second << " ]"<<std::endl;
+	}
+
 
 	// Delete stuff
 	delete pTheShaderManager;
