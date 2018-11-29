@@ -1,4 +1,14 @@
 # LlamaDrama
+## Milestone III
+  * Added music and sound effects
+  * Added Thrift and Redis server
+  * Added local SQLite database
+  * Controls
+    - Press enter to see current player id and score
+    - Press space to see top 20 items in redis
+    - Press 1 to get top 20 highscores and copy them from redis to the local database
+    - Press 2 to see all items in local database
+
 ## Milestone II
 
 * Implemented collision detection
