@@ -41,7 +41,7 @@ cPlayer::cPlayer()
 	this->m_numberOfKeys = 0;
 
 	srand(time(NULL));
-	this->m_id = (rand() % static_cast<int>(20 - 1 + 1));
+	this->m_id = (rand() % static_cast<int>(500 - 1 + 1));
 }
 
 /**

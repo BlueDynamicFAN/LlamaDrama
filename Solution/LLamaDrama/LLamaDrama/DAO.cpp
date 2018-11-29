@@ -10,7 +10,7 @@ DAO::DAO(void)
 	}
 	printf("Successfully opened the database!\n");
 
-	const char* sql = "CREATE TABLE Player(Id INT PRIMARY KEY NOT NULL, Highscore INT NOT NULL);";
+	const char* sql = "CREATE TABLE Player(id INT PRIMARY KEY NOT NULL, score INT NOT NULL);";
 	result = sqlite3_exec(highscoreDB, sql, NULL, NULL, NULL);
 }
 
@@ -78,4 +78,41 @@ const std::vector<Score>& DAO::getHighScore(int id)
 	int result = sqlite3_exec(highscoreDB, sqlStr.c_str(), ResultCallback, &score, &errMsg);
 
 	return entities;
+}
+
+const std::vector<Score>& DAO::getAllHighScores()
+{
+	std::vector<Score> entities;
+	char* errMsg;
+	int score;
+
+	std::string sqlStr = "SELECT * FROM Player ORDER BY score DESC;";
+	int result = sqlite3_exec(highscoreDB, sqlStr.c_str(), ResultCallback, &score, &errMsg);
+
+	return entities;
+}
+
+int DAO::setTop20HighScore(int id, int score)
+{
+	char* errMsg;
+	int count = 0;
+
+	std::string sqlStr = "SELECT count(*) FROM Player WHERE id = " + std::to_string(id) + ";";
+	int result = sqlite3_exec(highscoreDB, sqlStr.c_str(), ResultCallback, &count, &errMsg);
+
+	if (count == 0)
+	{
+		sqlStr = "INSERT INTO Player (id, score) VALUES(" + std::to_string(id) + ", " + std::to_string(score) + ");";
+		int result = sqlite3_exec(highscoreDB, sqlStr.c_str(), ResultCallback, 0, &errMsg);
+	}
+	else
+	{
+		sqlStr = "SELECT * FROM Player WHERE id = " + std::to_string(id) + ";";
+		int result = sqlite3_exec(highscoreDB, sqlStr.c_str(), ResultCallback, &count, &errMsg);
+
+		sqlStr = "UPDATE Player SET score=" + std::to_string(score) + " WHERE id=" + std::to_string(id) + ";";
+		result = sqlite3_exec(highscoreDB, sqlStr.c_str(), ResultCallback, 0, &errMsg);
+	}
+
+	return count + score;
 }

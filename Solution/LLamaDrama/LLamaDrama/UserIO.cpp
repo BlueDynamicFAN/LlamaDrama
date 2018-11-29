@@ -52,6 +52,22 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		}
 	}
 
+	if (key == GLFW_KEY_1 && action == GLFW_PRESS)
+	{
+		top20.clear();
+		client->getTop20(top20);
+
+		std::map<int32_t, int32_t>::iterator it;
+		for (it = top20.begin(); it != top20.end(); it++) {
+			dao.setTop20HighScore(it->first, it->second);
+		}
+	}
+
+	if (key == GLFW_KEY_2 && action == GLFW_PRESS)
+	{
+		dao.getAllHighScores();
+	}
+
 	if (key == GLFW_KEY_LEFT && action == GLFW_PRESS)
 	{
 		std::cout << "I am here" <<std::endl;
