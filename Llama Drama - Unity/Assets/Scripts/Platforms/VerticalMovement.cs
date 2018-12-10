@@ -14,7 +14,7 @@ public class VerticalMovement : MonoBehaviour
     void Start()
     {
         startPos = transform.position;
-        targetPos = new Vector3(startPos.x, startPos.y + 21, startPos.z);
+        targetPos = new Vector3(startPos.x, startPos.y + 23, startPos.z);
         moveUp = true;
     }
 
