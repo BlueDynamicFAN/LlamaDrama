@@ -4,6 +4,7 @@ public class PlayerController : PhysicsObject
 {
     public float jumpStrength;
     public float maxSpeed;
+
     protected override void ComputeVelocity()
     {
         Vector2 move = Vector2.zero;
@@ -17,12 +18,24 @@ public class PlayerController : PhysicsObject
 
         if (!grounded)
         {
-            targetVelocity = move * (maxSpeed * 0.66f);
+            targetVelocity = move * (maxSpeed * 0.8f);
         }
         else if (grounded)
         {
             targetVelocity = move * maxSpeed;
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+            transform.parent = collision.transform;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+            transform.parent = null;
     }
 
 }

@@ -166,3 +166,5 @@ C:\Users\Ryan\Desktop\INFO 6024 Components\LlamaDrama\Llama Drama - Unity\obj\De
 C:\Users\Ryan\Desktop\INFO 6024 Components\LlamaDrama\Llama Drama - Unity\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\Ryan\Desktop\INFO 6024 Components\LlamaDrama\Llama Drama - Unity\obj\Debug\Assembly-CSharp.dll
 C:\Users\Ryan\Desktop\INFO 6024 Components\LlamaDrama\Llama Drama - Unity\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Ryan\Desktop\INFO 6024 Components\LlamaDrama\Llama Drama - Unity\Temp\bin\Debug\UnityEditor.UI.dll
+C:\Users\Ryan\Desktop\INFO 6024 Components\LlamaDrama\Llama Drama - Unity\Temp\bin\Debug\UnityEditor.UI.xml
