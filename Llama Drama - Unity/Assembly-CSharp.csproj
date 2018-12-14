@@ -114,6 +114,7 @@
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineMixer.cs" />
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineShot.cs" />
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineTrack.cs" />
+    <Compile Include="Assets\Scripts\Enemies\BasicController.cs" />
     <Compile Include="Assets\Scripts\Platforms\FallingPlatform.cs" />
     <Compile Include="Assets\Scripts\Platforms\HorizontalMovement.cs" />
     <Compile Include="Assets\Scripts\Platforms\VerticalMovement.cs" />

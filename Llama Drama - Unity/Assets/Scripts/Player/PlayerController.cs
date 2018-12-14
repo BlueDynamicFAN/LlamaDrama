@@ -5,9 +5,8 @@ public class PlayerController : PhysicsObject
     public float jumpStrength;
     public float maxSpeed;
 
-    private new AudioSource audio;
+    private AudioSource audio;
     private bool HasJumped = false;
-    private bool JumpAnim = false;
     private Animator animator;
     private SpriteRenderer sr;
 
@@ -28,7 +27,6 @@ public class PlayerController : PhysicsObject
         {
             velocity.y = jumpStrength;
             HasJumped = true;
-            JumpAnim = true;
         }
 
         if (!grounded)
