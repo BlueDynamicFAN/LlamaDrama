@@ -1,4 +1,13 @@
 # LlamaDrama
+## RAD Port
+  * Created simple platformer
+  * User Input - WASD
+  * Basic Physics
+  * Moving platforms
+  * Basic animation
+  * Music and sound effects
+  * Enemies
+
 ## Milestone III
   * Added music and sound effects
   * Added Thrift and Redis server
