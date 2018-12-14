@@ -41,7 +41,7 @@ public class PhysicsObject : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (rb.position.y < -20.0f)
+        if (rb.position.y < -30.0f)
         {
             rb.position = new Vector2(rb.position.x, 20.0f);
         }
